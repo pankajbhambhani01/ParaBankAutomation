@@ -71,12 +71,12 @@ public class RegistrationPage {
     public void enterTxtFirstName(String firstName){
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtFirstName));
         element.sendKeys(firstName);
-        Reporter.log("First name has been entered " + firstName);
+        Reporter.log("First Name has been entered " + firstName);
     }
     public void enterTxtLastName(String lastName){
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtLastName));
         element.sendKeys(lastName);
-        Reporter.log("Last name has been entered " + lastName);
+        Reporter.log("Last Name has been entered " + lastName);
     }
     public void enterTxtAddress(String address){
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtAddress));
@@ -96,7 +96,7 @@ public class RegistrationPage {
     public void enterTxtZipCode(String zipCode){
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtZipCode));
         element.sendKeys(zipCode);
-        Reporter.log("Zip Code has been entered " + zipCode);
+        Reporter.log("ZipCode has been entered " + zipCode);
     }
     public void enterTxtPhone(String phoneNumber){
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtPhoneNumber));
@@ -116,14 +116,14 @@ public class RegistrationPage {
     public void enterTxtPassword(String password){
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtPassword));
         element.sendKeys(password);
-        Reporter.log("Address has been entered " + password);
+        Reporter.log("Password has been entered " + password);
     }
     public void enterTxtXConfirm(String repeatedPassword){
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtConfirm));
         element.sendKeys(repeatedPassword);
-        Reporter.log("Address has been entered " + repeatedPassword);
+        Reporter.log("Re-enter Password has been entered " + repeatedPassword);
     }
-    public void enterTxtXREGISTER(String registerbuttonlabel){
+    public void enterTxtXREGISTER(String registerButton){
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(RegisterButton));
         element.click();
     }
