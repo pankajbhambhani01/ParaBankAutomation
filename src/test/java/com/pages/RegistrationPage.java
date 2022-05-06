@@ -121,9 +121,9 @@ public class RegistrationPage {
     public void enterTxtXConfirm(String repeatedPassword){
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtConfirm));
         element.sendKeys(repeatedPassword);
-        Reporter.log("Confirm Password has been entered " + repeatedPassword);
+        Reporter.log("Confirm Re-enter Password has been entered " + repeatedPassword);
     }
-    public void enterTxtXREGISTER(String registerbutton){
+    public void enterTxtXREGISTER(String registerButton){
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(RegisterButton));
         element.click();
     }
