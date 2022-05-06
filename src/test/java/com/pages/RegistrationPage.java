@@ -116,14 +116,14 @@ public class RegistrationPage {
     public void enterTxtPassword(String password){
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtPassword));
         element.sendKeys(password);
-        Reporter.log("Address has been entered " + password);
+        Reporter.log("Password has been entered " + password);
     }
     public void enterTxtXConfirm(String repeatedPassword){
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtConfirm));
         element.sendKeys(repeatedPassword);
-        Reporter.log("Address has been entered " + repeatedPassword);
+        Reporter.log("Confirm Password has been entered " + repeatedPassword);
     }
-    public void enterTxtXREGISTER(String registerbuttonlabel){
+    public void enterTxtXREGISTER(String registerbutton){
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(RegisterButton));
         element.click();
     }
