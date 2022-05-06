@@ -73,34 +73,34 @@ public class LoginPage {
             Reporter.log("Solutions Title has been verified " + element.getText());
         }
 
-        public void AboutUslink (String AboutusLabel){
+        public void clickAboutUslink (String AboutusLabel){
             WebElement element = wait.until(ExpectedConditions.elementToBeClickable(AboutUslink));
             Assert.assertEquals(element.getText(),AboutusLabel );
             Reporter.log("Aboutus Link has been verified " + element.getText());
             AboutUslink.click();
         }
 
-        public void validateServices(String ServicesLabel){
+        public void ClickServicesLink(String ServicesLabel){
             WebElement element=wait.until(ExpectedConditions.elementToBeClickable(Services));
             Assert.assertEquals(element.getText(),ServicesLabel);
             Reporter.log("Services Link has verified"+element.getText());
             Services.click();
         }
 
-        public void validateProduct(String ProductLabel){
+        public void clickProductLink(String ProductLabel){
             WebElement element=wait.until(ExpectedConditions.elementToBeClickable(Products));
             Assert.assertEquals(element.getText(),ProductLabel);
             Reporter.log("ProductLink has verified"+element.getText());
             Products.click();
         }
-        public void validateLocation(String LocationLabel){
+        public void clickLocationLink(String LocationLabel){
             WebElement element=wait.until(ExpectedConditions.elementToBeClickable(Locations));
             Assert.assertEquals(element.getText(),LocationLabel);
             Reporter.log("LocationLink has verified"+element.getText());
             Locations.click();
         }
 
-        public void validateAdminPage(String Adminpagelable){
+        public void clickAdminPageLink(String Adminpagelable){
             WebElement element=wait.until(ExpectedConditions.elementToBeClickable(AdminPage));
             Assert.assertEquals(element.getText(), Adminpagelable);
             Reporter.log("Adminpagelink has verified"+element.getText());
@@ -137,7 +137,7 @@ public class LoginPage {
             Reporter.log("Password has been entered " + Password);
         }
 
-        public void validateLoginButton(String Loginbuttonlabel){
+        public void clickLoginButton(String Loginbuttonlabel){
             WebElement element=wait.until(ExpectedConditions.elementToBeClickable(LogInbutton));
             Assert.assertEquals(element.getText(),  Loginbuttonlabel);
             Reporter.log("LoginButton has verified"+element.getText());
