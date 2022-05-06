@@ -1,4 +1,4 @@
-package com.parabank.Login;
+package com.tests.login;
 
 public class AbhijitTestCase {
     public static void main(String[] args) {

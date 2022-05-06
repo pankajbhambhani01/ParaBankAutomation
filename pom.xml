@@ -8,5 +8,55 @@
     <artifactId>ParaBankAutomation</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <!-- to store the variables used in the POM -->
+    <properties>
+        <selenium>3.141.59</selenium>
+        <testng>6.14.3</testng>
+        <commonio>2.11.0</commonio>
+        <compiler-version>3.8.0</compiler-version>
+        <java-version>1.8</java-version>
+        <surefire-version>3.0.0-M6</surefire-version>
+    </properties>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng}</version>
+            <scope>test</scope>
+            <!-- scope tell compiler where these dependencies belongs to-->
+        </dependency>
+    </dependencies>
+
+    <build>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </testResource>
+            <testResource>
+                <directory>src/test/java</directory>
+            </testResource>
+            <testResource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </testResource>
+            <testResource>
+                <directory>src/main/java</directory>
+            </testResource>
+        </testResources>
+    </build>
+
 
 </project>
