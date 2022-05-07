@@ -20,45 +20,45 @@ public class LoginPage {
         public WebElement SolutionsHeader;
 
         @FindBy(xpath = "//a[@href='/parabank/admin.htm']")
-        public WebElement AboutUslink;
+        public WebElement lnkAboutUs;
 
         @FindBy(xpath = "//ul[@class='leftmenu']//a[@href='services.htm']")
-        public WebElement Services;
+        public WebElement lnkServices;
 
         @FindBy(xpath = "//ul[@class='leftmenu']//a[@href='http://www.parasoft.com/jsp/products.jsp']")
-        public WebElement Products;
+        public WebElement lnkProducts;
 
         @FindBy(xpath = "//ul[@class='leftmenu']//a[.='Locations']")
-        public WebElement Locations ;
+        public WebElement lnkLocations ;
 
 
         @FindBy(xpath = "//ul[@class='leftmenu']//a[.='Admin Page']")
-        public WebElement AdminPage;
+        public WebElement lnkAdminPage;
 
         @FindBy(xpath = "//h2[text()='Customer Login']")
-        public WebElement CustomerLogin;
+        public WebElement lblCustomerLogin;
 
         @FindBy(xpath = "//b[.='Username']")
-        public WebElement Username ;
+        public WebElement lblUsername ;
 
         @FindBy(xpath = "//input[@type='text'and@name='username']")
-        public WebElement Usernameinputbox;
+        public WebElement txtUsernameinputbox;
 
 
         @FindBy(xpath = "//b[.='Password']")
-        public WebElement Password;
+        public WebElement lblPassword;
 
         @FindBy(xpath = "//input[@name='password']")
-        public WebElement passwordinput;
+        public WebElement txtpasswordinput;
 
         @FindBy(xpath = "//input[@value='Log In']")
-        public WebElement LogInbutton;
+        public WebElement btnLogIn;
 
         @FindBy(xpath = "//a[.='Forgot login info?']")
-        public WebElement Forgotlogininfolink ;
+        public WebElement lnkForgotlogininfo ;
 
         @FindBy(xpath = "//a[.='Register']")
-        public WebElement Registerlink;
+        public WebElement lnkRegister;
 
 
         public LoginPage(WebDriver driver){
@@ -73,95 +73,140 @@ public class LoginPage {
             Reporter.log("Solutions Title has been verified " + element.getText());
         }
 
-        public void clickAboutUslink (String AboutusLabel){
-            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(AboutUslink));
+        public void validateAboutUslink (String AboutusLabel){
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(lnkAboutUs));
             Assert.assertEquals(element.getText(),AboutusLabel );
             Reporter.log("Aboutus Link has been verified " + element.getText());
-            AboutUslink.click();
+
+        }
+         public void clickAboutUslink (){
+            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkAboutUs));
+            Reporter.log("Aboutus Link has been clicked" + element.getText());
+            lnkAboutUs.click();
         }
 
-        public void ClickServicesLink(String ServicesLabel){
-            WebElement element=wait.until(ExpectedConditions.elementToBeClickable(Services));
+        public void validateServicesLink(String ServicesLabel){
+            WebElement element=wait.until(ExpectedConditions.visibilityOf(lnkServices));
             Assert.assertEquals(element.getText(),ServicesLabel);
             Reporter.log("Services Link has verified"+element.getText());
-            Services.click();
         }
 
-        public void clickProductLink(String ProductLabel){
-            WebElement element=wait.until(ExpectedConditions.elementToBeClickable(Products));
+    public void ServicesLink(){
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(lnkServices));
+        Reporter.log("Services Link has clicked"+element.getText());
+        lnkServices.click();
+    }
+
+        public void validateProductLink(String ProductLabel){
+            WebElement element=wait.until(ExpectedConditions.visibilityOf(lnkProducts));
             Assert.assertEquals(element.getText(),ProductLabel);
             Reporter.log("ProductLink has verified"+element.getText());
-            Products.click();
         }
-        public void clickLocationLink(String LocationLabel){
-            WebElement element=wait.until(ExpectedConditions.elementToBeClickable(Locations));
+        public void clickProductLink(){
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(lnkProducts));
+        Reporter.log("ProductLink has clicked"+element.getText());
+        lnkProducts.click();
+        }
+        public void validateLocationLink(String LocationLabel){
+            WebElement element=wait.until(ExpectedConditions.visibilityOf(lnkLocations));
             Assert.assertEquals(element.getText(),LocationLabel);
             Reporter.log("LocationLink has verified"+element.getText());
-            Locations.click();
+
         }
 
-        public void clickAdminPageLink(String Adminpagelable){
-            WebElement element=wait.until(ExpectedConditions.elementToBeClickable(AdminPage));
+    public void clickLocationLink(){
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(lnkLocations));
+
+        Reporter.log("LocationLink has clicked"+element.getText());
+        lnkLocations.click();
+    }
+
+        public void validateAdminPageLink(String Adminpagelable){
+            WebElement element=wait.until(ExpectedConditions.visibilityOf(lnkAdminPage));
             Assert.assertEquals(element.getText(), Adminpagelable);
             Reporter.log("Adminpagelink has verified"+element.getText());
-            AdminPage.click();
+
         }
 
+    public void clickAdminPageLink(){
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(lnkAdminPage));
+        Reporter.log("Adminpagelink has clicked"+element.getText());
+        lnkAdminPage.click();
+    }
+
         public void validateCustomerLabel(String CustomerLabel ){
-            WebElement element = wait.until(ExpectedConditions.visibilityOf(CustomerLogin));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(lblCustomerLogin));
             Assert.assertEquals(element.getText(), CustomerLabel);
             Reporter.log("CustomerLabel Title has been verified " + element.getText());
         }
 
+
+
         public void validateUserNameLabel(String UserNameLabel ){
-            WebElement element = wait.until(ExpectedConditions.visibilityOf(Username));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(lblUsername));
             Assert.assertEquals(element.getText(), UserNameLabel);
             Reporter.log("UserNameLabel Title has been verified " + element.getText());
         }
 
         public void enterUserName(String UserName){
-            WebElement element = wait.until(ExpectedConditions.visibilityOf(Usernameinputbox));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(txtUsernameinputbox));
             element.sendKeys(UserName);
             Reporter.log(" UserName has been entered " + UserName);
         }
 
         public void validatePasswordLabel(String PasswordLabel ){
-            WebElement element = wait.until(ExpectedConditions.visibilityOf(Password));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(lblPassword));
             Assert.assertEquals(element.getText(),PasswordLabel );
             Reporter.log("PasswordLabel Title has been verified " + element.getText());
         }
 
         public void enterPassword(String Password){
-            WebElement element = wait.until(ExpectedConditions.visibilityOf(passwordinput));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(txtpasswordinput));
             element.sendKeys(Password);
             Reporter.log("Password has been entered " + Password);
         }
 
-        public void clickLoginButton(String Loginbuttonlabel){
-            WebElement element=wait.until(ExpectedConditions.elementToBeClickable(LogInbutton));
+        public void validateLoginButton(String Loginbuttonlabel){
+            WebElement element=wait.until(ExpectedConditions.visibilityOf(btnLogIn));
             Assert.assertEquals(element.getText(),  Loginbuttonlabel);
             Reporter.log("LoginButton has verified"+element.getText());
-            LogInbutton.click();
 
         }
 
+    public void clickLoginButton(){
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(btnLogIn));
 
-        public void validateForgotPasswordLink(String ForgotLoginlabel){
-            WebElement element=wait.until(ExpectedConditions.elementToBeClickable(Forgotlogininfolink));
+        Reporter.log("LoginButton has clicked"+element.getText());
+        btnLogIn.click();
+    }
+
+
+
+    public void validateForgotPasswordLink(String ForgotLoginlabel){
+            WebElement element=wait.until(ExpectedConditions.visibilityOf(lnkForgotlogininfo));
             Assert.assertEquals(element.getText(), ForgotLoginlabel);
             Reporter.log("ForgotPasswordLink has verified"+element.getText());
-            Forgotlogininfolink.click();
-        }
 
-        public void validateRegisterLink(String RegisterLinklable){
-            WebElement element=wait.until(ExpectedConditions.elementToBeClickable(Registerlink));
+        }
+    public void clickForgotPasswordLink(){
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(lnkForgotlogininfo));
+        Reporter.log("ForgotPasswordLink has clicked"+element.getText());
+        lnkForgotlogininfo.click();
+    }
+
+    public void validateRegisterLink(String RegisterLinklable){
+            WebElement element=wait.until(ExpectedConditions.visibilityOf(lnkRegister));
             Assert.assertEquals(element.getText(), RegisterLinklable);
             Reporter.log("RegisterLink has verified"+element.getText());
-            Registerlink.click();
-
-
-
         }
+    public void clickRegisterLink(){
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(lnkRegister));
+        Reporter.log("RegisterLink has clicked"+element.getText());
+        lnkRegister.click();
+    }
+
+
+
     }
 
 
