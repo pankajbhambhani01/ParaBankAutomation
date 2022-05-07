@@ -104,13 +104,13 @@ public class LoginPage {
         }
         public void clickProductLink(){
         WebElement element=wait.until(ExpectedConditions.elementToBeClickable(lnkProducts));
-        Reporter.log("ProductLink has clicked"+element.getText());
+        Reporter.log("ProductLink has been clicked"+element.getText());
         lnkProducts.click();
         }
         public void validateLocationLink(String LocationLabel){
             WebElement element=wait.until(ExpectedConditions.visibilityOf(lnkLocations));
             Assert.assertEquals(element.getText(),LocationLabel);
-            Reporter.log("LocationLink has verified"+element.getText());
+            Reporter.log("LocationLink has been verified"+element.getText());
 
         }
 
@@ -197,11 +197,11 @@ public class LoginPage {
     public void validateRegisterLink(String RegisterLinklable){
             WebElement element=wait.until(ExpectedConditions.visibilityOf(lnkRegister));
             Assert.assertEquals(element.getText(), RegisterLinklable);
-            Reporter.log("RegisterLink has verified"+element.getText());
+            Reporter.log("RegisterLink has been verified"+element.getText());
         }
     public void clickRegisterLink(){
         WebElement element=wait.until(ExpectedConditions.elementToBeClickable(lnkRegister));
-        Reporter.log("RegisterLink has clicked"+element.getText());
+        Reporter.log("RegisterLink has been clicked"+element.getText());
         lnkRegister.click();
     }
 
