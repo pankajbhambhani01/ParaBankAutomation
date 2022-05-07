@@ -1,6 +1,6 @@
 package com.tests.login;
 
-public class AbhijitTestCase {
+public class PrashantGujarTestCase {
 
     public static void main(String[] args) {
         System.out.println("parabank");
