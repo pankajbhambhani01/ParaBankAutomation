@@ -18,6 +18,10 @@ public class RegistrationPage {
     @FindBy(tagName="h1")
     public WebElement lblRegistrationHeader;
 
+    @FindBy(xpath = "//*[@id='rightPanel']/p/text()")
+   // @FindBy(xpath = "//div[@id=\"rightPanel\"]//p")
+    public WebElement RegistrationText;
+
     @FindBy(id="customer.firstName")
     public WebElement txtFirstName;
 
@@ -34,13 +38,13 @@ public class RegistrationPage {
     public WebElement txtState;
 
     @FindBy(id="customer.address.zipCode")
-    public WebElement txtZipCode;
+    public WebElement ZipCode;
 
     @FindBy(id="customer.phoneNumber")
-    public WebElement txtPhoneNumber;
+    public WebElement PhoneNumber;
 
     @FindBy(id="customer.ssn")
-    public WebElement txtSSN;
+    public WebElement SSN;
 
     @FindBy(id="customer.username")
     public WebElement txtUsername;
@@ -52,7 +56,7 @@ public class RegistrationPage {
     public WebElement txtConfirm;
 
     @FindBy(xpath = "//input[@class='button' and @value='Register']")
-    public WebElement RegisterButton;
+    public WebElement btnRegister;
 
 
 
@@ -66,6 +70,11 @@ public class RegistrationPage {
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblRegistrationHeader));
         Assert.assertEquals(element.getText(), registrationLabel);
         Reporter.log("Registration Title has been verified " + element.getText());
+    }
+    public void validateRegistrationText(String registrationText){
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(RegistrationText));
+        Assert.assertEquals(element.getText(), registrationText);
+        Reporter.log("Registration Text has been verified " + element.getText());
     }
 
     public void enterTxtFirstName(String firstName){
@@ -93,18 +102,18 @@ public class RegistrationPage {
         element.sendKeys(state);
         Reporter.log("State has been entered " + state);
     }
-    public void enterTxtZipCode(String zipCode){
-        WebElement element = wait.until(ExpectedConditions.visibilityOf(txtZipCode));
+    public void enterZipCode(String zipCode){
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(ZipCode));
         element.sendKeys(zipCode);
         Reporter.log("ZipCode has been entered " + zipCode);
     }
-    public void enterTxtPhone(String phoneNumber){
-        WebElement element = wait.until(ExpectedConditions.visibilityOf(txtPhoneNumber));
+    public void enterPhoneNumber(String phoneNumber){
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(PhoneNumber));
         element.sendKeys(phoneNumber);
         Reporter.log("Phone Number has been entered " + phoneNumber);
     }
-    public void enterTxtSSN(String ssn){
-        WebElement element = wait.until(ExpectedConditions.visibilityOf(txtSSN));
+    public void enterSSN(String ssn){
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(SSN));
         element.sendKeys(ssn);
         Reporter.log("SSN has been entered " + ssn);
     }
@@ -123,9 +132,14 @@ public class RegistrationPage {
         element.sendKeys(repeatedPassword);
         Reporter.log("Re-enter Password has been entered " + repeatedPassword);
     }
-    public void enterTxtXREGISTER(String registerButton){
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(RegisterButton));
+    public void validateRegisterButtonLabel(String registerbtnlabel){
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(btnRegister));
+        Assert.assertEquals(element.getText(),registerbtnlabel);
+        Reporter.log("Register Button label has been verified"+registerbtnlabel);
+    }
+    public void clickRegisterButton(){
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(btnRegister));
+        Reporter.log("Register Button Clicked");
         element.click();
     }
-
 }
