@@ -81,7 +81,7 @@ public class LoginPage {
         }
          public void clickAboutUslink (){
             WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkAboutUs));
-            Reporter.log("Aboutus Link has been clicked" + element.getText());
+            Reporter.log("Aboutus Link has been clicked" );
             lnkAboutUs.click();
         }
 
@@ -91,9 +91,9 @@ public class LoginPage {
             Reporter.log("Services Link has verified"+element.getText());
         }
 
-    public void ServicesLink(){
+    public void clickServicesLink(){
         WebElement element=wait.until(ExpectedConditions.elementToBeClickable(lnkServices));
-        Reporter.log("Services Link has clicked"+element.getText());
+        Reporter.log("Services Link has clicked");
         lnkServices.click();
     }
 
@@ -104,20 +104,20 @@ public class LoginPage {
         }
         public void clickProductLink(){
         WebElement element=wait.until(ExpectedConditions.elementToBeClickable(lnkProducts));
-        Reporter.log("ProductLink has clicked"+element.getText());
+        Reporter.log("ProductLink has been clicked");
         lnkProducts.click();
         }
         public void validateLocationLink(String LocationLabel){
             WebElement element=wait.until(ExpectedConditions.visibilityOf(lnkLocations));
             Assert.assertEquals(element.getText(),LocationLabel);
-            Reporter.log("LocationLink has verified"+element.getText());
+            Reporter.log("LocationLink has been verified"+element.getText());
 
         }
 
     public void clickLocationLink(){
         WebElement element=wait.until(ExpectedConditions.elementToBeClickable(lnkLocations));
 
-        Reporter.log("LocationLink has clicked"+element.getText());
+        Reporter.log("LocationLink has clicked");
         lnkLocations.click();
     }
 
@@ -130,7 +130,7 @@ public class LoginPage {
 
     public void clickAdminPageLink(){
         WebElement element=wait.until(ExpectedConditions.elementToBeClickable(lnkAdminPage));
-        Reporter.log("Adminpagelink has clicked"+element.getText());
+        Reporter.log("Adminpagelink has clicked");
         lnkAdminPage.click();
     }
 
@@ -176,7 +176,7 @@ public class LoginPage {
     public void clickLoginButton(){
         WebElement element=wait.until(ExpectedConditions.elementToBeClickable(btnLogIn));
 
-        Reporter.log("LoginButton has clicked"+element.getText());
+        Reporter.log("LoginButton has clicked");
         btnLogIn.click();
     }
 
@@ -190,18 +190,18 @@ public class LoginPage {
         }
     public void clickForgotPasswordLink(){
         WebElement element=wait.until(ExpectedConditions.elementToBeClickable(lnkForgotlogininfo));
-        Reporter.log("ForgotPasswordLink has clicked"+element.getText());
+        Reporter.log("ForgotPasswordLink has clicked");
         lnkForgotlogininfo.click();
     }
 
     public void validateRegisterLink(String RegisterLinklable){
             WebElement element=wait.until(ExpectedConditions.visibilityOf(lnkRegister));
             Assert.assertEquals(element.getText(), RegisterLinklable);
-            Reporter.log("RegisterLink has verified"+element.getText());
+            Reporter.log("RegisterLink has been verified"+element.getText());
         }
     public void clickRegisterLink(){
         WebElement element=wait.until(ExpectedConditions.elementToBeClickable(lnkRegister));
-        Reporter.log("RegisterLink has clicked"+element.getText());
+        Reporter.log("RegisterLink has been clicked");
         lnkRegister.click();
     }
 
