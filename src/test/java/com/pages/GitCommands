@@ -2,3 +2,13 @@ git add filename  - to add a file
 git commit -m "message" - to commit a file
 git push - to push the changes in the git
 git checkout main -- filename - to reset with the version we have in git.
+
+
+link - lnk (e.g. lnkProducts)
+inputbox/Textbox - txt (e.g. txtUsername)
+label - lbl (e.g. lblPassword)
+button - btn (e.g btnLogIn)
+dropdown - dd
+checkbox - chk
+radiobutton - rbtn
+
