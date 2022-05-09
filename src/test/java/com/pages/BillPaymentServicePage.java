@@ -58,7 +58,7 @@ public class BillPaymentServicePage {
 
     }
     public void validateBillPaymentServicePage(String billPaymentServiceLabel) {
-        WebElement element = wait.until(ExpectedConditions.visibilityOf(txtPayeeName));
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(lblBillPayHeader));
         Assert.assertEquals(element.getText(), billPaymentServiceLabel);
         Reporter.log("Bill Payment Service  :"+ element.getText());
     }
@@ -124,8 +124,12 @@ public class BillPaymentServicePage {
     public void enterFromAccount(String fromaccountId){
         WebElement element = wait.until(ExpectedConditions.visibilityOf(fromAccountId));
         element.sendKeys(fromaccountId);
+        Reporter.log("From Account is :"+fromaccountId);
     }
-    public void clickSendPaymentButton(){
+    public void clickSendPaymentButton(String btnSendpayment){
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(btnSendPayment));
+        element.sendKeys(btnSendpayment);
+        Reporter.log("Send Payment button is click:"+btnSendPayment);
         btnSendPayment.click();
 
     }
