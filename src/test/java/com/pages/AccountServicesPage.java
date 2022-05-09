@@ -18,28 +18,28 @@ public class AccountServicesPage {
     @FindBy(xpath = "//h2[text()='Account Services']")
     public WebElement lblAccountServices;
 
-    @FindBy(xpath = "//*[@id=\"leftPanel\"]/ul/li[1]/a")
+    @FindBy(xpath = "//a[@href='/parabank/openaccount.htm']")
     public WebElement OpenNewAccount;
 
-    @FindBy(xpath = "//*[@id=\"leftPanel\"]/ul/li[2]/a")
+    @FindBy(xpath = "//a[@href='/parabank/overview.htm']")
     public WebElement AccountsOverView;
 
-    @FindBy(xpath = "//*[@id=\"leftPanel\"]/ul/li[3]/a")
+    @FindBy(xpath = "//a[@href='/parabank/transfer.htm']")
     public WebElement TransferFunds;
 
-    @FindBy(xpath = "//*[@id=\"leftPanel\"]/ul/li[4]/a")
+    @FindBy(xpath = "//a[@href='/parabank/billpay.htm']")
     public WebElement BillPay;
 
-    @FindBy(xpath = "//*[@id=\"leftPanel\"/ul/li[5]/a")
+    @FindBy(xpath = "//a[@href='/parabank/findtrans.htm']")
     public WebElement FindTransaction;
 
-    @FindBy(xpath = "//*[@id=\"leftPanel\"/ul/li[6]/a")
+    @FindBy(xpath = "//a[@href='/parabank/updateprofile.htm']")
     public WebElement UpdateContactInformation;
 
-    @FindBy(xpath = "//*[@id=\"leftPanel\"/ul/li[7]/a")
+    @FindBy(xpath = "//a[@href='/parabank/requestloan.htm']")
     public WebElement RequestLoan;
 
-    @FindBy(xpath = "//*[@id=\"leftPanel\"/ul/li[8]/a")
+    @FindBy(xpath = "//a[@href='/parabank/logout.htm']")
     public WebElement Logout;
 
 
