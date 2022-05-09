@@ -43,6 +43,7 @@ public class ATMServicesPage {
     }
 	
 	public void withdrawFunds (String withdrawFundsLable){
+        Reporter.log("withdrawFunds Link will be verified");
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(WithdrawFunds));
         Assert.assertEquals(element.getText(),withdrawFundsLable );
         Reporter.log("withdrawFunds Link has been verified " + element.getText());
