@@ -10,7 +10,7 @@ import org.testng.Assert;
 import org.testng.Reporter;
 
 public class BillPaymentServicePage {
-    // varushali P
+    // Vrushali Patil
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -66,7 +66,6 @@ public class BillPaymentServicePage {
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtPayeeName));
         element.sendKeys(payeeName);
         Reporter.log("Payee name has been entered:"+payeeName );
-       // txtPayeeName.sendKeys(payeeName);
 
     }
     public void enterAddress(String address) {
@@ -74,42 +73,36 @@ public class BillPaymentServicePage {
         element.sendKeys(address);
         Reporter.log("Address has been entered:"+address);
 
-
-        //txtAddress.sendKeys(address);
     }
     public void enterCity(String city){
         WebElement element= wait.until(ExpectedConditions.visibilityOf(txtCity));
         element.sendKeys(city);
         Reporter.log("City name has been entered:"+ city);
 
-       // txtCity.sendKeys(city);
     }
     public void enterState(String state){
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtState));
         element.sendKeys(state);
         Reporter.log("State name has been entered:"+ state);
-        //txtState.sendKeys(state);
 
     }
     public void enterZipCode(String zipcode){
         WebElement element = wait.until(ExpectedConditions.visibilityOf(zipCode));
         element.sendKeys(zipcode);
         Reporter.log("ZipCode has been entered:"+ zipcode);
-        //zipCode.sendKeys(zipcode);
+
     }
     public void enterPhoneNumber(String phonenumber)
     {
         WebElement element = wait.until(ExpectedConditions.visibilityOf(phoneNumber));
         element.sendKeys(phonenumber);
         Reporter.log("Phone number is:"+ phonenumber);
-      //  phoneNumber.sendKeys(phonenumber);
     }
 
     public void enterAccountNumber(String accountnumber){
         WebElement element = wait.until(ExpectedConditions.visibilityOf(accountNumber));
         element.sendKeys(accountnumber);
         Reporter.log("Account number is:"+ accountNumber);
-       // accountNumber.sendKeys(accountnumber);
     }
     public void enterVerifyAccountNumebr(String verifyaccountNumber){
         WebElement element = wait.until(ExpectedConditions.visibilityOf(verifyAccountNumber));
@@ -133,41 +126,5 @@ public class BillPaymentServicePage {
         btnSendPayment.click();
 
     }
-    /*public WebElement getTxtPayeeName(){
-        return txtPayeeName;
-    }
-    public WebElement getTxtAddress(){
-        return txtAddress;
-    }
-    public WebElement getTxtCity(){
-        return txtCity;
-    }
-    public WebElement getTxtState(){
-        return txtState;
-
-
-     }
-     public WebElement getZipCode(){
-        return zipCode;
-    }
-    public WebElement getPhoneNumber(){
-        return phoneNumber;
-    }
-    public WebElement getAccountNumber(){
-        return accountNumber;
-    }
-    public WebElement getAmount(){
-        return amount;
-    }
-    public WebElement getVerifyAccountNumber(){
-        return verifyAccountNumber;
-    }
-    public WebElement getFromAccount(){
-        return fromAccount;
-    }
-    public WebElement getBtnSendPayment(){
-        return btnSendPayment;
-    }*/
 
     }
-
