@@ -4,7 +4,19 @@ git push - to push the changes in the git
 git checkout main -- filename - to reset with the version we have in git.
 git reset --hard - to reset all the changes
 
+--------------------
+To create new branch and switch [branch create and switch]
+git checkout -b <branchName>
+------------------------------
+To create only branch
+git branch <branchName>
+---------------------------
+To switch between branches
+git checkout <branchName>
 
+----------------------------
+To push in branch
+git push --set-upstream origin <branchName>
 
 link - lnk (e.g. lnkProducts)
 inputbox/Textbox - txt (e.g. txtUsername)
