@@ -27,7 +27,7 @@ public class ApplyForALoanPage {
     @FindBy(id = "fromAccountId")
     public WebElement txtFromAccountId;
 
-    @FindBy(className = "")
+    @FindBy(className = "button")
     public WebElement btnApply;
 
 
