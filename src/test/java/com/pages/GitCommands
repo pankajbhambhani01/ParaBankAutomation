@@ -14,6 +14,10 @@ git branch <branchName>
 To switch between branches
 git checkout <branchName>
 
+----------------------------
+To push in branch
+git push --set-upstream origin <branchName>
+
 link - lnk (e.g. lnkProducts)
 inputbox/Textbox - txt (e.g. txtUsername)
 label - lbl (e.g. lblPassword)
