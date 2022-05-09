@@ -10,7 +10,7 @@ import org.testng.Assert;
 import org.testng.Reporter;
 
 public class OnlineServicesPage {
-    //Snehal B
+    //Snehal Bhagat
 
     private WebDriver driver;
     private WebDriverWait wait;
