@@ -56,6 +56,12 @@ public class ApplyForALoanPage {
         Reporter.log("Down payment amount has been entered..." + downPayment);
     }
 
+    public void enterTxtFromAccountId(String accountId){
+        WebElement element=wait.until(ExpectedConditions.visibilityOf(txtFromAccountId));
+        element.sendKeys(accountId);
+        Reporter.log("From account is verified..." + accountId);
+    }
+
     public void clickApplyButton(String btnApplyLoan){
         WebElement element=wait.until(ExpectedConditions.visibilityOf(btnApply));
         element.sendKeys(btnApplyLoan);
