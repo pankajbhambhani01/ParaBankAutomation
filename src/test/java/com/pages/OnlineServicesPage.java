@@ -14,6 +14,7 @@ public class OnlineServicesPage {
 
     private WebDriver driver;
     private WebDriverWait wait;
+
     @FindBy(xpath = "//li[@class='captiontwo']")
     public WebElement Onlineservice;
 
