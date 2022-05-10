@@ -23,6 +23,7 @@ To take update from master
 git checkout <branchName>
 git status - no changes should be seen if yes git reset --hard
 git pull origin main
+git push --set-upstream origin <branchName> // normal git push wil also work here.
 -------------------------------------
 
 link - lnk (e.g. lnkProducts)
