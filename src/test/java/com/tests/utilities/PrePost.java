@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeTest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PrePost {
+public class  PrePost {
     public Browser browser = null;
     Map<String, String> environment = new HashMap<String, String>();
 
