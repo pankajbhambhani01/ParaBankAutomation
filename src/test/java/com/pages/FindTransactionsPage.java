@@ -58,50 +58,72 @@ public class FindTransactionsPage {
     @FindBy(linkText = "Find transactions")
     public WebElement btnFindTransaction5;
 
-
     public FindTransactionsPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 60);
         PageFactory.initElements(driver, this);
     }
-
     public void validateFindTransactionsPage(String FindTransactionsLabel) {
         WebElement element = wait.until(ExpectedConditions.visibilityOf(textFindtransactions));
         Assert.assertEquals(element.getText(), FindTransactionsLabel);
         Reporter.log("Find Transaction Title has been verified " + element.getText());
-        btnFindTransaction.click();
     }
-
-    public void enterSelectAnAccount(String SelectAccount) {
+       public void clickFindTransaction() {
+           WebElement element = wait.until(ExpectedConditions.elementToBeClickable(btnFindTransaction));
+           Reporter.log("Find Transaction has clicked" + element.getText());
+           btnFindTransaction.click();
+       }
+       public void enterSelectAnAccount(String SelectAccount) {
         WebElement element = wait.until(ExpectedConditions.visibilityOf(textSelectAnAccount));
         element.sendKeys(SelectAccount);
         Reporter.log("Select An  Account has been entered:" + SelectAccount);
+    }
+    public void clickFindTransaction1() {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(btnFindTransaction1));
+        Reporter.log("Find Transaction has clicked" + element.getText());
         btnFindTransaction1.click();
     }
-
     public void enterFindByTransactionId(String FindTransactionId) {
         WebElement element = wait.until(ExpectedConditions.visibilityOf(textFindByTransactionId));
         element.sendKeys(FindTransactionId);
         Reporter.log("Find Transaction By ID has been entered:" + FindTransactionId);
+    }
+    public void clickFindTransaction2() {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(btnFindTransaction2));
+        Reporter.log("Find Transaction has clicked" + element.getText());
         btnFindTransaction2.click();
     }
-    public void enterFindByDate(String FindDate){
+     public void enterFindByDate(String FindDate){
         WebElement element= wait.until(ExpectedConditions.visibilityOf(textFindByDate));
         element.sendKeys(FindDate);
         Reporter.log("Find Transaction By Date has been entered:"+ FindDate);
+     }
+    public void clickFindTransaction3() {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(btnFindTransaction3));
+        Reporter.log("Find Transaction has clicked" + element.getText());
         btnFindTransaction3.click();
-}
+    }
     public void enterFindByDateRange(String FindDateRange,String FindDateRange1){
         WebElement element= wait.until(ExpectedConditions.visibilityOf(textFindBydateRange));
         element.sendKeys(FindDateRange);
         element.sendKeys(FindDateRange1);
         Reporter.log("Find Transaction By Date has been entered:"+ FindDateRange+ ""+FindDateRange1);
         btnFindTransaction4.click();
-}
+    }
+    public void clickFindTransaction4() {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(btnFindTransaction4));
+        Reporter.log("Find Transaction has clicked" + element.getText());
+        btnFindTransaction4.click();
+    }
     public void enterFindByAmount(String FindAmount){
         WebElement element= wait.until(ExpectedConditions.visibilityOf(textFindByAmount));
         element.sendKeys(FindAmount);
         Reporter.log("Find Transaction By Amount has been entered:"+ FindAmount);
         btnFindTransaction5.click();
 }
+    public void clickFindTransaction5() {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(btnFindTransaction5));
+        Reporter.log("Find Transaction has clicked" + element.getText());
+        btnFindTransaction5.click();
+    }
 }
