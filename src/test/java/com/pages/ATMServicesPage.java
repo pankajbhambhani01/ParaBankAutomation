@@ -37,35 +37,40 @@ public class ATMServicesPage {
 	}
 
 	public void atmServiceLabel(String atmLable){
-        WebElement element = wait.until(ExpectedConditions.visibilityOf(ATMServices));
+		Reporter.log("ATM service title start to verify ");
+		WebElement element = wait.until(ExpectedConditions.visibilityOf(ATMServices));
         Assert.assertEquals(element.getText(), atmLable);
         Reporter.log("ATM Services Title has been verified " + element.getText());
     }
 	
 	public void withdrawFunds (String withdrawFundsLable){
-        Reporter.log("withdrawFunds Link will be verified");
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(WithdrawFunds));
+
+		Reporter.log("Withdraw funds link start to verify");
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(WithdrawFunds));
         Assert.assertEquals(element.getText(),withdrawFundsLable );
         Reporter.log("withdrawFunds Link has been verified " + element.getText());
         WithdrawFunds.click();
     }
 	
 	public void transferFunds(String transferFundsLable){
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(TransferFunds));
+		Reporter.log("Transfer funds Link start to verify ");
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(TransferFunds));
         Assert.assertEquals(element.getText(),transferFundsLable );
         Reporter.log("TransferFunds Link has been verified " + element.getText());
         TransferFunds.click();
     }
 	
 	public void checkBalances (String checkBalancesLable){
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(CheckBalances));
+		Reporter.log("Check balances Link start to verify "); 
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(CheckBalances));
         Assert.assertEquals(element.getText(),checkBalancesLable );
         Reporter.log("CheckBalances Link has been verified " + element.getText());
         CheckBalances.click();
     }
 	
 	public void makeDeposits (String makeDepositsLable){
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(MakeDeposits));
+		Reporter.log("Make deposits link start to verify ");
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(MakeDeposits));
         Assert.assertEquals(element.getText(),makeDepositsLable );
         Reporter.log("MakeDeposits Link has been verified " + element.getText());
         MakeDeposits.click();
