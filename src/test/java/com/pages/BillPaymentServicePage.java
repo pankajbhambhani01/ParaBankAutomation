@@ -58,35 +58,41 @@ public class BillPaymentServicePage {
 
     }
     public void validateBillPaymentServicePage(String billPaymentServiceLabel) {
+        Reporter.log("Bill Payment Service has been verified:");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblBillPayHeader));
         Assert.assertEquals(element.getText(), billPaymentServiceLabel);
-        Reporter.log("Bill Payment Service  :"+ element.getText());
+        Reporter.log("Bill Payment Service  has been verified:"+ element.getText());
     }
     public void enterPayeeName(String payeeName){
+        Reporter.log("Payee name has been entered:");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtPayeeName));
         element.sendKeys(payeeName);
         Reporter.log("Payee name has been entered:"+payeeName );
 
     }
     public void enterAddress(String address) {
+        Reporter.log("Address has been entered:");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtAddress));
         element.sendKeys(address);
         Reporter.log("Address has been entered:"+address);
 
     }
     public void enterCity(String city){
+        Reporter.log("City name has been entered:");
         WebElement element= wait.until(ExpectedConditions.visibilityOf(txtCity));
         element.sendKeys(city);
         Reporter.log("City name has been entered:"+ city);
 
     }
     public void enterState(String state){
+        Reporter.log("State name has been entered:");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtState));
         element.sendKeys(state);
         Reporter.log("State name has been entered:"+ state);
 
     }
     public void enterZipCode(String zipcode){
+        Reporter.log("Zipcode has been entered:");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(zipCode));
         element.sendKeys(zipcode);
         Reporter.log("ZipCode has been entered:"+ zipcode);
@@ -94,35 +100,41 @@ public class BillPaymentServicePage {
     }
     public void enterPhoneNumber(String phonenumber)
     {
+        Reporter.log("Phone number has been entered:");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(phoneNumber));
         element.sendKeys(phonenumber);
-        Reporter.log("Phone number is:"+ phonenumber);
+        Reporter.log("Phone number has been entered:"+ phonenumber);
     }
 
     public void enterAccountNumber(String accountnumber){
+        Reporter.log("Account number has been entered:");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(accountNumber));
         element.sendKeys(accountnumber);
-        Reporter.log("Account number is:"+ accountNumber);
+        Reporter.log("Account number has been entered:"+ accountNumber);
     }
     public void enterVerifyAccountNumebr(String verifyaccountNumber){
+        Reporter.log("Verified account number has been entered:");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(verifyAccountNumber));
         element.sendKeys(verifyaccountNumber);
-        Reporter.log("Verified account number is:"+ verifyaccountNumber);
+        Reporter.log("Verified account number has been entered:"+ verifyaccountNumber);
     }
     public void enterAmount(String aamount){
+        Reporter.log("Amount has been entered:");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(amount));
         element.sendKeys(aamount);
-        Reporter.log("Amount is:"+aamount);
+        Reporter.log("Amount has been entered:"+aamount);
     }
     public void enterFromAccount(String fromaccountId){
+        Reporter.log("From account has been entered:");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(fromAccountId));
         element.sendKeys(fromaccountId);
-        Reporter.log("From Account is :"+fromaccountId);
+        Reporter.log("From Account has been entered:"+fromaccountId);
     }
     public void clickSendPaymentButton(String btnSendpayment){
+        Reporter.log("Send Payment button  clicked");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(btnSendPayment));
         element.sendKeys(btnSendpayment);
-        Reporter.log("Send Payment button is click:"+btnSendPayment);
+        Reporter.log("Send Payment button  clicked:"+btnSendPayment);
         btnSendPayment.click();
 
     }
