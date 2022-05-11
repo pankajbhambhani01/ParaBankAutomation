@@ -58,7 +58,7 @@ public class BillPaymentServicePage {
 
     }
     public void validateBillPaymentServicePage(String billPaymentServiceLabel) {
-        Reporter.log("Bill Payment Service has been verified:");
+        Reporter.log("Bill Payment Service will be verified:");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblBillPayHeader));
         Assert.assertEquals(element.getText(), billPaymentServiceLabel);
         Reporter.log("Bill Payment Service  has been verified:"+ element.getText());
