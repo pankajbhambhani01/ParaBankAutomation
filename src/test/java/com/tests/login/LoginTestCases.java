@@ -9,6 +9,8 @@ import org.testng.Reporter;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class LoginTestCases extends PrePost {
@@ -31,8 +33,36 @@ public class LoginTestCases extends PrePost {
         loginPage.validateLoginButton(testData.get("log In"));
         loginPage.validateForgotPasswordLink(testData.get("forgot_login_info_?"));
         loginPage.validateRegisterLink(testData.get("register"));
+
+
         // assert and verify(soft assert) -
         // assert - if it fails it stops the test there
         // verify - it continues the test
     }
+
+    @Test
+    public void TC002_sucesssfulllogin(){
+        // enter username
+        // enter password
+        // click login
+        // validate home page
+    }
+
+    @Test
+    public void TC003_InvalidUsername(){
+        // enter wrong username
+        // enter wrong password
+        // click login
+        // validate error message
+    }
+
+    @Test
+    public void TC004_InvalidPassword(){
+    }
+
+    @Test
+    public void TC005_BlankUsernamePassword(){
+    }
+
+
 }
