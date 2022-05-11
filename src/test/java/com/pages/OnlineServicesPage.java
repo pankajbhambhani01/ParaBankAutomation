@@ -47,7 +47,7 @@ public class OnlineServicesPage {
         WebElement element=wait.until(ExpectedConditions.visibilityOf(BillPay));
         Assert.assertEquals(element.getText(),BillPay);
         Reporter.log("Bill pay title  Has been verified " +element .getText());
-        BillPay.click();.
+        BillPay.click();
     }
 
     public void clickbillPay()
