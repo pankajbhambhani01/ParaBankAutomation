@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -38,15 +39,15 @@ public class TransferFundsPage {
 
 
 
-    public LoginPage(WebDriver driver){
+    public TransferFundsPage(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 60);
         PageFactory.initElements(driver, this);
     }
 
     public void validateTransferFunds(String lnkTransferFunds){
-        Reporter.log("Transfer Fund Title will verified ";
-        WebElement element = wait.until(ExpectedConditions.visibilityOf(lnkTransferFunds));
+        Reporter.log("Transfer Fund Title will verified ");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(this.lnkTransferFunds));
         Assert.assertEquals(element.getText(), lnkTransferFunds);
         Reporter.log("Transfer Fund Title has been verified " + element.getText());
     }
@@ -61,7 +62,7 @@ public class TransferFundsPage {
 
     public void validateTitle (String txtTitle){
         Reporter.log("Transfer Fund Title is getting verified");
-        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(txtTitle));
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(this.txtTitle));
         Assert.assertEquals(element.getText(), txtTitle);
         Reporter.log("Transfer Fund Title has been verified " + element.getText());
 
@@ -69,7 +70,7 @@ public class TransferFundsPage {
 
     public void validateAmount(String amount){
         Reporter.log("Validating Visibility of Amount input :" );
-        WebElement element=wait.until(ExpectedConditions.visibilityOf(amount));
+        WebElement element=wait.until(ExpectedConditions.visibilityOf(this.amount));
         Assert.assertEquals(element.getText(), amount);
         Reporter.log("input amount field Validated as " + element.getText());
     }
@@ -87,6 +88,11 @@ public class TransferFundsPage {
         if (dropdown.isEnabled() && dropdown.isDisplayed())
         Reporter.log("ddFromAccount is Verified");
     }
+    public void selectDdFromAccount(String ddFromAccount){
+        Reporter.log("ddFromAccount is getting Verified");
+        Select s = new Select(this.ddFromAccount);
+        s.selectByVisibleText(ddFromAccount);
+    }
 
     public void validateDdToAccount(String ddToAccount){
         Reporter.log("ddToAccount is getting Verified");
@@ -97,7 +103,7 @@ public class TransferFundsPage {
 
     public void validateBtnTransfer(String btnTransfer){
         Reporter.log("TRANSFER button is getting verified");
-        WebElement element=wait.until(ExpectedConditions.visibilityOf(btnTransfer));
+        WebElement element=wait.until(ExpectedConditions.visibilityOf(this.btnTransfer));
         Assert.assertEquals(element.getText(),  btnTransfer);
         Reporter.log("TRANSFER button has verified" + element.getText());
     }
