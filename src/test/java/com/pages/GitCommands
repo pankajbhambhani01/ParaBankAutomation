@@ -2,7 +2,29 @@ git add filename  - to add a file
 git commit -m "message" - to commit a file
 git push - to push the changes in the git
 git checkout main -- filename - to reset with the version we have in git.
+git reset --hard - to reset all the changes
 
+--------------------
+To create new branch and switch [branch create and switch]
+git checkout -b <branchName>
+------------------------------
+To create only branch
+git branch <branchName>
+---------------------------
+To switch between branches
+git checkout <branchName>
+
+----------------------------
+To push in branch
+git push --set-upstream origin <branchName>
+
+---------------------------------
+To take update from master
+git checkout <branchName>
+git status - no changes should be seen if yes git reset --hard
+git pull origin main
+git push --set-upstream origin <branchName> // normal git push wil also work here.
+-------------------------------------
 
 link - lnk (e.g. lnkProducts)
 inputbox/Textbox - txt (e.g. txtUsername)
