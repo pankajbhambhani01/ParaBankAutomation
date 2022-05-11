@@ -40,6 +40,10 @@ public class LoginPage {
     public WebElement lnkForgotlogininfo;
     @FindBy(xpath = "//a[.='Register']")
     public WebElement lnkRegister;
+    @FindBy(xpath = "//h1[@class='title']")
+    public WebElement error_tittle;
+    @FindBy(xpath = "//p[@class='error']")
+    public WebElement errormessage;
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -78,6 +82,7 @@ public class LoginPage {
         Assert.assertEquals(element.getText(), ServicesLabel);
         Reporter.log("Services Link has been verified" + element.getText());
     }
+
 
     public void clickServicesLink() {
         Reporter.log("Services Link will be clicked");
@@ -204,6 +209,20 @@ public class LoginPage {
         lnkRegister.click();
         Reporter.log("RegisterLink has been clicked");
     }
+    public void validateErrorMessageTittle(String errorTittle){
+        Reporter.log("Error tittle will be verified");
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(error_tittle));
+        Assert.assertEquals(element.getText(), errorTittle);
+        Reporter.log("Error tittle has been verified");
+    }
+
+    public void validateErrorMessage(String errorMessage){
+        Reporter.log("Error message will be verified");
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(errormessage));
+        Assert.assertEquals(element.getText(), errorMessage);
+        Reporter.log("Error message has been verified");
+    }
+
 
 
 }
