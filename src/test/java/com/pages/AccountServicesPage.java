@@ -43,7 +43,6 @@ public class AccountServicesPage {
     @FindBy(xpath = "//a[@href='/parabank/logout.htm']")
     public WebElement Logout;
 
-
     public AccountServicesPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 60);
