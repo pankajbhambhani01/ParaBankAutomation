@@ -28,11 +28,17 @@ public class RegistrationPage {
     @FindBy(id="customer.firstName")
     public WebElement txtFirstName;
 
+    @FindBy(xpath = "//span[@id='customer.firstName.errors']")
+    public WebElement FirstNameBlankMessage;
+
     @FindBy(xpath = "//tr/td/b[text()='Last Name:']")
     public WebElement lblLastName;
 
     @FindBy(id="customer.lastName")
     public WebElement txtLastName;
+
+    @FindBy(xpath = "//span[@id='customer.lastName.errors']")
+    public WebElement LastNameBlankMessage;
 
     @FindBy(xpath = "//tr/td/b[text()='Address:']")
     public WebElement lblAddress;
@@ -40,11 +46,17 @@ public class RegistrationPage {
     @FindBy(id="customer.address.street")
     public WebElement txtAddress;
 
+    @FindBy(xpath = "//span[@id='customer.address.street.errors']")
+    public WebElement AddressBlankMessage;
+
     @FindBy(xpath = "//tr/td/b[text()='City:']")
     public WebElement lblCity;
 
     @FindBy(id="customer.address.city")
     public WebElement txtCity;
+
+    @FindBy(xpath = "//span[@id='customer.address.city.errors']")
+    public WebElement CityBlankMessage;
 
     @FindBy(xpath = "//tr/td/b[text()='State:']")
     public WebElement lblState;
@@ -52,11 +64,17 @@ public class RegistrationPage {
     @FindBy(id="customer.address.state")
     public WebElement txtState;
 
+    @FindBy(xpath = "//span[@id='customer.address.state.errors']")
+    public WebElement StateBlankMessage;
+
     @FindBy(xpath = "//tr/td/b[text()='Zip Code:']")
     public WebElement lblZipCode;
 
     @FindBy(id="customer.address.zipCode")
     public WebElement ZipCode;
+
+    @FindBy(xpath = "//span[@id='customer.address.zipCode.errors']")
+    public WebElement ZipCodeBlankMessage;
 
     @FindBy(xpath = "//tr/td/b[text()='Phone #:']")
     public WebElement lblPhone;
@@ -70,11 +88,17 @@ public class RegistrationPage {
     @FindBy(id="customer.ssn")
     public WebElement SSN;
 
+    @FindBy(xpath = "//span[@id='customer.ssn.errors']")
+    public WebElement SSNBlankMessage;
+
     @FindBy(xpath = "//tr/td/b[text()='Username:']")
     public WebElement lblUsername;
 
     @FindBy(id="customer.username")
     public WebElement txtUsername;
+
+    @FindBy(xpath = "//span[@id='customer.username.errors']")
+    public WebElement UsernameBlankMessage;
 
     @FindBy(xpath = "//tr/td/b[text()='Password:']")
     public WebElement lblPassword;
@@ -82,11 +106,17 @@ public class RegistrationPage {
     @FindBy(id="customer.password")
     public WebElement txtPassword;
 
+    @FindBy(xpath = "//span[@id='customer.password.errors']")
+    public WebElement PasswordBlankMessage;
+
     @FindBy(xpath = "//tr/td/b[text()='Confirm:']")
     public WebElement lblConfirm;
 
     @FindBy(id="repeatedPassword")
     public WebElement txtConfirm;
+
+    @FindBy(xpath = "//span[@id='repeatedPassword.errors']")
+    public WebElement ConfirmBlankMessage;
 
     @FindBy(xpath = "//input[@class='button' and @value='Register']")
     public WebElement btnRegister;
@@ -123,6 +153,12 @@ public class RegistrationPage {
         element.sendKeys(firstName);
         Reporter.log("First Name has been entered " + firstName);
     }
+    public void validatedFirstNameBlankErrorMessage(String firstnameisrequired){
+        Reporter.log("First Name Is Required will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(FirstNameBlankMessage));
+        Assert.assertEquals(element.getText(),firstnameisrequired);
+        Reporter.log("First Name Is Required has been verified" + element.getText());
+    }
     public void validateLastNameLabel(String lastnameLabel){
         Reporter.log("Last Name label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblLastName));
@@ -134,6 +170,12 @@ public class RegistrationPage {
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtLastName));
         element.sendKeys(lastName);
         Reporter.log("Last Name has been entered " + lastName);
+    }
+    public void validatedLastNameBlankErrorMessage(String lastnameisrequired) {
+        Reporter.log("Last Name Is Required will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(LastNameBlankMessage));
+        Assert.assertEquals(element.getText(), lastnameisrequired);
+        Reporter.log("Last Name Is Required has been verified" + element.getText());
     }
     public void validateAddressLabel(String addressLabel){
         Reporter.log("Address label will be verified");
@@ -147,6 +189,12 @@ public class RegistrationPage {
         element.sendKeys(address);
         Reporter.log("Address has been entered " + address);
     }
+    public void validatedAddressBlankErrorMessage(String addressisrequired) {
+        Reporter.log("Address Is Required will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(AddressBlankMessage));
+        Assert.assertEquals(element.getText(), addressisrequired);
+        Reporter.log("Address Is Required has been verified" + element.getText());
+    }
     public void validateCityLabel(String cityLabel){
         Reporter.log("City label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblCity));
@@ -158,6 +206,12 @@ public class RegistrationPage {
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtCity));
         element.sendKeys(city);
         Reporter.log("City has been entered " + city);
+    }
+    public void validatedCityBlankErrorMessage(String cityisrequired) {
+        Reporter.log("City Is Required will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(CityBlankMessage));
+        Assert.assertEquals(element.getText(), cityisrequired);
+        Reporter.log("City Is Required has been verified" + element.getText());
     }
     public void validateStateLabel(String stateLabel) {
         Reporter.log("State label will be verified");
@@ -171,6 +225,12 @@ public class RegistrationPage {
         element.sendKeys(state);
         Reporter.log("State has been entered " + state);
     }
+    public void validatedStateBlankErrorMessage(String stateisrequired) {
+        Reporter.log("State Is Required will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(StateBlankMessage));
+        Assert.assertEquals(element.getText(), stateisrequired);
+        Reporter.log("State Is Required has been verified" + element.getText());
+    }
     public void validateZipCodeLabel(String zipcodeLabel) {
         Reporter.log("ZipCode label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblZipCode));
@@ -182,6 +242,12 @@ public class RegistrationPage {
         WebElement element = wait.until(ExpectedConditions.visibilityOf(ZipCode));
         element.sendKeys(zipCode);
         Reporter.log("ZipCode has been entered " + zipCode);
+    }
+    public void validatedZipCodeBlankErrorMessage(String zipcodeisrequired) {
+        Reporter.log("Zip Code Is Required will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(ZipCodeBlankMessage));
+        Assert.assertEquals(element.getText(), zipcodeisrequired);
+        Reporter.log("Zip Code Is Required has been verified" + element.getText());
     }
     public void validatePhoneLabel(String phoneLabel) {
         Reporter.log("Phone label will be verified");
@@ -207,6 +273,12 @@ public class RegistrationPage {
         element.sendKeys(ssn);
         Reporter.log("SSN has been entered " + ssn);
     }
+    public void validatedSSNBlankErrorMessage(String ssnisrequired) {
+        Reporter.log("SSN Is Required will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(SSNBlankMessage));
+        Assert.assertEquals(element.getText(), ssnisrequired);
+        Reporter.log("SSN Is Required has been verified" + element.getText());
+    }
     public void validateUsernameLabel(String usernameLabel) {
         Reporter.log("Username label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblUsername));
@@ -218,6 +290,12 @@ public class RegistrationPage {
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtUsername));
         element.sendKeys(username);
         Reporter.log("Username has been entered " + username );
+    }
+    public void validatedUsernameBlankErrorMessage(String usernameisrequired) {
+        Reporter.log("Username Is Required will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(UsernameBlankMessage));
+        Assert.assertEquals(element.getText(), usernameisrequired);
+        Reporter.log("Username Is Required has been verified" + element.getText());
     }
     public void validatePasswordLabel(String passwordLabel) {
         Reporter.log("Password label will be verified");
@@ -231,6 +309,12 @@ public class RegistrationPage {
         element.sendKeys(password);
         Reporter.log("Password has been entered " + password);
     }
+    public void validatedPasswordBlankErrorMessage(String passwordisrequired) {
+        Reporter.log("Password Is Required will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(PasswordBlankMessage));
+        Assert.assertEquals(element.getText(), passwordisrequired);
+        Reporter.log("Password Is Required has been verified" + element.getText());
+    }
     public void validateConfirmLabel(String confirmLabel) {
         Reporter.log("Confirm label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblConfirm));
@@ -242,6 +326,12 @@ public class RegistrationPage {
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtConfirm));
         element.sendKeys(repeatedPassword);
         Reporter.log("Re-enter Password has been entered " + repeatedPassword);
+    }
+    public void validatedConfirmBlankErrorMessage(String passwordconfirmationisrequired) {
+        Reporter.log("Password Confirmation Is Required will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(ConfirmBlankMessage));
+        Assert.assertEquals(element.getText(), passwordconfirmationisrequired);
+        Reporter.log("Password Confirmation Is Required has been verified" + element.getText());
     }
     public void validateRegisterButtonLabel(String registerbtnlabel){
         Reporter.log("Register Button label will be verified");
