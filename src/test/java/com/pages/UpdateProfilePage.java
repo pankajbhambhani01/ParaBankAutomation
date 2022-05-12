@@ -21,9 +21,6 @@ public class UpdateProfilePage {
     @FindBy(xpath = "//tr/td/b[text()='First Name:']")
     public WebElement lblFirstName ;
 
-    @FindBy(xpath = "")
-    public WebElement lblErrorFirstName ;
-
     @FindBy(xpath = "//input[@id='customer.firstName']")
     public WebElement txtFirstName ;
 
@@ -63,6 +60,14 @@ public class UpdateProfilePage {
     @FindBy(xpath = "//input[@type='submit']")
     public WebElement btnUpdateProfile;
 
+    @FindBy(xpath = "")
+    public WebElement errormessage1;
+    @FindBy(xpath = "")
+    public WebElement sucessMessage;
+
+
+
+
     public UpdateProfilePage(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 60);
@@ -77,11 +82,12 @@ public class UpdateProfilePage {
     }
 
     public void validateFirstNameLabel(String firstNameLabel){
-        Reporter.log("Firstname Button label will be verified");
+        Reporter.log("Firstname label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblFirstName));
         Assert.assertEquals(element.getText(),firstNameLabel);
-        Reporter.log("Firstname Button label has been verified"+firstNameLabel);
+        Reporter.log("Firstname  label has been verified"+firstNameLabel);
     }
+
 
     public void enterTxtFirstName(String firstName){
         Reporter.log("First Name will be entered");
@@ -91,10 +97,10 @@ public class UpdateProfilePage {
     }
 
     public void validateLastNameLabel(String LastNameLabel){
-        Reporter.log("Lastname Button label will be verified");
+        Reporter.log("Lastname  label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblLastName));
         Assert.assertEquals(element.getText(),LastNameLabel);
-        Reporter.log("Lastname Button label has been verified"+LastNameLabel);
+        Reporter.log("Lastname  label has been verified"+LastNameLabel);
     }
 
     public void enterTxtLastName(String lastName){
@@ -105,10 +111,10 @@ public class UpdateProfilePage {
     }
 
     public void validateAddressLabel(String addressLabel){
-        Reporter.log("Address Button label will be verified");
+        Reporter.log("Address  label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblAddress));
         Assert.assertEquals(element.getText(),addressLabel);
-        Reporter.log("Address Button label has been verified"+addressLabel);
+        Reporter.log("Address  label has been verified"+addressLabel);
     }
     public void enterTxtAddress(String address){
         Reporter.log("Address will be entered");
@@ -117,10 +123,10 @@ public class UpdateProfilePage {
         Reporter.log("Address has been entered " + address);
     }
     public void validatecityLabel(String cityLabel){
-        Reporter.log("City Button label will be verified");
+        Reporter.log("City label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblCity));
         Assert.assertEquals(element.getText(),cityLabel);
-        Reporter.log("City Button label has been verified"+cityLabel);
+        Reporter.log("City  label has been verified"+cityLabel);
     }
     public void enterTxtCity(String city){
         Reporter.log("CityName will be entered ");
@@ -130,10 +136,10 @@ public class UpdateProfilePage {
     }
 
     public void validateStateLabel(String stateLabel){
-        Reporter.log("StateName Button label will be verified");
+        Reporter.log("StateName label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblState));
         Assert.assertEquals(element.getText(),stateLabel);
-        Reporter.log("StateName Button label has been verified"+stateLabel);
+        Reporter.log("StateName  label has been verified"+stateLabel);
     }
     public void enterTxtState(String state){
         Reporter.log("State will be entered");
@@ -142,10 +148,10 @@ public class UpdateProfilePage {
         Reporter.log("State has been entered " + state);
     }
     public void validateZipcode(String zipcodeLabel){
-        Reporter.log("ZipCode Button label will be verified");
+        Reporter.log("ZipCode label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblZipCode));
         Assert.assertEquals(element.getText(),zipcodeLabel);
-        Reporter.log("ZipCode Button label has been verified"+zipcodeLabel);
+        Reporter.log("ZipCode  label has been verified"+zipcodeLabel);
     }
     public void enterZipCode(String zipCode){
         Reporter.log("ZipCode wll be entered");
@@ -155,10 +161,10 @@ public class UpdateProfilePage {
     }
 
     public void validatePhoneNumber(String phoneNumberLabel){
-        Reporter.log("PhoneNumber Button label will be verified");
+        Reporter.log("PhoneNumber  label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblPhoneNUmber));
         Assert.assertEquals(element.getText(),phoneNumberLabel);
-        Reporter.log("PhoneNumber Button label has been verified"+phoneNumberLabel);
+        Reporter.log("PhoneNumber  label has been verified"+phoneNumberLabel);
     }
     public void enterPhoneNumber(String phoneNumber){
         Reporter.log("Phone Number will be entered");
@@ -170,17 +176,34 @@ public class UpdateProfilePage {
 
 
     public void validateUpdateButtonLabel(String updatebtnlabel){
-        Reporter.log("UpdateProfile Button label will be verified");
+        Reporter.log("UpdateProfile  label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(btnUpdateProfile));
         Assert.assertEquals(element.getText(),updatebtnlabel);
-        Reporter.log("UpdateProfile Button label has been verified"+updatebtnlabel);
+        Reporter.log("UpdateProfile  label has been verified"+updatebtnlabel);
     }
     public void clickUpdateProfileButton(){
-        Reporter.log("updateProfile Button will be clicked");
+        Reporter.log("updateProfile will be clicked");
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(btnUpdateProfile));
-        Reporter.log("UpdateProfile Button Clicked");
+        Reporter.log("UpdateProfile  Clicked");
         element.click();
     }
+
+    public void validatErrorMessage(String errormessage){
+        Reporter.log("error message will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(errormessage1));
+        Assert.assertEquals(element.getText(),errormessage);
+        Reporter.log("error message  has been verified"+errormessage);
+    }
+
+    public void validatSuccesfulUpdateProfileMessage(String sucessesUpdateMessage){
+        Reporter.log("SuccesfulUpdateProfileMessage will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(sucessMessage));
+        Assert.assertEquals(element.getText(),sucessesUpdateMessage);
+        Reporter.log("SuccesfulUpdateProfileMessage  has been verified"+sucessesUpdateMessage);
+    }
+
+
+
 
 
 

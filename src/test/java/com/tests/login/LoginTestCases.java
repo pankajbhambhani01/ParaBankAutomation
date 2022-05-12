@@ -35,152 +35,119 @@ public class LoginTestCases extends PrePost {
         loginPage.validateForgotPasswordLink(testData.get("forgot_login_info_?"));
         loginPage.validateRegisterLink(testData.get("register"));
 
-
-        // assert and verify(soft assert) -
-        // assert - if it fails it stops the test there
-        // verify - it continues the test
     }
 
     @Test
     public void TC002_sucesssfulllogin(){
-        // enter username
-        // enter password
-        // click login
-        // validate home page
 
 
-        Map<String, String> testData = FileReading.readProperties("TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.login + Constants.slash + "TC001");
         LoginPage loginPage=new LoginPage(browser.getDriver());
-        loginPage.enterUserName("");
-        loginPage.enterPassword("");
+        loginPage.enterUserName(testData.get("username_login"));
+        loginPage.enterPassword(testData.get("password_login"));
         loginPage.clickLoginButton();
-        loginPage.validateAccountOverViewTittle("");
+        loginPage.validateAccountOverViewTittle("login_message");
 
 }
 
     @Test
     public void TC003_InvalidUsername(){
-        // enter wrong username
-        // enter wrong password
-        // click login
-        // validate error message
 
-        Map<String, String> testData = FileReading.readProperties("TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.login + Constants.slash + "TC001");
         LoginPage loginPage=new LoginPage(browser.getDriver());
-        loginPage.enterUserName("");
-        loginPage.enterPassword("");
+        loginPage.enterUserName(testData.get("invalid_username"));
+        loginPage.enterPassword(testData.get("password_login"));
         loginPage.clickLoginButton();
-        loginPage.validateWrongErrorMessage("");
+        loginPage.validateWrongErrorMessage(testData.get("Invalid_error_message"));
     }
 
     @Test
     public void TC004_InvalidPassword(){
-        //enter userName
-        //enter wrong password
-        //click login
-        //validate error message
 
-        Map<String, String> testData = FileReading.readProperties("TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.login + Constants.slash + "TC001");
         LoginPage loginPage=new LoginPage(browser.getDriver());
-        loginPage.enterUserName("");
-        loginPage.enterPassword("");
+        loginPage.enterUserName(testData.get("username_login"));
+        loginPage.enterPassword(testData.get("invalid_password"));
         loginPage.clickLoginButton();
     }
 
     @Test
     public void TC005_BlankUsernamePassword(){
 
-        //click login
-        //validate error message
-
-        Map<String, String> testData = FileReading.readProperties("TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.login + Constants.slash + "TC001");
         LoginPage loginPage=new LoginPage(browser.getDriver());
         loginPage.clickLoginButton();
-        loginPage.validateBlankErrorMessage("");
+        loginPage.validateBlankErrorMessage(testData.get("blank_message"));
 
     }
     @Test
     public void TC006_validateForgotLoginInfoLink(){
 
-        //click on forgot login info?
-        //validate customer Lookup page open
-
-        Map<String, String> testData = FileReading.readProperties("TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.login + Constants.slash + "TC001");
         LoginPage loginPage=new LoginPage(browser.getDriver());
         loginPage.clickForgotPasswordLink();
-        loginPage.validateCustomerLabel("");
+        loginPage.validateCustomerLabel(testData.get("forgot_page_tittle"));
 
     }
 
     @Test
     public void TC007_validateRegisterLink(){
 
-        //click on registerlink
-        //validate Signing up is easy! page open
-
         Map<String, String> testData = FileReading.readProperties("TC001");
         LoginPage loginPage=new LoginPage(browser.getDriver());
         loginPage.clickRegisterLink();
-      //  RegistrationPage registrationPage=new RegistrationPage(browser.getDriver());
-        //registrationPage.validateRegistrationLabel("");
+       RegistrationPage registrationPage=new RegistrationPage(browser.getDriver());
+        registrationPage.validateRegistrationLabel(testData.get("register_page_tittl"));
 
 
     }
     @Test
     public void TC008_validateAboutusLink(){
-        //click on Aboutus link
-        //validate customer ParaSoft Demo Website page open
+
 
         Map<String, String> testData = FileReading.readProperties("TC001");
         LoginPage loginPage=new LoginPage(browser.getDriver());
         loginPage.clickAboutUslink();
-        loginPage.validateParasoftTittle("");
+        loginPage.validateParasoftTittle(testData.get("aboutus_page_tittle"));
     }
 
     @Test
     public void TC009_validateServicesLink(){
-        //click on Services link
-        //validate customer Available Bookstore SOAP services: page open
+
         Map<String, String> testData = FileReading.readProperties("TC001");
         LoginPage loginPage=new LoginPage(browser.getDriver());
         loginPage.clickServicesLink();
-        loginPage.validateServicePageTittle("");
+        loginPage.validateServicePageTittle(testData.get("services_page_tittle"));
 
     }
 
     @Test
     public void TC0010_validateProductLink(){
-        //click on Product link
-        //validate customer Parasoft  page open
 
         Map<String, String> testData = FileReading.readProperties("TC001");
         LoginPage loginPage=new LoginPage(browser.getDriver());
         loginPage.clickProductLink();
-        loginPage.validateProductPageTittle("");
+        loginPage.validateProductPageTittle(testData.get("product_page_tittle"));
 
     }
 
     @Test
     public void TC0011_validateLocationsLink(){
-        //click on locations link
-        //validate customer Parasoft  page open
 
         Map<String, String> testData = FileReading.readProperties("TC001");
         LoginPage loginPage=new LoginPage(browser.getDriver());
         loginPage.clickLocationLink();
-        loginPage.validateLocationPageTittle("");
+        loginPage.validateLocationPageTittle(testData.get("location_page_tittle"));
 
     }
 
     @Test
     public void TC0012_validateAdminPageLink(){
-        //click on Adminpage link
-        //validate Administration  page open
 
         Map<String, String> testData = FileReading.readProperties("TC001");
         LoginPage loginPage=new LoginPage(browser.getDriver());
         loginPage.clickAdminPageLink();
-        loginPage.validateAdminPageLink("");
+        loginPage.validateAdminPageLink(testData.get("admin_page_tittle"));
 
     }
 

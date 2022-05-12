@@ -58,6 +58,8 @@ public class LoginPage {
 
     @FindBy(xpath = "//h2[@class='text-center 'and text()='Solutions for Every Testing Need'] ")
     public WebElement productPageTittle;
+    @FindBy(xpath = "//div[@id='rightPanel']/h1 ")
+    public WebElement adminPageTittle;
 
 
 
@@ -283,7 +285,7 @@ public class LoginPage {
 
     public void validateAdminstrationPageTittle(String AdminstrationPageTittle){
         Reporter.log("Adminstration PageTittle for blank username or passwaord will be verified");
-        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(productPageTittle));
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(adminPageTittle));
         Assert.assertEquals(element.getText(), AdminstrationPageTittle);
         Reporter.log("Adminstration PageTittle for blank username or passwaord has been verified");
     }

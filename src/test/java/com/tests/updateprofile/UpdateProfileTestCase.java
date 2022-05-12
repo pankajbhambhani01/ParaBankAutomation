@@ -23,21 +23,12 @@ public class UpdateProfileTestCase extends PrePost {
         String[] userDetail = users.get("user1").split(";");
         loginPage.loginParaBank(userDetail[0], userDetail[1]);
         //accountServicesPage.clickUpdateProfileLink();
-        updateProfilePage.validateUpdateLabel(testData.get("titleUpdateProfile"));
+        updateProfilePage.validateUpdateLabel("titleUpdateProfile");
+
     }
 
     @Test
     public void TC002_allFieldValidation() {
-        //enter username password
-        //click on loginBtn
-        // click on updateProfile Link
-        //enter all Field with correct information
-        //click on updateButton
-        //validate message
-    }
-
-    @Test
-    public void TC003_allFiledValidationErrorMessage() {
         Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC001");
         LoginPage loginPage = new LoginPage(browser.getDriver());
         AccountServicesPage accountServicesPage = new AccountServicesPage(browser.getDriver());
@@ -46,31 +37,92 @@ public class UpdateProfileTestCase extends PrePost {
         String[] userDetail = users.get("user1").split(";");
         loginPage.loginParaBank(userDetail[0], userDetail[1]);
         //accountServicesPage.clickUpdateProfileLink();
-        updateProfilePage.validateUpdateLabel(testData.get("titleUpdateProfile"));
+        updateProfilePage.validateFirstNameLabel(testData.get("fName_lbl"));
+        updateProfilePage.validateLastNameLabel(testData.get("lName_lbl"));
+        updateProfilePage.validateAddressLabel(testData.get("add_lbl"));
+        updateProfilePage.validatecityLabel(testData.get("city_lbl"));
+        updateProfilePage.validateStateLabel(testData.get("state_lbl"));
+        updateProfilePage.validateZipcode(testData.get("zip_lbl"));
+        updateProfilePage.validatePhoneNumber(testData.get("phone_lbl"));
+        updateProfilePage.validateUpdateButtonLabel(testData.get("update_lbl"));
+
+
+
+
+    }
+
+    @Test
+    public void TC003_allFiledValidationErrorMessage() {  //Incomplete
+        Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC001");
+        LoginPage loginPage = new LoginPage(browser.getDriver());
+        AccountServicesPage accountServicesPage = new AccountServicesPage(browser.getDriver());
+        UpdateProfilePage updateProfilePage = new UpdateProfilePage(browser.getDriver());
+
+        String[] userDetail = users.get("user1").split(";");
+        loginPage.loginParaBank(userDetail[0], userDetail[1]);
+        //accountServicesPage.clickUpdateProfileLink();
         updateProfilePage.clickUpdateProfileButton();
         //validate message
     }
 
     @Test
     public void TC004_someFieldBlank() {
-        //enter username password
-        //click on loginBtn
-        // click on updateProfile Link
-        //enter name,city,zipcode with correct information
-        //click on updateButton
-        //validate message
+
+        Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC001");
+        LoginPage loginPage = new LoginPage(browser.getDriver());
+        AccountServicesPage accountServicesPage = new AccountServicesPage(browser.getDriver());
+        UpdateProfilePage updateProfilePage = new UpdateProfilePage(browser.getDriver());
+
+        String[] userDetail = users.get("user1").split(";");
+        loginPage.loginParaBank(userDetail[0], userDetail[1]);
+        //accountServicesPage.clickUpdateProfileLink();
+        updateProfilePage.enterTxtFirstName(testData.get("fName_lbl"));
+        updateProfilePage.enterTxtAddress(testData.get("add_lbl"));
+        updateProfilePage.enterZipCode(testData.get("zip_lbl"));
+        updateProfilePage.clickUpdateProfileButton();
+        updateProfilePage.validatErrorMessage(testData.get("blank_message"));
+
+
 
 
     }
 
     public void TC005_validationWithSameInformation() {
-        //enter username password
-        //click on loginBtn
-        // click on updateProfile Link
-        //enter all field with previous information
-        //click on updateButton
-        //validate message
+        Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC001");
+        LoginPage loginPage = new LoginPage(browser.getDriver());
+        AccountServicesPage accountServicesPage = new AccountServicesPage(browser.getDriver());
+        UpdateProfilePage updateProfilePage = new UpdateProfilePage(browser.getDriver());
 
+        String[] userDetail = users.get("user1").split(";");
+        loginPage.loginParaBank(userDetail[0], userDetail[1]);
+        //accountServicesPage.clickUpdateProfileLink();
+        updateProfilePage.enterTxtFirstName(testData.get("same_Fname"));
+        updateProfilePage.enterTxtLastName(testData.get("same_Lname"));
+        updateProfilePage.enterTxtAddress(testData.get("same_add"));
+        updateProfilePage.enterTxtCity(testData.get("same_city"));
+        updateProfilePage.enterTxtState(testData.get("same_state"));
+        updateProfilePage.enterZipCode(testData.get("same_zip"));
+        updateProfilePage.clickUpdateProfileButton();
+        updateProfilePage.validatErrorMessage(testData.get("same_error_message"));
+    }
+
+    public void TC006_validationSucessfulUpdateProfile() {
+        Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC001");
+        LoginPage loginPage = new LoginPage(browser.getDriver());
+        AccountServicesPage accountServicesPage = new AccountServicesPage(browser.getDriver());
+        UpdateProfilePage updateProfilePage = new UpdateProfilePage(browser.getDriver());
+
+        String[] userDetail = users.get("user1").split(";");
+        loginPage.loginParaBank(userDetail[0], userDetail[1]);
+        //accountServicesPage.clickUpdateProfileLink();
+        updateProfilePage.enterTxtFirstName(testData.get("first_name"));
+        updateProfilePage.enterTxtLastName(testData.get("last_name"));
+        updateProfilePage.enterTxtAddress(testData.get("address"));
+        updateProfilePage.enterTxtCity(testData.get("city"));
+        updateProfilePage.enterTxtState(testData.get("state"));
+        updateProfilePage.enterZipCode(testData.get("zipcode"));
+        updateProfilePage.clickUpdateProfileButton();
+        updateProfilePage.validatSuccesfulUpdateProfileMessage(testData.get("sucssesMessage"));
     }
 
 }

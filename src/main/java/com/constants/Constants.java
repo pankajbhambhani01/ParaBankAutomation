@@ -14,4 +14,7 @@ public class Constants {
     public static final String login = "login";
     public static final String registration = "registration";
     public static final String updateprofile = "updateprofile";
+
+    public static final String forgotpassword="forgotpassword";
+
 }
