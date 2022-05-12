@@ -11,4 +11,7 @@ public class Constants {
     public static final String properties = "properties";
     public static final String dot = ".";
     public static final String slash = "//";
+    public static final String login = "login";
+    public static final String registration = "registration";
+    public static final String updateprofile = "updateprofile";
 }

@@ -21,6 +21,9 @@ public class UpdateProfilePage {
     @FindBy(xpath = "//tr/td/b[text()='First Name:']")
     public WebElement lblFirstName ;
 
+    @FindBy(xpath = "")
+    public WebElement lblErrorFirstName ;
+
     @FindBy(xpath = "//input[@id='customer.firstName']")
     public WebElement txtFirstName ;
 
@@ -66,7 +69,7 @@ public class UpdateProfilePage {
         PageFactory.initElements(driver, this);
     }
 
-    public void validateRegistrationLabel(String updateProfileTittle){
+    public void validateUpdateLabel(String updateProfileTittle){
         Reporter.log("UpdateProfile Title will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblUpdateProfileTittle));
         Assert.assertEquals(element.getText(), updateProfileTittle);

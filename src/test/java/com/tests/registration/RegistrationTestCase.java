@@ -1,16 +1,17 @@
-package com.tests.login;
+package com.tests.registration;
 
 import org.testng.annotations.Test;
 
 public class RegistrationTestCase {
 
     @Test
-    public void TC001_ValidateRegistrationPageNavigation(){
+    public void TC001_ValidateRegistrationPageNavigation() {
         //Click On Registration Link
         //Validate The Page
     }
+
     @Test
-    public void TC002_AllFieldsValidation_Lable_Textboxes_Button(){
+    public void TC002_AllFieldsValidation_Lable_Textboxes_Button() {
         //Enter First name
         //Enter Last Name
         //Enter Address
@@ -24,8 +25,9 @@ public class RegistrationTestCase {
         //Enter Confirm
         //Click On REGISTER Button
     }
+
     @Test
-    public void TC003_AllFiledsErrorMessageValidation(){
+    public void TC003_AllFiledsErrorMessageValidation() {
         //Blank First name
         //Blank Last Name
         //Blank Address
@@ -40,8 +42,9 @@ public class RegistrationTestCase {
         //Click On REGISTER Button
         //Validate Error Message
     }
+
     @Test
-    public void TC004_SomeFiledsErrorMessageValidation(){
+    public void TC004_SomeFiledsErrorMessageValidation() {
         //Enter Text First name
         //Enter Text Last Name
         //Enter Text Address
@@ -56,9 +59,11 @@ public class RegistrationTestCase {
         //Click On REGISTER Button
         //Validate Error Message
     }
+
     @Test
-    public void TC005_Already_Used_Username_ErrorMessageValidation(){
-            //Enter All Valid Field
-           //Click On Register Button
-          // Validate Error Message
+    public void TC005_Already_Used_Username_ErrorMessageValidation() {
+        //Enter All Valid Field
+        //Click On Register Button
+        // Validate Error Message
+    }
 }

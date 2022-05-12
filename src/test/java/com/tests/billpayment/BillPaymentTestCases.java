@@ -1,4 +1,4 @@
-package com.tests.login;
+package com.tests.billpayment;
 
 import com.pages.BillPaymentServicePage;
 import com.tests.utilities.PrePost;

@@ -19,7 +19,7 @@ public class LoginTestCases extends PrePost {
     @Test(testName = "Title of your test cases from TMT")
     public void TC001_ValidateAllLablesOnLoginScreen(){
 
-        Map<String, String> testData = FileReading.readProperties("TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.login + Constants.slash + "TC001");
         LoginPage loginPage = new LoginPage(browser.getDriver());
 
         loginPage.validateSolutionsLabel(testData.get("solutions"));

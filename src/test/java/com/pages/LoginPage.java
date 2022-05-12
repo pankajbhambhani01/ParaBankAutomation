@@ -29,11 +29,11 @@ public class LoginPage {
     @FindBy(xpath = "//b[.='Username']")
     public WebElement lblUsername;
     @FindBy(xpath = "//input[@type='text'and@name='username']")
-    public WebElement txtUsernameinputbox;
+    public WebElement txtUsername;
     @FindBy(xpath = "//b[.='Password']")
     public WebElement lblPassword;
     @FindBy(xpath = "//input[@name='password']")
-    public WebElement txtpasswordinput;
+    public WebElement txtpassword;
     @FindBy(xpath = "//input[@value='Log In']")
     public WebElement btnLogIn;
     @FindBy(xpath = "//a[.='Forgot login info?']")
@@ -167,7 +167,7 @@ public class LoginPage {
 
     public void enterUserName(String UserName) {
         Reporter.log(" UserName will be entered ");
-        WebElement element = wait.until(ExpectedConditions.visibilityOf(txtUsernameinputbox));
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(txtUsername));
         element.sendKeys(UserName);
         Reporter.log(" UserName has been entered " + UserName);
     }
@@ -181,7 +181,7 @@ public class LoginPage {
 
     public void enterPassword(String Password) {
         Reporter.log("Password will be entered ");
-        WebElement element = wait.until(ExpectedConditions.visibilityOf(txtpasswordinput));
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(txtpassword));
         element.sendKeys(Password);
         Reporter.log("Password has been entered " + Password);
     }
@@ -288,15 +288,11 @@ public class LoginPage {
         Reporter.log("Adminstration PageTittle for blank username or passwaord has been verified");
     }
 
-
-
-
-
-
-
-
-
-
+    public void loginParaBank(String username, String password){
+        enterUserName(username);
+        enterPassword(password);
+        clickLoginButton();
+    }
 }
 
 

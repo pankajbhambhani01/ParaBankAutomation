@@ -1,4 +1,4 @@
-package com.tests.login;
+package com.tests.forgotpassword;
 
 import org.testng.annotations.Test;
 
