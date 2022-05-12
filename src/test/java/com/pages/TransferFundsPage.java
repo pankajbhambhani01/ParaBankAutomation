@@ -92,12 +92,19 @@ public class TransferFundsPage {
         Reporter.log("ddFromAccount is getting Verified");
         Select s = new Select(this.ddFromAccount);
         s.selectByVisibleText(ddFromAccount);
+        Reporter.log("ddFromAccount is Verified");
     }
 
     public void validateDdToAccount(String ddToAccount){
         Reporter.log("ddToAccount is getting Verified");
         WebElement dropdown = driver.findElement(By.xpath(ddToAccount));
         if (dropdown.isEnabled()&&dropdown.isDisplayed())
+        Reporter.log("ddToAccount is Verified");
+    }
+    public void selectDdToAccount(String ddToAccount){
+        Reporter.log("ddToAccount is getting Verified");
+        Select s = new Select(this.ddToAccount);
+        s.selectByVisibleText(ddToAccount);
         Reporter.log("ddToAccount is Verified");
     }
 
