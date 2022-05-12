@@ -14,11 +14,11 @@ public class LoginPage {
 
     @FindBy(xpath = "//li[@class='Solutions']")
     public WebElement SolutionsHeader;
-    @FindBy(xpath = "//a[@href='/parabank/admin.htm']")
+    @FindBy(xpath = "//ul[@class='leftmenu']//a[.='About Us']")
     public WebElement lnkAboutUs;
-    @FindBy(xpath = "//ul[@class='leftmenu']//a[@href='services.htm']")
+    @FindBy(xpath = "//ul[@class='leftmenu']//a[.='Services']")
     public WebElement lnkServices;
-    @FindBy(xpath = "//ul[@class='leftmenu']//a[@href='http://www.parasoft.com/jsp/products.jsp']")
+    @FindBy(xpath = "//ul[@class='leftmenu']//a[.='Products']")
     public WebElement lnkProducts;
     @FindBy(xpath = "//ul[@class='leftmenu']//a[.='Locations']")
     public WebElement lnkLocations;
@@ -29,17 +29,39 @@ public class LoginPage {
     @FindBy(xpath = "//b[.='Username']")
     public WebElement lblUsername;
     @FindBy(xpath = "//input[@type='text'and@name='username']")
-    public WebElement txtUsernameinputbox;
+    public WebElement txtUsername;
     @FindBy(xpath = "//b[.='Password']")
     public WebElement lblPassword;
     @FindBy(xpath = "//input[@name='password']")
-    public WebElement txtpasswordinput;
+    public WebElement txtpassword;
     @FindBy(xpath = "//input[@value='Log In']")
     public WebElement btnLogIn;
     @FindBy(xpath = "//a[.='Forgot login info?']")
     public WebElement lnkForgotlogininfo;
     @FindBy(xpath = "//a[.='Register']")
     public WebElement lnkRegister;
+    @FindBy(xpath = "//h1[@class='title']")
+    public WebElement error_tittle;
+    @FindBy(xpath = "//p[@class='error'and text()='The username and password could not be verified.']")
+    public WebElement errormessageWrong;
+    @FindBy(xpath = "//p[@class='error'and text()='Please enter a username and password.']")
+    public WebElement errormessageForBlank;
+
+    @FindBy(xpath = "//h1[@class='title'and text()='Accounts Overview']")
+    public WebElement accountOverViewTittle;
+
+    @FindBy(xpath = "//h1[@class='title'and text()='ParaSoft Demo Website'] ")
+    public WebElement parasoftPageTittle;
+
+    @FindBy(xpath = "//span[@class='heading'and text()='Available Bookstore SOAP services:'] ")
+    public WebElement servicesPageTittle;
+
+    @FindBy(xpath = "//h2[@class='text-center 'and text()='Solutions for Every Testing Need'] ")
+    public WebElement productPageTittle;
+
+
+
+
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -78,6 +100,7 @@ public class LoginPage {
         Assert.assertEquals(element.getText(), ServicesLabel);
         Reporter.log("Services Link has been verified" + element.getText());
     }
+
 
     public void clickServicesLink() {
         Reporter.log("Services Link will be clicked");
@@ -144,7 +167,7 @@ public class LoginPage {
 
     public void enterUserName(String UserName) {
         Reporter.log(" UserName will be entered ");
-        WebElement element = wait.until(ExpectedConditions.visibilityOf(txtUsernameinputbox));
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(txtUsername));
         element.sendKeys(UserName);
         Reporter.log(" UserName has been entered " + UserName);
     }
@@ -158,7 +181,7 @@ public class LoginPage {
 
     public void enterPassword(String Password) {
         Reporter.log("Password will be entered ");
-        WebElement element = wait.until(ExpectedConditions.visibilityOf(txtpasswordinput));
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(txtpassword));
         element.sendKeys(Password);
         Reporter.log("Password has been entered " + Password);
     }
@@ -204,8 +227,72 @@ public class LoginPage {
         lnkRegister.click();
         Reporter.log("RegisterLink has been clicked");
     }
+    public void validateErrorMessageTittle(String errorTittle){
+        Reporter.log("Error tittle will be verified");
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(error_tittle));
+        Assert.assertEquals(element.getText(), errorTittle);
+        Reporter.log("Error tittle has been verified");
+    }
 
+    public void validateWrongErrorMessage(String errorwrMessage){
+        Reporter.log("Error message for wrong username or passwaord will be verified");
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(errormessageWrong));
+        Assert.assertEquals(element.getText(), errorwrMessage);
+        Reporter.log("Error message for wrong username or passwaord has been verified");
+    }
 
+    public void validateBlankErrorMessage(String errorMessage){
+        Reporter.log("Error message for blank username or passwaord will be verified");
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(errormessageForBlank));
+        Assert.assertEquals(element.getText(), errorMessage);
+        Reporter.log("Error message for blank username or passwaord has been verified");
+    }
+    public void validateAccountOverViewTittle(String accountoverviewTittlelbl){
+        Reporter.log("AccountOverview tittle will be verified");
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(accountOverViewTittle));
+        Assert.assertEquals(element.getText(),accountoverviewTittlelbl);
+        Reporter.log("AccountOverview has been verified"+element.getText());
+    }
+
+    public void validateParasoftTittle(String paraSoftWebsiteTittle){
+        Reporter.log("Parasoft Tittle for blank username or passwaord will be verified");
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(parasoftPageTittle));
+        Assert.assertEquals(element.getText(), paraSoftWebsiteTittle);
+        Reporter.log("Parasoft Tittle for blank username or passwaord has been verified");
+    }
+    public void validateServicePageTittle(String ServicePageTittle){
+        Reporter.log("Services PageTittle for blank username or passwaord will be verified");
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(servicesPageTittle));
+        Assert.assertEquals(element.getText(), ServicePageTittle);
+        Reporter.log("Services PageTittle for blank username or passwaord has been verified");
+    }
+
+    public void validateProductPageTittle(String ProductPageTittle){
+        Reporter.log("Services PageTittle for blank username or passwaord will be verified");
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(productPageTittle));
+        Assert.assertEquals(element.getText(), ProductPageTittle);
+        Reporter.log("Services PageTittle for blank username or passwaord has been verified");
+    }
+
+    public void validateLocationPageTittle(String LocationPageTittle){
+        Reporter.log("Services PageTittle for blank username or passwaord will be verified");
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(productPageTittle));
+        Assert.assertEquals(element.getText(), LocationPageTittle);
+        Reporter.log("Services PageTittle for blank username or passwaord has been verified");
+    }
+
+    public void validateAdminstrationPageTittle(String AdminstrationPageTittle){
+        Reporter.log("Adminstration PageTittle for blank username or passwaord will be verified");
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(productPageTittle));
+        Assert.assertEquals(element.getText(), AdminstrationPageTittle);
+        Reporter.log("Adminstration PageTittle for blank username or passwaord has been verified");
+    }
+
+    public void loginParaBank(String username, String password){
+        enterUserName(username);
+        enterPassword(password);
+        clickLoginButton();
+    }
 }
 
 

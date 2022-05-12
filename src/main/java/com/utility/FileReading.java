@@ -10,7 +10,7 @@ import java.util.Properties;
 
 public class FileReading {
 
-    public static Map<String, String> readProperties(String filename){
+    public static Map<String, String> readProperties(String filename) {
         Properties p = new Properties();
         Map<String, String> data = new HashMap<String, String>();
         try {
@@ -18,29 +18,29 @@ public class FileReading {
             FileInputStream fileInputStream = new FileInputStream(f);
             p.load(fileInputStream);
 
-            for(Map.Entry e : p.entrySet()){
-                data.put((String)e.getKey(), (String)e.getValue());
+            for (Map.Entry e : p.entrySet()) {
+                data.put((String) e.getKey(), (String) e.getValue());
             }
 
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("There is some issue while reading the file");
         }
         return data;
     }
 
-    public static Map<String, String> readEnvironment(String env){
+    public static Map<String, String> readEnvironmentData(String env, String filename) {
         Properties p = new Properties();
         Map<String, String> data = new HashMap<String, String>();
         try {
-            File f = new File(Constants.pathTestResources +  "\\Environments\\" + Constants.env + "\\env.properties");
+            File f = new File(Constants.pathTestResources + "\\Environments\\" + env + "\\" + filename + ".properties");
             FileInputStream fileInputStream = new FileInputStream(f);
             p.load(fileInputStream);
 
-            for(Map.Entry e : p.entrySet()){
-                data.put((String)e.getKey(), (String)e.getValue());
+            for (Map.Entry e : p.entrySet()) {
+                data.put((String) e.getKey(), (String) e.getValue());
             }
 
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Issue with readEnvironment method " + e.toString());
         }
         return data;
