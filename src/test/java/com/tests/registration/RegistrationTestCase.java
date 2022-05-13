@@ -11,12 +11,13 @@ import java.util.Map;
 
 public class RegistrationTestCase {
     public class RegistrationTestCases extends PrePost {
-
         @Test
         public void TC001_ValidateAllLablesOnRegistrationScreen() {
 
             Map<String, String> testData = FileReading.readProperties(Constants.registration + Constants.slash + "TC001");
             RegistrationPage registrationPage = new RegistrationPage(browser.getDriver());
+            LoginPage loginPage=new LoginPage(browser.getDriver());
+            loginPage.clickRegisterLink();
 
             registrationPage.validateRegistrationLabel(testData.get("registration_label"));
             registrationPage.validateRegistrationText(testData.get("registration_text"));
@@ -50,17 +51,20 @@ public class RegistrationTestCase {
             //Click On REGISTER Button
             Map<String, String> testData = FileReading.readProperties(Constants.registration + Constants.slash + "TC002");
             RegistrationPage registrationPage=new RegistrationPage(browser.getDriver());
-            registrationPage.enterTxtUsername("first_name");
-            registrationPage.enterTxtLastName("last_name");
-            registrationPage.enterTxtAddress("address");
-            registrationPage.enterTxtCity("city");
-            registrationPage.enterTxtState("state");
-            registrationPage.enterZipCode("zip_code");
-            registrationPage.enterPhoneNumber("phone");
-            registrationPage.enterSSN("ssn");
-            registrationPage.enterTxtUsername("username");
-            registrationPage.enterTxtPassword("password");
-            registrationPage.enterTxtXConfirm("confirm");
+            LoginPage loginPage=new LoginPage(browser.getDriver());
+            loginPage.clickRegisterLink();
+
+            registrationPage.enterTxtUsername(testData.get("first_name"));
+            registrationPage.enterTxtLastName(testData.get("last_name"));
+            registrationPage.enterTxtAddress(testData.get("address"));
+            registrationPage.enterTxtCity(testData.get("city"));
+            registrationPage.enterTxtState(testData.get("state"));
+            registrationPage.enterZipCode(testData.get("zip_code"));
+            registrationPage.enterPhoneNumber(testData.get("phone"));
+            registrationPage.enterSSN(testData.get("ssn"));
+            registrationPage.enterTxtUsername(testData.get("username"));
+            registrationPage.enterTxtPassword(testData.get("password"));
+            registrationPage.enterTxtXConfirm(testData.get("confirm"));
             registrationPage.clickRegisterButton();
         }
 
@@ -81,39 +85,42 @@ public class RegistrationTestCase {
             //Validate Error Message
             Map<String, String> testData = FileReading.readProperties(Constants.registration + Constants.slash + "TC003");
             RegistrationPage registrationPage=new RegistrationPage(browser.getDriver());
+            LoginPage loginPage=new LoginPage(browser.getDriver());
+            loginPage.clickRegisterLink();
+
             registrationPage.clickRegisterButton();
-            registrationPage.validatedFirstNameBlankErrorMessage("first_name_is_required.");
-            registrationPage.validatedLastNameBlankErrorMessage("Last name is required.");
-            registrationPage.validatedAddressBlankErrorMessage("Address is required.");
-            registrationPage.validatedCityBlankErrorMessage("City is required.");
-            registrationPage.validatedStateBlankErrorMessage("State is Required.");
-            registrationPage.validatedZipCodeBlankErrorMessage("Zip Code is required.");
-            registrationPage.validatedSSNBlankErrorMessage("SSN is required.");
-            registrationPage.validatedUsernameBlankErrorMessage("Username is required.");
-            registrationPage.validatedPasswordBlankErrorMessage("Address is required.");
-            registrationPage.validatedConfirmBlankErrorMessage("Password confirmation is required.");
+            registrationPage.validatedFirstNameBlankErrorMessage(testData.get("first_name_is_required"));
+            registrationPage.validatedLastNameBlankErrorMessage(testData.get("last_name_is_required"));
+            registrationPage.validatedAddressBlankErrorMessage(testData.get("address_name_is_required"));
+            registrationPage.validatedCityBlankErrorMessage(testData.get("city_is_required"));
+            registrationPage.validatedStateBlankErrorMessage(testData.get("state_is_required"));
+            registrationPage.validatedZipCodeBlankErrorMessage(testData.get("zipcode_name_is_required"));
+            registrationPage.validatedSSNBlankErrorMessage(testData.get("ssn_is_required"));
+            registrationPage.validatedUsernameBlankErrorMessage(testData.get("username_is_required"));
+            registrationPage.validatedPasswordBlankErrorMessage(testData.get("password_is_required"));
+            registrationPage.validatedConfirmBlankErrorMessage(testData.get("confirm_is_required"));
 
         }
 
 
         /*@Test
-        public void TC005_Already_Used_Username_ErrorMessageValidation() {
+        public void TC004_Already_Used_Username_ErrorMessageValidation() {
             //Enter All Valid Field
             //Click On Register Button
             // Validate Error Message
-            Map<String, String> testData = FileReading.readProperties("TC001");
+            Map<String, String> testData = FileReading.readProperties(Constants.registration + Constants.slash + "TC004");
             RegistrationPage registrationPage=new RegistrationPage(browser.getDriver());
-            registrationPage.enterTxtUsername("");
-            registrationPage.enterTxtLastName("");
-            registrationPage.enterTxtAddress("");
-            registrationPage.enterTxtCity("");
-            registrationPage.enterTxtState("");
-            registrationPage.enterZipCode("");
-            registrationPage.enterPhoneNumber("");
-            registrationPage.enterSSN("");
-            registrationPage.enterTxtUsername("");
-            registrationPage.enterTxtPassword("");
-            registrationPage.enterTxtXConfirm("");
+            registrationPage.enterTxtUsername(testData.get("first_name"));
+            registrationPage.enterTxtLastName(testData.get("last_name"));
+            registrationPage.enterTxtAddress(testData.get("address"));
+            registrationPage.enterTxtCity(testData.get("city"));
+            registrationPage.enterTxtState(testData.get("state"));
+            registrationPage.enterZipCode(testData.get("zip_code"));
+            registrationPage.enterPhoneNumber(testData.get("phone"));
+            registrationPage.enterSSN(testData.get("ssn"));
+            registrationPage.enterTxtUsername(testData.get("username"));
+            registrationPage.enterTxtPassword(testData.get("password"));
+            registrationPage.enterTxtXConfirm(testData.get("confirm"));
             registrationPage.clickRegisterButton();
             //registrationPage.validateUsernameAlreadyExists("");
 
