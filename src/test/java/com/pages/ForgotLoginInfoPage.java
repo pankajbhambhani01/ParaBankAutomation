@@ -48,10 +48,31 @@ public class ForgotLoginInfoPage {
     @FindBy(xpath = "//input[@value='Find My Login Info']")
     public WebElement findMylogininfoBt;
 
+    @FindBy(xpath = "    //span[@id='firstName.errors']")
+    public WebElement FirstNameBlankMessage;
+
+    @FindBy(xpath = "//span[@id='lastName.errors']")
+    public WebElement LastNameBlankMessage;
+
+    @FindBy(xpath = "//span[@id='address.street.errors']")
+    public WebElement AddressBlankMessage;
+
+    @FindBy(xpath = "//span[@id='address.city.errors']")
+    public WebElement CityBlankMessage;
+
+    @FindBy(xpath = "//span[@id='address.state.errors']")
+    public WebElement StateBlankMessage;
+
+    @FindBy(xpath = "//span[@id='address.zipCode.errors']")
+    public WebElement ZipCodeBlankMessage;
+
+    @FindBy(xpath = "//span[@id='ssn.errors']")
+    public WebElement SSNBlankMessage;
+
 
     @FindBy(xpath = "")
-    public WebElement sucssesMessage;
-    @FindBy(xpath = "")
+    public WebElement successMessage;
+    @FindBy(xpath = "//div[@id=\"rightPanel\"]/p")
     public WebElement wrongInfoMessage;
 
 
@@ -96,6 +117,13 @@ public class ForgotLoginInfoPage {
         Reporter.log(" UserName has been entered " + FirstName);
     }
 
+    public void validatedFirstNameBlankErrorMessage(String firstNameBlankMessage){
+        Reporter.log("First Name BlankMessage will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(FirstNameBlankMessage));
+        Assert.assertEquals(element.getText(),firstNameBlankMessage);
+        Reporter.log("First Name BlankMessage has been verified" + element.getText());
+    }
+
     public void validateLASTNameLabel(String lastNameLabel){
         Reporter.log("Lastname label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblLastname));
@@ -111,6 +139,13 @@ public class ForgotLoginInfoPage {
         Reporter.log(" UserName has been entered " + LastName);
     }
 
+    public void validatedLastNameBlankErrorMessage(String lastNameBlankErrorMessage) {
+        Reporter.log("Last Name BlankMessage will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(LastNameBlankMessage));
+        Assert.assertEquals(element.getText(), lastNameBlankErrorMessage);
+        Reporter.log("Last Name BlankMessage has been verified" + element.getText());
+    }
+
     public void validateAddressLabel(String AddressLabel){
         Reporter.log("Address label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblAddress));
@@ -123,6 +158,13 @@ public class ForgotLoginInfoPage {
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtenterAddress));
         element.sendKeys(Address);
         Reporter.log(" UserName has been entered " + Address);
+    }
+
+    public void validatedAddressBlankErrorMessage(String addressErrorMessage) {
+        Reporter.log("Address Blank Error Message will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(AddressBlankMessage));
+        Assert.assertEquals(element.getText(), addressErrorMessage);
+        Reporter.log("Address Blank Error Message has been verified" + element.getText());
     }
     public void validateCityLabel(String cityLabel){
         Reporter.log("city label will be verified");
@@ -137,6 +179,12 @@ public class ForgotLoginInfoPage {
         element.sendKeys(CityName);
         Reporter.log(" UserName has been entered " + CityName);
     }
+    public void validatedCityBlankErrorMessage(String cityErrorMessage) {
+        Reporter.log("city Blank Error Message will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(CityBlankMessage));
+        Assert.assertEquals(element.getText(), cityErrorMessage);
+        Reporter.log("city Blank Error Message has been verified" + element.getText());
+    }
     public void validateStateLabel(String stateLabel){
         Reporter.log("state label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblState));
@@ -150,6 +198,15 @@ public class ForgotLoginInfoPage {
         element.sendKeys(StateName);
         Reporter.log(" UserName has been entered " + StateName);
     }
+
+    public void validatedStateBlankErrorMessage(String stateErrorMessage) {
+        Reporter.log("State Blank Error Message will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(StateBlankMessage));
+        Assert.assertEquals(element.getText(), stateErrorMessage);
+        Reporter.log("State Blank Error Message has been verified" + element.getText());
+    }
+
+    
     public void validateZipCodeLabel(String zipcodeLabel){
         Reporter.log("Zipcode label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblZipCode));
@@ -157,13 +214,18 @@ public class ForgotLoginInfoPage {
         Reporter.log("Zipcode label has been verified"+zipcodeLabel);
     }
 
-
-
     public void enterZipCode(String Zipcode) {
         Reporter.log(" UserName will be entered ");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtenterZipCode));
         element.sendKeys(Zipcode);
         Reporter.log(" UserName has been entered " + Zipcode);
+    }
+
+    public void validatedZipCodeBlankErrorMessage(String zipcodeErrorMessage) {
+        Reporter.log("Zip Code Blank Error Message will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(ZipCodeBlankMessage));
+        Assert.assertEquals(element.getText(), zipcodeErrorMessage);
+        Reporter.log("Zip Code Blank Error Message has been verified" + element.getText());
     }
     public void validateSSNLabel(String ssnLabel){
         Reporter.log("Zipcode label will be verified");
@@ -178,6 +240,13 @@ public class ForgotLoginInfoPage {
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtenterssn));
         element.sendKeys(SSN);
         Reporter.log(" UserName has been entered " + SSN);
+    }
+
+    public void validatedSSNBlankErrorMessage(String ssnErrorMessage) {
+        Reporter.log("SSN Blank Error Message will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(SSNBlankMessage));
+        Assert.assertEquals(element.getText(), ssnErrorMessage);
+        Reporter.log("SSN Blank Error Message has been verified" + element.getText());
     }
 
     public void validateFindMYLoginInfo(String findMylogininfobuttonlabel) {
@@ -197,17 +266,19 @@ public class ForgotLoginInfoPage {
     }
     public void validatforgotSucssesMessage(String sucessesmessage){
         Reporter.log("forgotSucssesMessage will be verified");
-        WebElement element = wait.until(ExpectedConditions.visibilityOf(wrongInfoMessage));
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(successMessage));
         Assert.assertEquals(element.getText(),sucessesmessage);
         Reporter.log("forgotSucssesMessage  has been verified"+sucessesmessage);
     }
 
     public void validateWrongInfoMessage(String wronginfomessage){
         Reporter.log("WrongInfoMessage will be verified");
-        WebElement element = wait.until(ExpectedConditions.visibilityOf(sucssesMessage));
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(wrongInfoMessage));
         Assert.assertEquals(element.getText(),wronginfomessage);
         Reporter.log("WrongInfoMessage  has been verified"+wronginfomessage);
     }
+
+
 
 
 

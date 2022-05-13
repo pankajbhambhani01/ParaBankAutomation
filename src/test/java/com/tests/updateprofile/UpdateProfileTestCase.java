@@ -20,9 +20,11 @@ public class UpdateProfileTestCase extends PrePost {
         AccountServicesPage accountServicesPage = new AccountServicesPage(browser.getDriver());
         UpdateProfilePage updateProfilePage = new UpdateProfilePage(browser.getDriver());
 
-        String[] userDetail = users.get("user1").split(";");
+        String[] userDetail = users.get("user2").split(";");
         loginPage.loginParaBank(userDetail[0], userDetail[1]);
         //accountServicesPage.clickUpdateProfileLink();
+        updateProfilePage.clickUpdateProfile();        //dummy
+
         updateProfilePage.validateUpdateLabel("titleUpdateProfile");
 
     }
@@ -37,6 +39,8 @@ public class UpdateProfileTestCase extends PrePost {
         String[] userDetail = users.get("user1").split(";");
         loginPage.loginParaBank(userDetail[0], userDetail[1]);
         //accountServicesPage.clickUpdateProfileLink();
+        updateProfilePage.clickUpdateProfile();        //dummy
+
         updateProfilePage.validateFirstNameLabel(testData.get("fName_lbl"));
         updateProfilePage.validateLastNameLabel(testData.get("lName_lbl"));
         updateProfilePage.validateAddressLabel(testData.get("add_lbl"));
@@ -60,6 +64,9 @@ public class UpdateProfileTestCase extends PrePost {
 
         String[] userDetail = users.get("user1").split(";");
         loginPage.loginParaBank(userDetail[0], userDetail[1]);
+
+        updateProfilePage.clickUpdateProfile();        //dummy
+
         //accountServicesPage.clickUpdateProfileLink();
         updateProfilePage.clickUpdateProfileButton();
         //validate message
@@ -75,6 +82,9 @@ public class UpdateProfileTestCase extends PrePost {
 
         String[] userDetail = users.get("user1").split(";");
         loginPage.loginParaBank(userDetail[0], userDetail[1]);
+
+        updateProfilePage.clickUpdateProfile();        //dummy
+
         //accountServicesPage.clickUpdateProfileLink();
         updateProfilePage.enterTxtFirstName(testData.get("fName_lbl"));
         updateProfilePage.enterTxtAddress(testData.get("add_lbl"));
@@ -86,7 +96,7 @@ public class UpdateProfileTestCase extends PrePost {
 
 
     }
-
+@Test
     public void TC005_validationWithSameInformation() {
         Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC001");
         LoginPage loginPage = new LoginPage(browser.getDriver());
@@ -95,7 +105,9 @@ public class UpdateProfileTestCase extends PrePost {
 
         String[] userDetail = users.get("user1").split(";");
         loginPage.loginParaBank(userDetail[0], userDetail[1]);
+
         //accountServicesPage.clickUpdateProfileLink();
+
         updateProfilePage.enterTxtFirstName(testData.get("same_Fname"));
         updateProfilePage.enterTxtLastName(testData.get("same_Lname"));
         updateProfilePage.enterTxtAddress(testData.get("same_add"));
@@ -106,7 +118,8 @@ public class UpdateProfileTestCase extends PrePost {
         updateProfilePage.validatErrorMessage(testData.get("same_error_message"));
     }
 
-    public void TC006_validationSucessfulUpdateProfile() {
+   @Test
+    public void TC006_validationSuccessfullUpdateProfile() {
         Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC001");
         LoginPage loginPage = new LoginPage(browser.getDriver());
         AccountServicesPage accountServicesPage = new AccountServicesPage(browser.getDriver());
@@ -114,6 +127,9 @@ public class UpdateProfileTestCase extends PrePost {
 
         String[] userDetail = users.get("user1").split(";");
         loginPage.loginParaBank(userDetail[0], userDetail[1]);
+
+       updateProfilePage.clickUpdateProfile();        //dummy
+
         //accountServicesPage.clickUpdateProfileLink();
         updateProfilePage.enterTxtFirstName(testData.get("first_name"));
         updateProfilePage.enterTxtLastName(testData.get("last_name"));

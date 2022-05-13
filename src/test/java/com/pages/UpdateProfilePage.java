@@ -66,6 +66,10 @@ public class UpdateProfilePage {
     public WebElement sucessMessage;
 
 
+    @FindBy(xpath = "//div[@id=\"leftPanel\"]/ul/li[6]/a")
+    public  WebElement lnkUpdateInfo;
+
+
 
 
     public UpdateProfilePage(WebDriver driver){
@@ -200,6 +204,13 @@ public class UpdateProfilePage {
         WebElement element = wait.until(ExpectedConditions.visibilityOf(sucessMessage));
         Assert.assertEquals(element.getText(),sucessesUpdateMessage);
         Reporter.log("SuccesfulUpdateProfileMessage  has been verified"+sucessesUpdateMessage);
+    }
+    public void clickUpdateProfile(){
+        Reporter.log("updateContact will be clicked");
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkUpdateInfo));
+        Reporter.log("UpdateContact Clicked");
+        element.click();
+
     }
 
 

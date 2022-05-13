@@ -86,18 +86,18 @@ public class LoginTestCases extends PrePost {
         Map<String, String> testData = FileReading.readProperties(Constants.login + Constants.slash + "TC001");
         LoginPage loginPage=new LoginPage(browser.getDriver());
         loginPage.clickForgotPasswordLink();
-        loginPage.validateCustomerLabel(testData.get("forgot_page_tittle"));
+        loginPage.validateForgotPasswordPage(testData.get("forgot_page_tittle"));
 
     }
 
     @Test
     public void TC007_validateRegisterLink(){
 
-        Map<String, String> testData = FileReading.readProperties("TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.login + Constants.slash + "TC001");
         LoginPage loginPage=new LoginPage(browser.getDriver());
         loginPage.clickRegisterLink();
        RegistrationPage registrationPage=new RegistrationPage(browser.getDriver());
-        registrationPage.validateRegistrationLabel(testData.get("register_page_tittl"));
+        registrationPage.validateRegistrationLabel(testData.get("register_page_tittle"));
 
 
     }
@@ -105,16 +105,16 @@ public class LoginTestCases extends PrePost {
     public void TC008_validateAboutusLink(){
 
 
-        Map<String, String> testData = FileReading.readProperties("TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.login + Constants.slash + "TC001");
         LoginPage loginPage=new LoginPage(browser.getDriver());
         loginPage.clickAboutUslink();
-        loginPage.validateParasoftTittle(testData.get("aboutus_page_tittle"));
+        loginPage.validateParasoftTittle(testData.get("about_us_page_tittle"));
     }
 
     @Test
     public void TC009_validateServicesLink(){
 
-        Map<String, String> testData = FileReading.readProperties("TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.login + Constants.slash + "TC001");
         LoginPage loginPage=new LoginPage(browser.getDriver());
         loginPage.clickServicesLink();
         loginPage.validateServicePageTittle(testData.get("services_page_tittle"));
@@ -124,7 +124,7 @@ public class LoginTestCases extends PrePost {
     @Test
     public void TC0010_validateProductLink(){
 
-        Map<String, String> testData = FileReading.readProperties("TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.login + Constants.slash + "TC001");
         LoginPage loginPage=new LoginPage(browser.getDriver());
         loginPage.clickProductLink();
         loginPage.validateProductPageTittle(testData.get("product_page_tittle"));
@@ -134,7 +134,7 @@ public class LoginTestCases extends PrePost {
     @Test
     public void TC0011_validateLocationsLink(){
 
-        Map<String, String> testData = FileReading.readProperties("TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.login + Constants.slash + "TC001");
         LoginPage loginPage=new LoginPage(browser.getDriver());
         loginPage.clickLocationLink();
         loginPage.validateLocationPageTittle(testData.get("location_page_tittle"));
@@ -144,10 +144,10 @@ public class LoginTestCases extends PrePost {
     @Test
     public void TC0012_validateAdminPageLink(){
 
-        Map<String, String> testData = FileReading.readProperties("TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.login + Constants.slash + "TC001");
         LoginPage loginPage=new LoginPage(browser.getDriver());
         loginPage.clickAdminPageLink();
-        loginPage.validateAdminPageLink(testData.get("admin_page_tittle"));
+        loginPage.validateAdminstrationPageTittle(testData.get("admin_page_tittle"));
 
     }
 

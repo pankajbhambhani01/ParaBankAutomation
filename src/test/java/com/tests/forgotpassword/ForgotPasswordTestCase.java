@@ -22,28 +22,25 @@ public class ForgotPasswordTestCase extends PrePost {
         LoginPage loginPage = new LoginPage(browser.getDriver());
         ForgotLoginInfoPage forgotLoginInfoPage=new ForgotLoginInfoPage(browser.getDriver());
         loginPage.clickForgotPasswordLink();
-        forgotLoginInfoPage.validateCustomerTittle("");
-
+        loginPage.validateForgotPasswordPage(testData.get("forgot_Password_page_Tittle"));
 
     }
 
     @Test
-    public void TC002_entercorrectInfoInFieldForgotPassword(){
-        //click on Forgot Password Info? Link
-        //enter All Field with correct information
-        //click on FindMylogininfoBtn
-        //validate message
+    public void TC002_enterCorrectInfoInFieldForgotPassword(){
+
         Map<String, String> testData = FileReading.readProperties(Constants.forgotpassword + Constants.slash + "TC001");
         LoginPage loginPage = new LoginPage(browser.getDriver());
         ForgotLoginInfoPage forgotLoginInfoPage=new ForgotLoginInfoPage(browser.getDriver());
         loginPage.clickForgotPasswordLink();
-        forgotLoginInfoPage.enterFirstName(testData.get("fName_lbl"));
-        forgotLoginInfoPage.enterLastName(testData.get("lName_lbl"));
-        forgotLoginInfoPage.enterAddress(testData.get("add_lbl"));
-        forgotLoginInfoPage.enterCity(testData.get("city_lbl"));
-        forgotLoginInfoPage.enterState(testData.get("state_lbl"));
-        forgotLoginInfoPage.enterZipCode(testData.get("zip_lbl"));
-        forgotLoginInfoPage.enterSSN(testData.get("ssn_lbl"));
+        forgotLoginInfoPage.enterFirstName(testData.get("Ofirst_name"));
+        forgotLoginInfoPage.enterLastName(testData.get("Olast_name"));
+        forgotLoginInfoPage.enterAddress(testData.get("Oaddress"));
+        forgotLoginInfoPage.enterCity(testData.get("Ocity"));
+        forgotLoginInfoPage.enterState(testData.get("Ostate"));
+        forgotLoginInfoPage.enterZipCode(testData.get("Ozip"));
+        forgotLoginInfoPage.enterSSN(testData.get("Ossn"));
+        forgotLoginInfoPage.clickFindMYLoginInfo();
         forgotLoginInfoPage.validatforgotSucssesMessage(testData.get("forgot_sucsses_message"));
 
     }
@@ -65,6 +62,7 @@ public class ForgotPasswordTestCase extends PrePost {
         forgotLoginInfoPage.enterState(testData.get("wrong_state"));
         forgotLoginInfoPage.enterZipCode(testData.get("wrong_zip"));
         forgotLoginInfoPage.enterSSN(testData.get("wrong_ssn"));
+        forgotLoginInfoPage.clickFindMYLoginInfo();
         forgotLoginInfoPage.validateWrongInfoMessage(testData.get("wrong_error_message"));
 
 
@@ -81,12 +79,14 @@ public class ForgotPasswordTestCase extends PrePost {
         LoginPage loginPage = new LoginPage(browser.getDriver());
         ForgotLoginInfoPage forgotLoginInfoPage = new ForgotLoginInfoPage(browser.getDriver());
         loginPage.clickForgotPasswordLink();
-        forgotLoginInfoPage.enterFirstName(testData.get(""));
-        forgotLoginInfoPage.enterAddress(testData.get(""));
-        forgotLoginInfoPage.enterCity(testData.get(""));
-        forgotLoginInfoPage.enterZipCode(testData.get(""));
-        forgotLoginInfoPage.validateFindMYLoginInfo(testData.get(""));;//wrong method
-        forgotLoginInfoPage.validateFindMYLoginInfo(testData.get(""));;//wrong method
+        forgotLoginInfoPage.enterFirstName(testData.get("Ofirst_name"));
+        forgotLoginInfoPage.enterAddress(testData.get("Oaddress"));
+        forgotLoginInfoPage.enterCity(testData.get("Ocity"));
+        forgotLoginInfoPage.enterZipCode(testData.get("Ozip"));
+        forgotLoginInfoPage.clickFindMYLoginInfo();
+        forgotLoginInfoPage.validatedLastNameBlankErrorMessage(testData.get("Last_name_error_message"));
+        forgotLoginInfoPage.validatedStateBlankErrorMessage(testData.get("state_error_message"));
+        forgotLoginInfoPage.validatedSSNBlankErrorMessage(testData.get("ssn_error_message"));
 
     }
 
@@ -100,24 +100,33 @@ public class ForgotPasswordTestCase extends PrePost {
         ForgotLoginInfoPage forgotLoginInfoPage = new ForgotLoginInfoPage(browser.getDriver());
         loginPage.clickForgotPasswordLink();
         forgotLoginInfoPage.clickFindMYLoginInfo();
-        //validate message method
+        forgotLoginInfoPage.validatedFirstNameBlankErrorMessage(testData.get("name_error_message"));
+        forgotLoginInfoPage.validatedLastNameBlankErrorMessage(testData.get("Last_name_error_message"));
+        forgotLoginInfoPage.validatedAddressBlankErrorMessage(testData.get("address_error_message"));
+        forgotLoginInfoPage.validatedCityBlankErrorMessage(testData.get("city_error_message"));
+        forgotLoginInfoPage.validatedStateBlankErrorMessage(testData.get("state_error_message"));
+        forgotLoginInfoPage.validatedZipCodeBlankErrorMessage(testData.get("zipcode_error_message"));
+        forgotLoginInfoPage.validatedSSNBlankErrorMessage(testData.get("ssn_error_message"));
+
+
+
 
     }
 
-
+@Test
     public void TC006_validateAlllabels(){
         Map<String, String> testData = FileReading.readProperties(Constants.forgotpassword + Constants.slash + "TC001");
         LoginPage loginPage = new LoginPage(browser.getDriver());
         ForgotLoginInfoPage forgotLoginInfoPage = new ForgotLoginInfoPage(browser.getDriver());
         loginPage.clickForgotPasswordLink();
-        forgotLoginInfoPage.validateCommandLine(testData.get(""));
-        forgotLoginInfoPage.validateFirstNameLabel(testData.get(""));
-        forgotLoginInfoPage.validateLASTNameLabel(testData.get(""));
-        forgotLoginInfoPage.validateAddressLabel(testData.get(""));
-        forgotLoginInfoPage.validateCityLabel(testData.get(""));
-        forgotLoginInfoPage.validateStateLabel(testData.get(""));
-        forgotLoginInfoPage.validateZipCodeLabel(testData.get(""));
-        forgotLoginInfoPage.validateSSNLabel(testData.get(""));
+        forgotLoginInfoPage.validateCommandLine(testData.get("command_line"));
+        forgotLoginInfoPage.validateFirstNameLabel(testData.get("fName_lbl"));
+        forgotLoginInfoPage.validateLASTNameLabel(testData.get("lName_lbl"));
+        forgotLoginInfoPage.validateAddressLabel(testData.get("add_lbl"));
+        forgotLoginInfoPage.validateCityLabel(testData.get("city_lbl"));
+        forgotLoginInfoPage.validateStateLabel(testData.get("state_lbl"));
+        forgotLoginInfoPage.validateZipCodeLabel(testData.get("zip_lbl"));
+        forgotLoginInfoPage.validateSSNLabel(testData.get("ssn_lbl"));
 
     }
 
