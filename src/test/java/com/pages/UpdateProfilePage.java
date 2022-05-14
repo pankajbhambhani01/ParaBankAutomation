@@ -60,14 +60,45 @@ public class UpdateProfilePage {
     @FindBy(xpath = "//input[@type='submit']")
     public WebElement btnUpdateProfile;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//div[@id=\"rightPanel\"]/div/div/h1")
     public WebElement errormessage1;
-    @FindBy(xpath = "")
-    public WebElement sucessMessage;
+
+    @FindBy(xpath = "//div[@id=\"rightPanel\"]/div/div/h1")
+    public WebElement updatedMessageTittle;
+
+    @FindBy(xpath = "//div[@id=\"rightPanel\"]/div/div/h1")
+    public WebElement successMessage;
 
 
-    @FindBy(xpath = "//div[@id=\"leftPanel\"]/ul/li[6]/a")
+
+
+
+
+    @FindBy(xpath = "//div[@id=\"leftPanel\"]/ul/li[6]/a")  ///dummy
     public  WebElement lnkUpdateInfo;
+
+
+
+    @FindBy(xpath = "    //span[@ng-if='customer && !customer.firstName']")
+    public WebElement FirstNameBlankMessage;
+
+    @FindBy(xpath = "//span[@ng-if='customer && !customer.lastName']")
+    public WebElement LastNameBlankMessage;
+
+    @FindBy(xpath = "//span[@ng-if='customer && !customer.address.street']")
+    public WebElement AddressBlankMessage;
+
+    @FindBy(xpath = "//span[@ng-if='customer && !customer.address.city']")
+    public WebElement CityBlankMessage;
+
+    @FindBy(xpath = "//span[@ng-if='customer && !customer.address.state']")
+    public WebElement StateBlankMessage;
+
+    @FindBy(xpath = "//span[@ng-if='customer && !customer.address.zipCode']")
+    public WebElement ZipCodeBlankMessage;
+
+    @FindBy(xpath = "")
+    public WebElement phoneBlankMessage;
 
 
 
@@ -199,19 +230,72 @@ public class UpdateProfilePage {
         Reporter.log("error message  has been verified"+errormessage);
     }
 
-    public void validatSuccesfulUpdateProfileMessage(String sucessesUpdateMessage){
+    public void validateSuccessfulUpdatedProfileTittle(String sucessesUpdatedTittle){
+        Reporter.log("SuccesfulUpdatedProfileTittle will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(updatedMessageTittle));
+        Assert.assertEquals(element.getText(),sucessesUpdatedTittle);
+        Reporter.log("SuccesfulUpdatedProfileTittle  has been verified"+sucessesUpdatedTittle);
+    }
+
+    public void validateSuccessfulUpdateProfileMessage(String sucessesUpdateMessage){
         Reporter.log("SuccesfulUpdateProfileMessage will be verified");
-        WebElement element = wait.until(ExpectedConditions.visibilityOf(sucessMessage));
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(successMessage));
         Assert.assertEquals(element.getText(),sucessesUpdateMessage);
         Reporter.log("SuccesfulUpdateProfileMessage  has been verified"+sucessesUpdateMessage);
     }
-    public void clickUpdateProfile(){
+
+
+    public void clickUpdateProfile(){                         ////dummy
         Reporter.log("updateContact will be clicked");
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkUpdateInfo));
         Reporter.log("UpdateContact Clicked");
         element.click();
 
     }
+
+    public void validatedFirstNameBlankErrorMessage(String firstNameBlankMessage){
+        Reporter.log("First Name BlankMessage will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(FirstNameBlankMessage));
+        Assert.assertEquals(element.getText(),firstNameBlankMessage);
+        Reporter.log("First Name BlankMessage has been verified" + element.getText());
+    }
+    public void validatedLastNameBlankErrorMessage(String lastNameBlankErrorMessage) {
+        Reporter.log("Last Name BlankMessage will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(LastNameBlankMessage));
+        Assert.assertEquals(element.getText(), lastNameBlankErrorMessage);
+        Reporter.log("Last Name BlankMessage has been verified" + element.getText());
+    }
+    public void validatedAddressBlankErrorMessage(String addressErrorMessage) {
+        Reporter.log("Address Blank Error Message will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(AddressBlankMessage));
+        Assert.assertEquals(element.getText(), addressErrorMessage);
+        Reporter.log("Address Blank Error Message has been verified" + element.getText());
+    }
+
+    public void validatedCityBlankErrorMessage(String cityErrorMessage) {
+        Reporter.log("city Blank Error Message will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(CityBlankMessage));
+        Assert.assertEquals(element.getText(), cityErrorMessage);
+        Reporter.log("city Blank Error Message has been verified" + element.getText());
+    }
+
+    public void validatedStateBlankErrorMessage(String stateErrorMessage) {
+        Reporter.log("State Blank Error Message will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(StateBlankMessage));
+        Assert.assertEquals(element.getText(), stateErrorMessage);
+        Reporter.log("State Blank Error Message has been verified" + element.getText());
+    }
+
+    public void validatedZipCodeBlankErrorMessage(String zipcodeErrorMessage) {
+        Reporter.log("Zip Code Blank Error Message will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(ZipCodeBlankMessage));
+        Assert.assertEquals(element.getText(), zipcodeErrorMessage);
+        Reporter.log("Zip Code Blank Error Message has been verified" + element.getText());
+    }
+
+
+
+
 
 
 

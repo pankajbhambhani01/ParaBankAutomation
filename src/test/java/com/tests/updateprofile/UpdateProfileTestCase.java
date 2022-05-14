@@ -69,7 +69,13 @@ public class UpdateProfileTestCase extends PrePost {
 
         //accountServicesPage.clickUpdateProfileLink();
         updateProfilePage.clickUpdateProfileButton();
-        //validate message
+        updateProfilePage.validatedFirstNameBlankErrorMessage(testData.get("name1_error_message"));
+        updateProfilePage.validatedLastNameBlankErrorMessage(testData.get("Last1_name_error_message"));
+        updateProfilePage.validatedAddressBlankErrorMessage(testData.get("address1_error_message"));
+        updateProfilePage.validatedCityBlankErrorMessage(testData.get("city_error1_message"));
+        updateProfilePage.validatedStateBlankErrorMessage(testData.get("state_error_message1"));
+        updateProfilePage.validatedZipCodeBlankErrorMessage(testData.get("zipcode_error_message1"));
+
     }
 
     @Test
@@ -87,7 +93,10 @@ public class UpdateProfileTestCase extends PrePost {
 
         //accountServicesPage.clickUpdateProfileLink();
         updateProfilePage.enterTxtFirstName(testData.get("fName_lbl"));
+        updateProfilePage.validatedLastNameBlankErrorMessage(testData.get("Last1_name_error_message"));
         updateProfilePage.enterTxtAddress(testData.get("add_lbl"));
+        updateProfilePage.validatedCityBlankErrorMessage(testData.get("city_error1_message"));
+        updateProfilePage.validatedStateBlankErrorMessage(testData.get("state_error_message1"));
         updateProfilePage.enterZipCode(testData.get("zip_lbl"));
         updateProfilePage.clickUpdateProfileButton();
         updateProfilePage.validatErrorMessage(testData.get("blank_message"));
@@ -115,7 +124,7 @@ public class UpdateProfileTestCase extends PrePost {
         updateProfilePage.enterTxtState(testData.get("same_state"));
         updateProfilePage.enterZipCode(testData.get("same_zip"));
         updateProfilePage.clickUpdateProfileButton();
-        updateProfilePage.validatErrorMessage(testData.get("same_error_message"));
+        updateProfilePage.validatErrorMessage(testData.get("same_error_message")); //defect
     }
 
    @Test
@@ -131,14 +140,16 @@ public class UpdateProfileTestCase extends PrePost {
        updateProfilePage.clickUpdateProfile();        //dummy
 
         //accountServicesPage.clickUpdateProfileLink();
-        updateProfilePage.enterTxtFirstName(testData.get("first_name"));
-        updateProfilePage.enterTxtLastName(testData.get("last_name"));
-        updateProfilePage.enterTxtAddress(testData.get("address"));
+      //  updateProfilePage.enterTxtFirstName(testData.get("first_name"));
+       // updateProfilePage.enterTxtLastName(testData.get("last_name"));
+       // updateProfilePage.enterTxtAddress(testData.get("address"));
         updateProfilePage.enterTxtCity(testData.get("city"));
-        updateProfilePage.enterTxtState(testData.get("state"));
-        updateProfilePage.enterZipCode(testData.get("zipcode"));
+       // updateProfilePage.enterTxtState(testData.get("state"));
+       updateProfilePage.enterZipCode(testData.get("zipcode"));
         updateProfilePage.clickUpdateProfileButton();
-        updateProfilePage.validatSuccesfulUpdateProfileMessage(testData.get("sucssesMessage"));
+        updateProfilePage.validateSuccessfulUpdatedProfileTittle(testData.get("updated_tittle"));
+        updateProfilePage.validateSuccessfulUpdateProfileMessage(testData.get("success_Message")); //defect
+
     }
 
 }
