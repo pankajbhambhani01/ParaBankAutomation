@@ -15,9 +15,8 @@ public class ForgotPasswordTestCase extends PrePost {
     //Abhijit raoot
 
     @Test
-    public void TC001_validateForgotPasswordLinkNavigation(){
-        //click on Forgot Password Info? Link
-        //validate Customer Page appered.
+    public void TC001_validateForgotPasswordLinkNavigation(){             //ok
+
         Map<String, String> testData = FileReading.readProperties(Constants.forgotpassword + Constants.slash + "TC001");
         LoginPage loginPage = new LoginPage(browser.getDriver());
         ForgotLoginInfoPage forgotLoginInfoPage=new ForgotLoginInfoPage(browser.getDriver());
@@ -27,7 +26,7 @@ public class ForgotPasswordTestCase extends PrePost {
     }
 
     @Test
-    public void TC002_enterCorrectInfoInFieldForgotPassword(){
+    public void TC002_enterCorrectInfoInFieldForgotPassword(){                  //ok 1d
 
         Map<String, String> testData = FileReading.readProperties(Constants.forgotpassword + Constants.slash + "TC001");
         LoginPage loginPage = new LoginPage(browser.getDriver());
@@ -41,12 +40,12 @@ public class ForgotPasswordTestCase extends PrePost {
         forgotLoginInfoPage.enterZipCode(testData.get("Ozip"));
         forgotLoginInfoPage.enterSSN(testData.get("Ossn"));
         forgotLoginInfoPage.clickFindMYLoginInfo();
-        forgotLoginInfoPage.validatforgotSucssesMessage(testData.get("forgot_sucsses_message"));
+        forgotLoginInfoPage.validatforgotSucssesMessage(testData.get("forgot_sucsses_message"));  //defect
 
     }
 
     @Test
-    public void TC003_enterWrongInfoInFieldForgotPassword(){
+    public void TC003_enterWrongInfoInFieldForgotPassword(){                  //ok
         //click on Forgot Password Info? Link
         //enter All Field with wrong information
         //click on FindMylogininfoBtn
@@ -69,11 +68,7 @@ public class ForgotPasswordTestCase extends PrePost {
     }
 
     @Test
-    public void TC004_enterSomeFieldBlankINForgotPassword() {
-        //click on Forgot Password Info? Link
-        //enter name city phonenumber Field with wrong information
-        //click on FindMylogininfoBtn
-        //validate message
+    public void TC004_enterSomeFieldBlankINForgotPassword() {             //ok
 
         Map<String, String> testData = FileReading.readProperties(Constants.forgotpassword + Constants.slash + "TC001");
         LoginPage loginPage = new LoginPage(browser.getDriver());
@@ -91,10 +86,8 @@ public class ForgotPasswordTestCase extends PrePost {
     }
 
     @Test
-    public void TC005_KeepAllFieldBlankINForgotPassword(){
-        //click on Forgot Password Info? Link
-        //click on FindMylogininfoBtn
-        //validate message
+    public void TC005_KeepAllFieldBlankINForgotPassword(){                   //ok
+
         Map<String, String> testData = FileReading.readProperties(Constants.forgotpassword + Constants.slash + "TC001");
         LoginPage loginPage = new LoginPage(browser.getDriver());
         ForgotLoginInfoPage forgotLoginInfoPage = new ForgotLoginInfoPage(browser.getDriver());
@@ -114,7 +107,7 @@ public class ForgotPasswordTestCase extends PrePost {
     }
 
 @Test
-    public void TC006_validateAlllabels(){
+    public void TC006_validateAlllabels(){                                  //ok
         Map<String, String> testData = FileReading.readProperties(Constants.forgotpassword + Constants.slash + "TC001");
         LoginPage loginPage = new LoginPage(browser.getDriver());
         ForgotLoginInfoPage forgotLoginInfoPage = new ForgotLoginInfoPage(browser.getDriver());

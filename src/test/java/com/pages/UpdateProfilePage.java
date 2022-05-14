@@ -1,7 +1,9 @@
 package com.pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -44,8 +46,9 @@ public class UpdateProfilePage {
     @FindBy(xpath = "//input[@id='customer.address.state']")
     public WebElement txtState;
 
-    @FindBy(xpath = "//tr/td/b[text()='Zipcode:']")
+    @FindBy(xpath = "//tr/td/b[text()='Zip Code:']")
     public WebElement lblZipCode;
+
 
     @FindBy(xpath = "//input[@id='customer.address.zipCode']")
     public WebElement txtZipCode;
@@ -60,13 +63,13 @@ public class UpdateProfilePage {
     @FindBy(xpath = "//input[@type='submit']")
     public WebElement btnUpdateProfile;
 
-    @FindBy(xpath = "//div[@id=\"rightPanel\"]/div/div/h1")
+    @FindBy(xpath = "//div[@id='rightPanel']/div/div/h1")
     public WebElement errormessage1;
 
-    @FindBy(xpath = "//div[@id=\"rightPanel\"]/div/div/h1")
+    @FindBy(xpath = "//div[@id='rightPanel']/div/div/h1")
     public WebElement updatedMessageTittle;
 
-    @FindBy(xpath = "//div[@id=\"rightPanel\"]/div/div/h1")
+    @FindBy(xpath = "//div[@id='rightPanel']/div/div/p")
     public WebElement successMessage;
 
 
@@ -74,7 +77,7 @@ public class UpdateProfilePage {
 
 
 
-    @FindBy(xpath = "//div[@id=\"leftPanel\"]/ul/li[6]/a")  ///dummy
+    @FindBy(xpath = "//div[@id='leftPanel']/ul/li[6]/a")  ///dummy
     public  WebElement lnkUpdateInfo;
 
 
@@ -107,6 +110,9 @@ public class UpdateProfilePage {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 60);
         PageFactory.initElements(driver, this);
+
+        Actions actions=new Actions(driver);
+
     }
 
     public void validateUpdateLabel(String updateProfileTittle){
@@ -131,6 +137,15 @@ public class UpdateProfilePage {
         Reporter.log("First Name has been entered " + firstName);
     }
 
+    public void clearTxtFirstName(){
+        Reporter.log("First Name will be cleared");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(txtFirstName));
+        Actions actions=new Actions(driver);
+        actions.click(txtFirstName).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.BACK_SPACE).build().perform();
+
+        Reporter.log("First Name has been cleared " );
+    }
+
     public void validateLastNameLabel(String LastNameLabel){
         Reporter.log("Lastname  label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblLastName));
@@ -138,11 +153,22 @@ public class UpdateProfilePage {
         Reporter.log("Lastname  label has been verified"+LastNameLabel);
     }
 
+
+
     public void enterTxtLastName(String lastName){
         Reporter.log("Last Name will be entered");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtLastName));
         element.sendKeys(lastName);
         Reporter.log("Last Name has been entered " + lastName);
+    }
+
+    public void clearTxtLastName(){
+        Reporter.log("Last Name will be cleared");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(txtLastName));
+        Actions actions=new Actions(driver);
+        actions.click(txtLastName).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.BACK_SPACE).build().perform();
+
+        Reporter.log("Last Name has been cleared " );
     }
 
     public void validateAddressLabel(String addressLabel){
@@ -157,6 +183,15 @@ public class UpdateProfilePage {
         element.sendKeys(address);
         Reporter.log("Address has been entered " + address);
     }
+
+    public void clearTxtAddress(){
+        Reporter.log("Address will be cleared");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(txtAddress));
+        Actions actions=new Actions(driver);
+        actions.click(txtAddress).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.BACK_SPACE).build().perform();
+
+        Reporter.log("Address Name has been cleared " );
+    }
     public void validatecityLabel(String cityLabel){
         Reporter.log("City label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblCity));
@@ -168,6 +203,15 @@ public class UpdateProfilePage {
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtCity));
         element.sendKeys(city);
         Reporter.log("CityName has been entered " + city);
+    }
+
+    public void clearTxtCity(){
+        Reporter.log("city will be cleared");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(txtCity));
+        Actions actions=new Actions(driver);
+        actions.click(txtCity).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.BACK_SPACE).build().perform();
+
+        Reporter.log("City Name has been cleared " );
     }
 
     public void validateStateLabel(String stateLabel){
@@ -182,6 +226,14 @@ public class UpdateProfilePage {
         element.sendKeys(state);
         Reporter.log("State has been entered " + state);
     }
+    public void clearTxtState(){
+        Reporter.log("State will be cleared");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(txtState));
+        Actions actions=new Actions(driver);
+        actions.click(txtState).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.BACK_SPACE).build().perform();
+
+        Reporter.log("State Name has been cleared " );
+    }
     public void validateZipcode(String zipcodeLabel){
         Reporter.log("ZipCode label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblZipCode));
@@ -193,6 +245,15 @@ public class UpdateProfilePage {
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtZipCode));
         element.sendKeys(zipCode);
         Reporter.log("ZipCode has been entered " + zipCode);
+    }
+
+    public void clearTxtZipCode(){
+        Reporter.log("Zipcode will be cleared");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(txtZipCode));
+        Actions actions=new Actions(driver);
+        actions.click(txtZipCode).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.BACK_SPACE).build().perform();
+
+        Reporter.log("zipcode Name has been cleared " );
     }
 
     public void validatePhoneNumber(String phoneNumberLabel){
@@ -292,6 +353,13 @@ public class UpdateProfilePage {
         Assert.assertEquals(element.getText(), zipcodeErrorMessage);
         Reporter.log("Zip Code Blank Error Message has been verified" + element.getText());
     }
+    public void validatedPhoneNumberBlankErrorMessage(String phoneErrorMessage) {
+        Reporter.log("phone Blank Error Message will be verified");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(phoneBlankMessage));
+        Assert.assertEquals(element.getText(), phoneErrorMessage);
+        Reporter.log("phone Blank Error Message has been verified" + element.getText());
+    }
+
 
 
 
