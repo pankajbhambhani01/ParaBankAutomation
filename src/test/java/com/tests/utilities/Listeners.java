@@ -9,6 +9,7 @@ import org.testng.Reporter;
 public class Listeners implements ITestListener {
     public void onTestStart(ITestResult iTestResult) {
         Reporter.log("Test cases has started " + iTestResult.getName());
+        Constants.currentTCName = iTestResult.getName();
     }
 
     public void onTestSuccess(ITestResult iTestResult) {
@@ -36,6 +37,5 @@ public class Listeners implements ITestListener {
     }
 
     public void onFinish(ITestContext iTestContext) {
-
     }
 }

@@ -2,3 +2,4 @@
 target/
 test-output/
 ParaBankAutomation.iml
+src/test/resources/ScreenShots/*

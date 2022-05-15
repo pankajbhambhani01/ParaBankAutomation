@@ -3,6 +3,7 @@ package com.constants;
 public class Constants {
     public static String browser ="";
     public static String env = "qa";
+    public static String currentTCName = "";
     public static final String pathTestResources = "src/test/resources/";
     public static final String pathMainResources = "src/main/resources/";
     public static int passedCount = 0;

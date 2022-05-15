@@ -33,6 +33,11 @@
             <scope>test</scope>
             <!-- scope tell compiler where these dependencies belongs to-->
         </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commonio}</version>
+        </dependency>
     </dependencies>
 
     <build>

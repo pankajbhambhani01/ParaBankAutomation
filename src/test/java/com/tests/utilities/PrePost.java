@@ -3,10 +3,15 @@ package com.tests.utilities;
 import com.constants.Constants;
 import com.utility.Browser;
 import com.utility.FileReading;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
+import java.io.File;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,6 +47,20 @@ public class PrePost {
 
     @AfterTest
     public void afterTest() {
+        takeScreenShot();
         this.browser.close();
+    }
+
+    public void takeScreenShot() {
+        TakesScreenshot screenshot = ((TakesScreenshot) browser.getDriver());
+        File srcScreenShot = screenshot.getScreenshotAs(OutputType.FILE);
+        String date = (new Date()).toString();
+        date = date.replaceAll(":", "_").replaceAll(" ", "_");
+        File desScreenShot = new File("src/test/resources/ScreenShots/" + "SS_" + Constants.currentTCName + "_" + date + ".png");
+        try {
+            FileUtils.copyFile(srcScreenShot, desScreenShot);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
     }
 }
