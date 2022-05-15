@@ -18,8 +18,8 @@ public class RegistrationPage {
     @FindBy(xpath = "//h1[@class='title'and text()='Signing up is easy!']")
     public WebElement lblRegistrationHeader;
 
-    @FindBy(xpath = "//*[@id='rightPanel']/p/text()")
-   // @FindBy(xpath = "//div[@id=\"rightPanel\"]//p")
+    //@FindBy(xpath = "//*[@id='rightPanel']/p/text()")
+    @FindBy(xpath = "//div[@id=\"rightPanel\"]//p")
     public WebElement RegistrationText;
 
     @FindBy(xpath = "//tr/td/b[text()='First Name:']")
@@ -336,7 +336,7 @@ public class RegistrationPage {
     public void validateRegisterButtonLabel(String registerbtnlabel){
         Reporter.log("Register Button label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(btnRegister));
-        Assert.assertEquals(element.getText(),registerbtnlabel);
+        Assert.assertEquals(element.getAttribute("value"),registerbtnlabel);
         Reporter.log("Register Button label has been verified"+ element.getText());
     }
     public void clickRegisterButton(){

@@ -10,8 +10,8 @@ import org.testng.annotations.Test;
 import java.util.Date;
 import java.util.Map;
 
-public class RegistrationTestCase {
-    public class RegistrationTestCases extends PrePost {
+
+    public class RegistrationTestCase extends PrePost {
         @Test
         public void TC001_ValidateAllLablesOnRegistrationScreen() {
 
@@ -54,11 +54,11 @@ public class RegistrationTestCase {
             RegistrationPage registrationPage=new RegistrationPage(browser.getDriver());
             LoginPage loginPage=new LoginPage(browser.getDriver());
             loginPage.clickRegisterLink();
-            Date d = new Date();
+            /*Date d = new Date();
             long ss = d.getTime();
-            String user = "User_" + ss;
+            String user = "User_" + ss;*/
 
-            registrationPage.enterTxtUsername(testData.get("first_name"));
+            registrationPage.enterTxtFirstName(testData.get("first_name"));
             registrationPage.enterTxtLastName(testData.get("last_name"));
             registrationPage.enterTxtAddress(testData.get("address"));
             registrationPage.enterTxtCity(testData.get("city"));
@@ -66,11 +66,11 @@ public class RegistrationTestCase {
             registrationPage.enterZipCode(testData.get("zip_code"));
             registrationPage.enterPhoneNumber(testData.get("phone"));
             registrationPage.enterSSN(testData.get("ssn"));
-            registrationPage.enterTxtUsername(user);
+            registrationPage.enterTxtUsername(testData.get("username"));
             registrationPage.enterTxtPassword(testData.get("password"));
             registrationPage.enterTxtXConfirm(testData.get("confirm"));
             registrationPage.clickRegisterButton();
-            //
+
         }
 
         @Test
@@ -108,14 +108,17 @@ public class RegistrationTestCase {
         }
 
 
-        /*@Test
+        @Test
         public void TC004_Already_Used_Username_ErrorMessageValidation() {
             //Enter All Valid Field
             //Click On Register Button
             // Validate Error Message
             Map<String, String> testData = FileReading.readProperties(Constants.registration + Constants.slash + "TC004");
             RegistrationPage registrationPage=new RegistrationPage(browser.getDriver());
-            registrationPage.enterTxtUsername(testData.get("first_name"));
+            LoginPage loginPage=new LoginPage(browser.getDriver());
+            loginPage.clickRegisterLink();
+
+            registrationPage.enterTxtFirstName(testData.get("first_name"));
             registrationPage.enterTxtLastName(testData.get("last_name"));
             registrationPage.enterTxtAddress(testData.get("address"));
             registrationPage.enterTxtCity(testData.get("city"));
@@ -127,8 +130,7 @@ public class RegistrationTestCase {
             registrationPage.enterTxtPassword(testData.get("password"));
             registrationPage.enterTxtXConfirm(testData.get("confirm"));
             registrationPage.clickRegisterButton();
-            //registrationPage.validateUsernameAlreadyExists("");
+            registrationPage.validatedUsernameBlankErrorMessage(testData.get("username_is_required"));
 
-        }*/
+        }
     }
-}
