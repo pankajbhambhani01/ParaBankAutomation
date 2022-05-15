@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 
+import static org.testng.Assert.assertEquals;
+
 public class TransferFundsPage {
     //Prashant G
 
@@ -19,13 +21,19 @@ public class TransferFundsPage {
 
 
     @FindBy(xpath = "//*[@id='leftPanel']/ul/li/a[@href='/parabank/transfer.htm']")
-    public WebElement lnkTransferFunds;
+    public WebElement lblTransferFunds;
+
+    @FindBy(xpath = "//*[@id='leftPanel']/ul/li/a[@href='/parabank/transfer.htm']")
+    public WebElement txtTransferFunds;
 
     @FindBy(xpath = "//*[@id='rightPanel']/div/div/h1[@class='title']")
-    public WebElement txtTitle;
+    public WebElement lblTitle;
 
     @FindBy(xpath = "//form[@ng-submit='submit()']/p/input[@id='amount']")
-    public WebElement amount;
+    public WebElement lblAmount;
+
+    @FindBy(xpath = "//form[@ng-submit='submit()']/p/input[@id='amount']")
+    public WebElement txtAmount;
 
     @FindBy(xpath = "//form[@ng-submit='submit()']/div/select[@id='fromAccountId']")
     public WebElement ddFromAccount ;
@@ -45,40 +53,40 @@ public class TransferFundsPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void validateTransferFunds(String lnkTransferFunds){
+    public void validateLblTransferFunds(String lblTransferFunds){
         Reporter.log("Transfer Fund Title will verified ");
-        WebElement element = wait.until(ExpectedConditions.visibilityOf(this.lnkTransferFunds));
-        Assert.assertEquals(element.getText(), lnkTransferFunds);
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(this.lblTransferFunds));
+        assertEquals(element.getText(), lblTransferFunds);
         Reporter.log("Transfer Fund Title has been verified " + element.getText());
     }
 
     public void clickTransferFunds (){
         Reporter.log("Transfer Fund Link is getting clicked" );
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkTransferFunds));
-        lnkTransferFunds.click();
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(this.txtTransferFunds));
+        txtTransferFunds.click();
         Reporter.log("Transfer Fund Link has been clicked" );
 
     }
 
-    public void validateTitle (String txtTitle){
+    public void validateTitle (String lblTitle){
         Reporter.log("Transfer Fund Title is getting verified");
-        WebElement element = wait.until(ExpectedConditions.visibilityOf(this.txtTitle));
-        Assert.assertEquals(element.getText(), txtTitle);
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(this.lblTitle));
+        assertEquals(element.getText(), lblTitle);
         Reporter.log("Transfer Fund Title has been verified " + element.getText());
 
     }
 
-    public void validateAmount(String amount){
+    public void validatelblAmount(String lblAmount){
         Reporter.log("Validating Visibility of Amount input :" );
-        WebElement element=wait.until(ExpectedConditions.visibilityOf(this.amount));
-        Assert.assertEquals(element.getText(), amount);
+        WebElement element=wait.until(ExpectedConditions.visibilityOf(this.lblAmount));
+        assertEquals(element.getText(), lblAmount);
         Reporter.log("input amount field Validated as " + element.getText());
     }
 
-    public void clickInputAmount(){
+    public void clickInputTxtAmount(){
         Reporter.log("Amount input field getting verified : " );
-        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(amount));
-        amount.click();
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(txtAmount));
+        txtAmount.click();
         Reporter.log("Amount input field is Clickable : " );
     }
 
@@ -111,13 +119,11 @@ public class TransferFundsPage {
     public void validateBtnTransfer(String btnTransfer){
         Reporter.log("TRANSFER button is getting verified");
         WebElement element=wait.until(ExpectedConditions.visibilityOf(this.btnTransfer));
-        Assert.assertEquals(element.getText(),  btnTransfer);
+        assertEquals(element.getText(),  btnTransfer);
         Reporter.log("TRANSFER button has verified" + element.getText());
     }
 
-
-
-    public void clickLoginButton(){
+    public void clickBtnTransfer(){
         Reporter.log("TRANSFER button is getting clicked");
         WebElement element=wait.until(ExpectedConditions.elementToBeClickable(btnTransfer));
         btnTransfer.click();
