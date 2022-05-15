@@ -26,6 +26,8 @@ public class LoginPage {
     public WebElement lnkAdminPage;
     @FindBy(xpath = "//h2[text()='Customer Login']")
     public WebElement lblCustomerLogin;
+    @FindBy(xpath = "//div[@id=\"rightPanel\"]/h1")
+    public WebElement lblForgotPage;
     @FindBy(xpath = "//b[.='Username']")
     public WebElement lblUsername;
     @FindBy(xpath = "//input[@type='text'and@name='username']")
@@ -36,8 +38,8 @@ public class LoginPage {
     public WebElement txtpassword;
     @FindBy(xpath = "//input[@value='Log In']")
     public WebElement btnLogIn;
-    @FindBy(xpath = "//a[.='Forgot login info?']")
-    public WebElement lnkForgotlogininfo;
+    @FindBy(xpath = "//div[@id=\"loginPanel\"]/p[1]/a")
+    public WebElement lnkForgotLoginInfo;
     @FindBy(xpath = "//a[.='Register']")
     public WebElement lnkRegister;
     @FindBy(xpath = "//h1[@class='title']")
@@ -56,8 +58,10 @@ public class LoginPage {
     @FindBy(xpath = "//span[@class='heading'and text()='Available Bookstore SOAP services:'] ")
     public WebElement servicesPageTittle;
 
-    @FindBy(xpath = "//h2[@class='text-center 'and text()='Solutions for Every Testing Need'] ")
+    @FindBy(xpath = "/html/body/header/div[2]/div/div[1]/a/img ")
     public WebElement productPageTittle;
+    @FindBy(xpath = "//div[@id='rightPanel']/h1 ")
+    public WebElement adminPageTittle;
 
 
 
@@ -202,16 +206,23 @@ public class LoginPage {
 
     public void validateForgotPasswordLink(String ForgotLoginlabel) {
         Reporter.log("ForgotPasswordLink will be verified");
-        WebElement element = wait.until(ExpectedConditions.visibilityOf(lnkForgotlogininfo));
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(lnkForgotLoginInfo));
         Assert.assertEquals(element.getText(), ForgotLoginlabel);
         Reporter.log("ForgotPasswordLink has been verified" + element.getText());
     }
 
     public void clickForgotPasswordLink() {
         Reporter.log("ForgotPasswordLink will be clicked");
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkForgotlogininfo));
-        lnkForgotlogininfo.click();
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkForgotLoginInfo));
+        element.click();
         Reporter.log("ForgotPasswordLink has been clicked");
+    }
+
+    public void validateForgotPasswordPage(String CustomerLabel) {
+        Reporter.log("ForGotPage Title will be verified ");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(lblForgotPage));
+        Assert.assertEquals(element.getText(), CustomerLabel);
+        Reporter.log("forGotPage Title has been verified " + element.getText());
     }
 
     public void validateRegisterLink(String RegisterLinklable) {
@@ -249,19 +260,19 @@ public class LoginPage {
     }
     public void validateAccountOverViewTittle(String accountoverviewTittlelbl){
         Reporter.log("AccountOverview tittle will be verified");
-        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(accountOverViewTittle));
+        WebElement element=wait.until(ExpectedConditions.visibilityOf(accountOverViewTittle));
         Assert.assertEquals(element.getText(),accountoverviewTittlelbl);
         Reporter.log("AccountOverview has been verified"+element.getText());
     }
 
     public void validateParasoftTittle(String paraSoftWebsiteTittle){
-        Reporter.log("Parasoft Tittle for blank username or passwaord will be verified");
+        Reporter.log("Parasoft Tittle for blank username or password will be verified");
         WebElement element=wait.until(ExpectedConditions.elementToBeClickable(parasoftPageTittle));
         Assert.assertEquals(element.getText(), paraSoftWebsiteTittle);
-        Reporter.log("Parasoft Tittle for blank username or passwaord has been verified");
+        Reporter.log("Parasoft Tittle for blank username or password has been verified");
     }
     public void validateServicePageTittle(String ServicePageTittle){
-        Reporter.log("Services PageTittle for blank username or passwaord will be verified");
+        Reporter.log("Services PageTittle for blank username or password will be verified");
         WebElement element=wait.until(ExpectedConditions.elementToBeClickable(servicesPageTittle));
         Assert.assertEquals(element.getText(), ServicePageTittle);
         Reporter.log("Services PageTittle for blank username or passwaord has been verified");
@@ -282,10 +293,10 @@ public class LoginPage {
     }
 
     public void validateAdminstrationPageTittle(String AdminstrationPageTittle){
-        Reporter.log("Adminstration PageTittle for blank username or passwaord will be verified");
-        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(productPageTittle));
+        Reporter.log("Adminstration PageTittle for blank username or password will be verified");
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(adminPageTittle));
         Assert.assertEquals(element.getText(), AdminstrationPageTittle);
-        Reporter.log("Adminstration PageTittle for blank username or passwaord has been verified");
+        Reporter.log("Adminstration PageTittle for blank username or password has been verified");
     }
 
     public void loginParaBank(String username, String password){

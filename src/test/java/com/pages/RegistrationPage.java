@@ -15,7 +15,7 @@ public class RegistrationPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    @FindBy(tagName="h1")
+    @FindBy(xpath = "//h1[@class='title'and text()='Signing up is easy!']")
     public WebElement lblRegistrationHeader;
 
     @FindBy(xpath = "//*[@id='rightPanel']/p/text()")
