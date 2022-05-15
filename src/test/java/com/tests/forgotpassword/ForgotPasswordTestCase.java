@@ -28,7 +28,7 @@ public class ForgotPasswordTestCase extends PrePost {
     @Test
     public void TC002_enterCorrectInfoInFieldForgotPassword(){                  //ok 1d
 
-        Map<String, String> testData = FileReading.readProperties(Constants.forgotpassword + Constants.slash + "TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.forgotpassword + Constants.slash + "TC002");
         LoginPage loginPage = new LoginPage(browser.getDriver());
         ForgotLoginInfoPage forgotLoginInfoPage=new ForgotLoginInfoPage(browser.getDriver());
         loginPage.clickForgotPasswordLink();
@@ -50,7 +50,7 @@ public class ForgotPasswordTestCase extends PrePost {
         //enter All Field with wrong information
         //click on FindMylogininfoBtn
         //validate message
-        Map<String, String> testData = FileReading.readProperties(Constants.forgotpassword + Constants.slash + "TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.forgotpassword + Constants.slash + "TC003");
         LoginPage loginPage = new LoginPage(browser.getDriver());
         ForgotLoginInfoPage forgotLoginInfoPage=new ForgotLoginInfoPage(browser.getDriver());
         loginPage.clickForgotPasswordLink();
@@ -70,25 +70,28 @@ public class ForgotPasswordTestCase extends PrePost {
     @Test
     public void TC004_enterSomeFieldBlankINForgotPassword() {             //ok
 
-        Map<String, String> testData = FileReading.readProperties(Constants.forgotpassword + Constants.slash + "TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.forgotpassword + Constants.slash + "TC004");
         LoginPage loginPage = new LoginPage(browser.getDriver());
         ForgotLoginInfoPage forgotLoginInfoPage = new ForgotLoginInfoPage(browser.getDriver());
         loginPage.clickForgotPasswordLink();
-        forgotLoginInfoPage.enterFirstName(testData.get("Ofirst_name"));
-        forgotLoginInfoPage.enterAddress(testData.get("Oaddress"));
-        forgotLoginInfoPage.enterCity(testData.get("Ocity"));
-        forgotLoginInfoPage.enterZipCode(testData.get("Ozip"));
+        forgotLoginInfoPage.enterFirstName(testData.get("Ofirst_name4"));
+        forgotLoginInfoPage.enterAddress(testData.get("Oaddress4"));
+        forgotLoginInfoPage.enterCity(testData.get("Ocity4"));
+        forgotLoginInfoPage.enterZipCode(testData.get("Ozip4"));
+
         forgotLoginInfoPage.clickFindMYLoginInfo();
-        forgotLoginInfoPage.validatedLastNameBlankErrorMessage(testData.get("Last_name_error_message"));
-        forgotLoginInfoPage.validatedStateBlankErrorMessage(testData.get("state_error_message"));
-        forgotLoginInfoPage.validatedSSNBlankErrorMessage(testData.get("ssn_error_message"));
+        forgotLoginInfoPage.validatedLastNameBlankErrorMessage(testData.get("Last_name_error_message4"));
+        forgotLoginInfoPage.validatedStateBlankErrorMessage(testData.get("state_error_message4"));
+        forgotLoginInfoPage.validatedSSNBlankErrorMessage(testData.get("ssn_error_message4"));
+
+
 
     }
 
     @Test
     public void TC005_KeepAllFieldBlankINForgotPassword(){                   //ok
 
-        Map<String, String> testData = FileReading.readProperties(Constants.forgotpassword + Constants.slash + "TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.forgotpassword + Constants.slash + "TC005");
         LoginPage loginPage = new LoginPage(browser.getDriver());
         ForgotLoginInfoPage forgotLoginInfoPage = new ForgotLoginInfoPage(browser.getDriver());
         loginPage.clickForgotPasswordLink();
@@ -108,7 +111,7 @@ public class ForgotPasswordTestCase extends PrePost {
 
 @Test
     public void TC006_validateAlllabels(){                                  //ok
-        Map<String, String> testData = FileReading.readProperties(Constants.forgotpassword + Constants.slash + "TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.forgotpassword + Constants.slash + "TC006");
         LoginPage loginPage = new LoginPage(browser.getDriver());
         ForgotLoginInfoPage forgotLoginInfoPage = new ForgotLoginInfoPage(browser.getDriver());
         loginPage.clickForgotPasswordLink();
@@ -120,6 +123,7 @@ public class ForgotPasswordTestCase extends PrePost {
         forgotLoginInfoPage.validateStateLabel(testData.get("state_lbl"));
         forgotLoginInfoPage.validateZipCodeLabel(testData.get("zip_lbl"));
         forgotLoginInfoPage.validateSSNLabel(testData.get("ssn_lbl"));
+        forgotLoginInfoPage.validateFindMYLoginInfoBtn(testData.get("forgot_Login_Info"));
 
     }
 

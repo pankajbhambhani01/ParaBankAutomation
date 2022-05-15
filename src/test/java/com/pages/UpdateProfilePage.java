@@ -140,7 +140,8 @@ public class UpdateProfilePage {
     public void clearTxtFirstName(){
         Reporter.log("First Name will be cleared");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtFirstName));
-        Actions actions=new Actions(driver);
+        element.clear();
+       Actions actions=new Actions(driver);
         actions.click(txtFirstName).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.BACK_SPACE).build().perform();
 
         Reporter.log("First Name has been cleared " );
@@ -165,6 +166,7 @@ public class UpdateProfilePage {
     public void clearTxtLastName(){
         Reporter.log("Last Name will be cleared");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtLastName));
+        //element.clear();
         Actions actions=new Actions(driver);
         actions.click(txtLastName).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.BACK_SPACE).build().perform();
 
@@ -187,6 +189,7 @@ public class UpdateProfilePage {
     public void clearTxtAddress(){
         Reporter.log("Address will be cleared");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtAddress));
+       // element.clear();
         Actions actions=new Actions(driver);
         actions.click(txtAddress).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.BACK_SPACE).build().perform();
 
@@ -208,8 +211,9 @@ public class UpdateProfilePage {
     public void clearTxtCity(){
         Reporter.log("city will be cleared");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtCity));
-        Actions actions=new Actions(driver);
-        actions.click(txtCity).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.BACK_SPACE).build().perform();
+       // element.clear();
+       Actions actions=new Actions(driver);
+      actions.click(txtCity).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.BACK_SPACE).build().perform();
 
         Reporter.log("City Name has been cleared " );
     }
@@ -229,8 +233,9 @@ public class UpdateProfilePage {
     public void clearTxtState(){
         Reporter.log("State will be cleared");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtState));
-        Actions actions=new Actions(driver);
-        actions.click(txtState).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.BACK_SPACE).build().perform();
+      //  element.clear();
+    Actions actions=new Actions(driver);
+      actions.click(txtState).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.BACK_SPACE).build().perform();
 
         Reporter.log("State Name has been cleared " );
     }
@@ -250,6 +255,7 @@ public class UpdateProfilePage {
     public void clearTxtZipCode(){
         Reporter.log("Zipcode will be cleared");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(txtZipCode));
+      //  element.clear();
         Actions actions=new Actions(driver);
         actions.click(txtZipCode).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.BACK_SPACE).build().perform();
 
@@ -274,7 +280,7 @@ public class UpdateProfilePage {
     public void validateUpdateButtonLabel(String updatebtnlabel){
         Reporter.log("UpdateProfile  label will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(btnUpdateProfile));
-        Assert.assertEquals(element.getText(),updatebtnlabel);
+        Assert.assertEquals(element.getAttribute("value"),updatebtnlabel);
         Reporter.log("UpdateProfile  label has been verified"+updatebtnlabel);
     }
     public void clickUpdateProfileButton(){

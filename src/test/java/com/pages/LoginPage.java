@@ -58,7 +58,7 @@ public class LoginPage {
     @FindBy(xpath = "//span[@class='heading'and text()='Available Bookstore SOAP services:'] ")
     public WebElement servicesPageTittle;
 
-    @FindBy(xpath = "/html/body/header/div[2]/div/div[1]/a/img ")
+    @FindBy(xpath = "//li[@id='menu-item-21524'] ")
     public WebElement productPageTittle;
     @FindBy(xpath = "//div[@id='rightPanel']/h1 ")
     public WebElement adminPageTittle;
@@ -193,7 +193,7 @@ public class LoginPage {
     public void validateLoginButton(String Loginbuttonlabel) {
         Reporter.log("LoginButton will be verified");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(btnLogIn));
-        Assert.assertEquals(element.getText(), Loginbuttonlabel);
+        Assert.assertEquals(element.getAttribute("value"), Loginbuttonlabel);
         Reporter.log("LoginButton has verified" + element.getText());
     }
 
