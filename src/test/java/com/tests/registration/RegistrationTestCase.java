@@ -66,6 +66,7 @@ public class RegistrationTestCase {
             registrationPage.enterTxtPassword(testData.get("password"));
             registrationPage.enterTxtXConfirm(testData.get("confirm"));
             registrationPage.clickRegisterButton();
+            //
         }
 
         @Test
