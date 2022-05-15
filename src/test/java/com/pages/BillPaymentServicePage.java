@@ -60,7 +60,16 @@ public class BillPaymentServicePage {
     public WebElement fromAccountId;
     @FindBy(className="button")
     public WebElement btnSendPayment;
-
+    @FindBy(name="paymentSuccessfullTitle")
+    public WebElement paymentsuccessfullTitle;
+    @FindBy(name="errorMessage")
+    public WebElement errorMessage;
+    @FindBy(name="emptyTextFields")
+    public WebElement emptyTextFields;
+    @FindBy(name="sendpaymentnotClick")
+    public WebElement sendpaymentnotClick;
+    @FindBy(name="allFields")
+    public WebElement allFields;
 
     public BillPaymentServicePage(WebDriver driver){
         this.driver = driver;
@@ -94,7 +103,7 @@ public class BillPaymentServicePage {
 
     }
     public void validateAddress(String addressLabel){
-        Reporter.log("Adress will be verified:");
+        Reporter.log("Address will be verified:");
         WebElement element = wait.until(ExpectedConditions.visibilityOf((lblAddress)));
         Assert.assertEquals(element.getText(),addressLabel);
         Reporter.log("Address has been verified:"+element.getText());
@@ -153,7 +162,7 @@ public class BillPaymentServicePage {
         Reporter.log("Phone number will be verified:");
         WebElement element= wait.until(ExpectedConditions.visibilityOf(lblPhoneNumber));
         Assert.assertEquals(element.getText(),phonenumberLabel);
-        Reporter.log("Phone Number has been verified:"+element.getText());
+        Reporter.log("Phone number has been verified:"+element.getText());
     }
 
         public void enterPhoneNumber(String phonenumber)
@@ -204,6 +213,7 @@ public class BillPaymentServicePage {
         Reporter.log("From account Id will be verified:");
         WebElement element = wait.until(ExpectedConditions.visibilityOf(lblFromAccountId));
         Assert.assertEquals(element.getText(),fromAccountIdLabel);
+        Reporter.log("From account Id has been verified:"+element.getText());
     }
     public void enterFromAccount(String fromaccount){
         Reporter.log("From account will be entered:");
@@ -211,19 +221,49 @@ public class BillPaymentServicePage {
         element.sendKeys(fromaccount);
         Reporter.log("From Account has been entered:"+fromaccount);
     }
-    public void validateSendPaymentButton(String btnSendPay){
-        Reporter.log("Send Payment button will be verified:");
+    public void validateSendPaymentButtonLabel(String lblSendPay){
+        Reporter.log("Send Payment label will be verified:");
         WebElement element= wait.until(ExpectedConditions.visibilityOf(btnSendPayment));
-        Reporter.log("Send payment button has been verified:");
-        btnSendPayment.click();
-    }
-    public void clickSendPaymentButton(String btnSendpayment){
-        Reporter.log("Send Payment button will be clicked");
-        WebElement element = wait.until(ExpectedConditions.visibilityOf(btnSendPayment));
-        element.sendKeys(btnSendpayment);
-        Reporter.log("Send Payment button  clicked:"+btnSendPayment);
-        btnSendPayment.click();
+        Assert.assertEquals(element.getText(),lblSendPay);
+        Reporter.log("Send payment label has been verified:"+element.getText());
 
+    }
+    public void clickSendPaymentButton() {
+        Reporter.log("Send Payment button will be clicked");
+        WebElement element= wait.until(ExpectedConditions.visibilityOf(btnSendPayment));
+        Reporter.log("Send Payment button  clicked:");
+        element.click();
+    }
+     public void validatePaymentSuccessfullyTitle(String paymentsuccesfullTitlelbl){
+         Reporter.log("Payment Successfully Title will be verified:");
+         WebElement element =wait.until(ExpectedConditions.visibilityOf(paymentsuccessfullTitle));
+         Assert.assertEquals(element.getText(),paymentsuccesfullTitlelbl);
+         Reporter.log("Payment Successfully Title has been verified:"+element.getText());
+
+    }
+    public void validateErrorMessage(String errorMessageTitle){
+        Reporter.log("Error message will be verified:");
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(errorMessage));
+        Assert.assertEquals(element.getText(),errorMessageTitle);
+        Reporter.log("Error message has been verified:"+element.getText());
+    }
+    public void validateEmptyTextFieldsMessage(String emptytextFields){
+        Reporter.log("Empty text fields will be verified:");
+        WebElement element =wait.until(ExpectedConditions.visibilityOf(emptyTextFields));
+        Assert.assertEquals(element.getText(),emptytextFields);
+        Reporter.log("Empty text fields has been verified:"+element.getText());
+    }
+    public void validateSendPaymentButtonNotClickabel(String btnNotClick){
+        Reporter.log("Send Payment button will not be verified:");
+        WebElement element =wait.until(ExpectedConditions.visibilityOf(sendpaymentnotClick));
+        Assert.assertEquals(element.getText(),btnNotClick);
+        Reporter.log("Send Payment button has not verified:"+element.getText());
+    }
+    public void validateAllFieldsMessage(String allFieldsLabel){
+        Reporter.log("All fields will be verified:");
+        WebElement element=wait.until(ExpectedConditions.visibilityOf(allFields));
+        Assert.assertEquals(element.getText(),allFieldsLabel);
+        Reporter.log("All fields has been verified:"+element.getText());
     }
 
     }
