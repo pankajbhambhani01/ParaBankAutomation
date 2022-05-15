@@ -21,29 +21,28 @@ public class AccountServicesPage {
     public WebElement lblAccountServices;
 
     @FindBy(xpath = "//a[@href='/parabank/openaccount.htm']")
-    public WebElement OpenNewAccount;
+    public WebElement lnkOpenNewAccount;
 
     @FindBy(xpath = "//a[@href='/parabank/overview.htm']")
-    public WebElement AccountsOverView;
+    public WebElement lnkAccountsOverView;
 
     @FindBy(xpath = "//a[@href='/parabank/transfer.htm']")
-    public WebElement TransferFunds;
+    public WebElement lnkTransferFunds;
 
     @FindBy(xpath = "//a[@href='/parabank/billpay.htm']")
-    public WebElement BillPay;
+    public WebElement lnkBillPay;
 
     @FindBy(xpath = "//a[@href='/parabank/findtrans.htm']")
-    public WebElement FindTransaction;
+    public WebElement lnkFindTransaction;
 
     @FindBy(xpath = "//a[@href='/parabank/updateprofile.htm']")
-    public WebElement UpdateContactInformation;
+    public WebElement lnkUpdateContactInformation;
 
     @FindBy(xpath = "//a[@href='/parabank/requestloan.htm']")
-    public WebElement RequestLoan;
+    public WebElement lnkRequestLoan;
 
     @FindBy(xpath = "//a[@href='/parabank/logout.htm']")
-    public WebElement Logout;
-
+    public WebElement lnkLogout;
 
     public AccountServicesPage(WebDriver driver) {
         this.driver = driver;
@@ -56,67 +55,94 @@ public class AccountServicesPage {
         Reporter.log("Account Services Label is Verify" + element.getText());
     }
     public void ValidateOpenNewAccountLink(String opennewaccount) {
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(OpenNewAccount));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkOpenNewAccount));
         Assert.assertEquals(element.getText(), opennewaccount);
         Reporter.log("Open New Account Link is Verify :" + element.getText());
     }
-    public void ClickOpenNewAccount() {
+    public void ClickOpenNewAccountLink() {
+        Reporter.log("Open New Account Link will be Clicked");
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkOpenNewAccount));
+        lnkOpenNewAccount.click();
+        Reporter.log("Open New Account Link is Click");
 
     }
     public void ValidateAccountsOverviewLink(String accountoverview) {
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(AccountsOverView));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkAccountsOverView));
         Assert.assertEquals(element.getText(), accountoverview);
         Reporter.log("Accounts Overview Link is Verify :" + element.getText());
     }
-    public void ClickAccountsOverview() {
+    public void ClickAccountsOverviewLink() {
+        Reporter.log("Accounts Overview Link will be clicked");
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkAccountsOverView));
+        lnkAccountsOverView.click();
+        Reporter.log("Accounts Overview Link is Click");
 
     }
     public void ValidateTransferfundsLink(String trasnferfunds) {
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(TransferFunds));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkTransferFunds));
         Assert.assertEquals(element.getText(), trasnferfunds);
         Reporter.log("Transfer funds Link is Verify :" + element.getText());
     }
-    public void ClickTransferfunds(){
-
+    public void ClickTransferfundsLink(){
+        Reporter.log("Transfer Funds Link will be clicked");
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkTransferFunds));
+        lnkTransferFunds.click();
+        Reporter.log("Transfer Funds Link is Click");
     }
     public void ValidateBillpayLink(String billpay) {
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(BillPay));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkBillPay));
         Assert.assertEquals(element.getText(), billpay);
         Reporter.log("Bill Pay Link is Verify :" + element.getText());
     }
-    public void ClickBillpay(){
-
+    public void ClickBillpayLink(){
+        Reporter.log("Bill Pay Link will be clicked");
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkBillPay));
+        lnkBillPay.click();
+        Reporter.log("Bill Pay Link is Click");
     }
     public void ValidateFindtransactionsLink(String findtransactions){
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(FindTransaction));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkFindTransaction));
         Assert.assertEquals(element.getText(),findtransactions);
         Reporter.log("Find Transaction Link is verify :" +element.getText());
     }
-    public void ClickFindtransactions(){
-
+    public void ClickFindtransactionsLink(){
+        Reporter.log("Find Transaction Link will be clicked");
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkFindTransaction));
+        lnkFindTransaction.click();
+        Reporter.log("Find Transaction Link is Click");
     }
     public void ValidateupdatecontactinfoLink(String updatecontactdetails){
-        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(UpdateContactInformation));
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(lnkUpdateContactInformation));
         Assert.assertEquals(element.getText(),updatecontactdetails);
         Reporter.log("Update Contact Info Link is Verify :" +element.getText());
     }
-    public void ClickUpdateContactInfo(){
+    public void ClickUpdateContactInfoLink(){
+        Reporter.log("Update Contact Information Link will be clicked");
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkUpdateContactInformation));
+        lnkUpdateContactInformation.click();
+        Reporter.log("Update Contact Information Link is Click");
 
     }
     public void ValidateRequestLoanLink(String requestloan){
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(RequestLoan));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkRequestLoan));
         Assert.assertEquals(element.getText(),requestloan);
         Reporter.log("Request Loan Link is Verify :"+ element.getText());
     }
-    public void ClickRequestLoan(){
-
+    public void ClickRequestLoanLink(){
+        Reporter.log("Request Loan Link will be clicked");
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkRequestLoan));
+        lnkRequestLoan.click();
+        Reporter.log("Request Loan Link is Click");
     }
     public void ValidateLogoutLink(String logout){
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(Logout));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkLogout));
         Assert.assertEquals(element.getText(),logout);
         Reporter.log("Logout link is verify :" + element.getText());
     }
-    public void ClickLogout(){
-
+    public void ClickLogoutLink(){
+        Reporter.log("Logout Link will be clicked");
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkLogout));
+        lnkLogout.click();
+        Reporter.log("Logout Link is Click");
     }
 }
