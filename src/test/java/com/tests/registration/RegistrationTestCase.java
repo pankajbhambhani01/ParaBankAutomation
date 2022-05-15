@@ -7,6 +7,7 @@ import com.tests.utilities.PrePost;
 import com.utility.FileReading;
 import org.testng.annotations.Test;
 
+import java.util.Date;
 import java.util.Map;
 
 public class RegistrationTestCase {
@@ -53,6 +54,9 @@ public class RegistrationTestCase {
             RegistrationPage registrationPage=new RegistrationPage(browser.getDriver());
             LoginPage loginPage=new LoginPage(browser.getDriver());
             loginPage.clickRegisterLink();
+            Date d = new Date();
+            long ss = d.getTime();
+            String user = "User_" + ss;
 
             registrationPage.enterTxtUsername(testData.get("first_name"));
             registrationPage.enterTxtLastName(testData.get("last_name"));
@@ -62,7 +66,7 @@ public class RegistrationTestCase {
             registrationPage.enterZipCode(testData.get("zip_code"));
             registrationPage.enterPhoneNumber(testData.get("phone"));
             registrationPage.enterSSN(testData.get("ssn"));
-            registrationPage.enterTxtUsername(testData.get("username"));
+            registrationPage.enterTxtUsername(user);
             registrationPage.enterTxtPassword(testData.get("password"));
             registrationPage.enterTxtXConfirm(testData.get("confirm"));
             registrationPage.clickRegisterButton();
