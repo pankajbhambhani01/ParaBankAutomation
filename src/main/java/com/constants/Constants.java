@@ -18,4 +18,5 @@ public class Constants {
     public static final String forgotpassword="forgotpassword";
     public static final String transferfunds = "transferfunds";
     public static final String billpaymentservice="billpaymentservice";
+	public static final String atmservices = "atmservices";
 }
