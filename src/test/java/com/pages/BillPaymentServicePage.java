@@ -42,7 +42,7 @@ public class BillPaymentServicePage {
     public WebElement lblPhoneNumber;
     @FindBy(id="payee.phoneNumber")
     public WebElement phoneNumber;
-    @FindBy(name="payee.accpuntNumber")
+    @FindBy(name="payee.accountNumber")
     public WebElement lblAccountNumber;
     @FindBy(name="payee.accountNumber")
     public WebElement accountNumber;
@@ -70,12 +70,41 @@ public class BillPaymentServicePage {
     public WebElement sendpaymentnotClick;
     @FindBy(name="allFields")
     public WebElement allFields;
+    @FindBy(name="payee.name.error")
+    public WebElement payeeNameEmptyMessage;
+    @FindBy(name="payee.address.street.error")
+    public WebElement addressEmptyMessage;
+    @FindBy(name="payee.address.city.error")
+    public WebElement cityEmptyMessage;
+    @FindBy(name="payee.address.state.error")
+    public WebElement stateEmptyMessage;
+    @FindBy(name="payee.address.zipCode.error")
+    public WebElement zipCodeEmptyMessage;
+    @FindBy(name="payee.phone.error")
+    public WebElement phoneEmptyMessage;
+    @FindBy(name="payee.accountNumber.error")
+    public WebElement accountNumberEmptyMessage;
+    @FindBy(name="verifyAccountNumber.error")
+    public WebElement verifyAccountNumberEmptyMessage;
+    @FindBy(name="amount.error")
+    public WebElement amountEmptyMessage;
+    @FindBy(name="fromAccountId.error")
+    public WebElement fromAccountIDEmptyMessage;
+   // @FindBy(id="Bill Pay")
+    //public WebElement billPayLabel;
+
 
     public BillPaymentServicePage(WebDriver driver){
         this.driver = driver;
         this.wait =new WebDriverWait(driver,60);
         PageFactory.initElements(driver,this);
 
+    }
+    public void clickBillPayLabel(String lblbillPay){
+        Reporter.log("Bill Pay label will be verified:");
+        WebElement element=wait.until(ExpectedConditions.visibilityOf(lblBillPay));
+        Assert.assertEquals(element.getText(),lblbillPay);
+        Reporter.log("Bill pay label has been verified:"+element.getText());
     }
     public void validateBillPayLabel(String billPayLabel){
         Reporter.log("Bill Pay Title will be verified:");
@@ -265,5 +294,71 @@ public class BillPaymentServicePage {
         Assert.assertEquals(element.getText(),allFieldsLabel);
         Reporter.log("All fields has been verified:"+element.getText());
     }
+    public void validatePayeeNameEmptyMessageError(String payeeName){
+        Reporter.log("Payee name required will be verified:");
+        WebElement element=wait.until(ExpectedConditions.visibilityOf(payeeNameEmptyMessage));
+        Assert.assertEquals(element.getText(),payeeName);
+        Reporter.log("Payee name required has been verified:"+element.getText());
+    }
+    public void validateAddressEmptyMessageError(String emptyAddress){
+        Reporter.log("Address required will be verified:");
+        WebElement element=wait.until(ExpectedConditions.visibilityOf(addressEmptyMessage));
+        Assert.assertEquals(element.getText(),emptyAddress);
+        Reporter.log("Address required has been verified:"+element.getText());
 
     }
+    public void validateCityEmptyMessageError(String emptyCity){
+        Reporter.log("City required will be verified:");
+        WebElement element=wait.until(ExpectedConditions.visibilityOf(cityEmptyMessage));
+        Assert.assertEquals(element.getText(),emptyCity);
+        Reporter.log("City required has been verified:"+element.getText());
+    }
+    public void validateStateEmptyMessageError(String emptyState){
+        Reporter.log("State required will be verified:");
+        WebElement element=wait.until(ExpectedConditions.visibilityOf(stateEmptyMessage));
+        Assert.assertEquals(element.getText(),emptyState);
+        Reporter.log("State required has been verified:"+element.getText());
+
+    }
+    public void validateZipCodeEmptyMessageError(String emptyZipCode){
+        Reporter.log("ZipCode required will be verified:");
+        WebElement element=wait.until(ExpectedConditions.visibilityOf(zipCodeEmptyMessage));
+        Assert.assertEquals(element.getText(),emptyZipCode);
+        Reporter.log("ZipCode required has been verified:"+element.getText());
+
+    }
+    public void validatePhoneNumberEmptyMessage(String emptyPhone){
+        Reporter.log("Phone number required will be verified:");
+        WebElement element=wait.until(ExpectedConditions.visibilityOf(phoneEmptyMessage));
+        Assert.assertEquals(element.getText(),emptyPhone);
+        Reporter.log("Phone number required has been verified:"+element.getText());
+    }
+    public void validateAccountEmptyMessage(String emptyAccount){
+        Reporter.log("Account number required will be verified:");
+        WebElement element=wait.until(ExpectedConditions.visibilityOf(accountNumberEmptyMessage));
+        Assert.assertEquals(element.getText(),emptyAccount);
+        Reporter.log("Account number required has been verified:"+element.getText());
+    }
+    public void validateVerifyAccountEmptyMessage(String emptyVerifyAccount){
+        Reporter.log("Verify account required will be verified:");
+        WebElement element=wait.until(ExpectedConditions.visibilityOf(verifyAccountNumberEmptyMessage));
+        Assert.assertEquals(element.getText(),emptyVerifyAccount);
+        Reporter.log("Verify account required has been verified:"+element.getText());
+    }
+    public void validateAmountEmptyMessage(String emptyAmount){
+        Reporter.log("Amount required will be verified:");
+        WebElement element=wait.until(ExpectedConditions.visibilityOf(amountEmptyMessage));
+        Assert.assertEquals(element.getText(),emptyAmount);
+        Reporter.log("Amount required has been verified:"+element.getText());
+    }
+    public void validateFromAccountEmptyMessage(String emptyFromAccount){
+        Reporter.log("From account required will be verified:");
+        WebElement element=wait.until(ExpectedConditions.visibilityOf(fromAccountIDEmptyMessage));
+        Assert.assertEquals(element.getText(),emptyFromAccount);
+        Reporter.log("From account required has been verified:"+element.getText());
+    }
+
+
+
+    }
+
