@@ -249,10 +249,10 @@ public class ForgotLoginInfoPage {
         Reporter.log("SSN Blank Error Message has been verified" + element.getText());
     }
 
-    public void validateFindMYLoginInfo(String findMylogininfobuttonlabel) {
+    public void validateFindMYLoginInfoBtn(String findMylogininfobuttonlabel) {
         Reporter.log("FindMylogininfoBtnLbl will be verified");
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(findMylogininfoBt));
-        Assert.assertEquals(element.getText(), findMylogininfobuttonlabel);
+        Assert.assertEquals(element.getAttribute("value"), findMylogininfobuttonlabel);
         Reporter.log("FindMylogininfoBtnLbl has been verified" + findMylogininfobuttonlabel);
 
 

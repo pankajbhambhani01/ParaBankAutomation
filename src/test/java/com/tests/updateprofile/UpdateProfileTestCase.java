@@ -22,7 +22,7 @@ public class UpdateProfileTestCase extends PrePost {
 
         String[] userDetail = users.get("user2").split(";");
         loginPage.loginParaBank(userDetail[0], userDetail[1]);
-        //accountServicesPage.clickUpdateProfileLink();
+       // accountServicesPage.clickUpdateProfileLink();
         updateProfilePage.clickUpdateProfile();        //dummy
 
         updateProfilePage.validateUpdateLabel(testData.get("titleUpdateProfile"));
@@ -31,7 +31,7 @@ public class UpdateProfileTestCase extends PrePost {
 
     @Test
     public void TC002_allFieldValidation() {                      //ok   1p
-        Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC002");
         LoginPage loginPage = new LoginPage(browser.getDriver());
         AccountServicesPage accountServicesPage = new AccountServicesPage(browser.getDriver());
         UpdateProfilePage updateProfilePage = new UpdateProfilePage(browser.getDriver());
@@ -57,7 +57,7 @@ public class UpdateProfileTestCase extends PrePost {
 
     @Test
     public void TC003_allFiledValidationErrorMessage() {        //ok
-        Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC003");
         LoginPage loginPage = new LoginPage(browser.getDriver());
         AccountServicesPage accountServicesPage = new AccountServicesPage(browser.getDriver());
         UpdateProfilePage updateProfilePage = new UpdateProfilePage(browser.getDriver());
@@ -67,21 +67,20 @@ public class UpdateProfileTestCase extends PrePost {
 
         updateProfilePage.clickUpdateProfile();        //dummy
 
-        //accountServicesPage.clickUpdateProfileLink();
+       // accountServicesPage.clickUpdateProfileLink();
         updateProfilePage.clearTxtFirstName();
-        updateProfilePage.clearTxtLastName();
-        updateProfilePage.clearTxtAddress();
-        updateProfilePage.clearTxtCity();
-        updateProfilePage.clearTxtState();
-        updateProfilePage.clearTxtZipCode();
-
         updateProfilePage.validatedFirstNameBlankErrorMessage(testData.get("name1_error_message"));
+        updateProfilePage.clearTxtLastName();
         updateProfilePage.validatedLastNameBlankErrorMessage(testData.get("Last1_name_error_message"));
+        updateProfilePage.clearTxtAddress();
         updateProfilePage.validatedAddressBlankErrorMessage(testData.get("address1_error_message"));
+        updateProfilePage.clearTxtCity();
         updateProfilePage.validatedCityBlankErrorMessage(testData.get("city_error1_message"));
+        updateProfilePage.clearTxtState();
         updateProfilePage.validatedStateBlankErrorMessage(testData.get("state_error_message1"));
+        updateProfilePage.clearTxtZipCode();
         updateProfilePage.validatedZipCodeBlankErrorMessage(testData.get("zipcode_error_message1"));
-       // updateProfilePage.validatedPhoneNumberBlankErrorMessage(testData.get(""));  //no error message
+        // updateProfilePage.validatedPhoneNumberBlankErrorMessage(testData.get(""));  //no error message
        updateProfilePage.clickUpdateProfileButton();
 
     }
@@ -89,7 +88,7 @@ public class UpdateProfileTestCase extends PrePost {
     @Test
     public void TC004_someFieldBlank() {            //ok  1d
 
-        Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC004");
         LoginPage loginPage = new LoginPage(browser.getDriver());
         AccountServicesPage accountServicesPage = new AccountServicesPage(browser.getDriver());
         UpdateProfilePage updateProfilePage = new UpdateProfilePage(browser.getDriver());
@@ -100,14 +99,14 @@ public class UpdateProfileTestCase extends PrePost {
         updateProfilePage.clickUpdateProfile();        //dummy
 
         //accountServicesPage.clickUpdateProfileLink();
-        updateProfilePage.enterTxtFirstName(testData.get("same_Fname"));
-        updateProfilePage.validatedLastNameBlankErrorMessage(testData.get("Last1_name_error_message"));
-        updateProfilePage.enterTxtAddress(testData.get("same_add"));
-        updateProfilePage.validatedCityBlankErrorMessage(testData.get("city_error1_message"));
-        updateProfilePage.validatedStateBlankErrorMessage(testData.get("state_error_message1"));
-        updateProfilePage.enterZipCode(testData.get("same_zip"));
+        updateProfilePage.enterTxtFirstName(testData.get("same4_Fname"));
+        updateProfilePage.validatedLastNameBlankErrorMessage(testData.get("Last4_name_error_message"));
+        updateProfilePage.enterTxtAddress(testData.get("same4_add"));
+        updateProfilePage.validatedCityBlankErrorMessage(testData.get("city_error4_message"));
+        updateProfilePage.validatedStateBlankErrorMessage(testData.get("state4_error_message"));
+        updateProfilePage.enterZipCode(testData.get("same4_zip"));
         updateProfilePage.clickUpdateProfileButton();
-        updateProfilePage.validatErrorMessage(testData.get("blank2_message"));  //updated after blank textbox
+        updateProfilePage.validatErrorMessage(testData.get("blank4_message"));  //updated after blank textbox
 
 
 
@@ -115,7 +114,7 @@ public class UpdateProfileTestCase extends PrePost {
     }
 @Test
     public void TC005_validationWithSameInformation() {         //ok   1d
-        Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC005");
         LoginPage loginPage = new LoginPage(browser.getDriver());
         AccountServicesPage accountServicesPage = new AccountServicesPage(browser.getDriver());
         UpdateProfilePage updateProfilePage = new UpdateProfilePage(browser.getDriver());
@@ -139,7 +138,7 @@ public class UpdateProfileTestCase extends PrePost {
 
    @Test
     public void TC006_validationSuccessfullUpdateProfile() throws InterruptedException {     //ok  1d
-        Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC001");
+        Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC006");
         LoginPage loginPage = new LoginPage(browser.getDriver());
         AccountServicesPage accountServicesPage = new AccountServicesPage(browser.getDriver());
         UpdateProfilePage updateProfilePage = new UpdateProfilePage(browser.getDriver());
