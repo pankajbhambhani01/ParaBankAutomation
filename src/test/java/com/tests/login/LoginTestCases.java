@@ -1,17 +1,13 @@
 package com.tests.login;
 
 import com.constants.Constants;
+import com.pages.AccountOverViewPage;
 import com.pages.LoginPage;
 import com.pages.RegistrationPage;
 import com.tests.utilities.PrePost;
-import com.utility.Browser;
 import com.utility.FileReading;
-import org.testng.Reporter;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class LoginTestCases extends PrePost {
@@ -152,13 +148,18 @@ public class LoginTestCases extends PrePost {
     }
 
     @Test
-    public void TC0013(){
+    public void TC0013_ValidateAccountOverviewPage(){
+        Map<String, String> testData = FileReading.readProperties(Constants.login + Constants.slash + "TC013");
         LoginPage loginPage=new LoginPage(browser.getDriver());
-        String[] userDetail = users.get("user3").split(";");
+        String[] userDetail = users.get("user2").split(";");
+        AccountOverViewPage accountOverViewPage =new AccountOverViewPage(browser.getDriver());
+
         loginPage.loginParaBank(userDetail[0], userDetail[1]);
-        loginPage.clickAccountLink();
-        loginPage.validateColoums("Date Transaction Debit (-) Credit (+)");
-        loginPage.validateTransactions("$12121.00", 1);
+
+        accountOverViewPage.validateAccountNumber(testData.get("account"));
+        accountOverViewPage.clickAccountLink();
+        accountOverViewPage.validateColoums(testData.get("header"));
+        accountOverViewPage.validateTransactions("$300000.00", 1);
 
     }
 

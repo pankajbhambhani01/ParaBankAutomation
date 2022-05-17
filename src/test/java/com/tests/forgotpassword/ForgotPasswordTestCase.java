@@ -25,7 +25,7 @@ public class ForgotPasswordTestCase extends PrePost {
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void TC002_enterCorrectInfoInFieldForgotPassword(){                  //ok 1d
 
         Map<String, String> testData = FileReading.readProperties(Constants.forgotpassword + Constants.slash + "TC002");
@@ -40,7 +40,7 @@ public class ForgotPasswordTestCase extends PrePost {
         forgotLoginInfoPage.enterZipCode(testData.get("Ozip"));
         forgotLoginInfoPage.enterSSN(testData.get("Ossn"));
         forgotLoginInfoPage.clickFindMYLoginInfo();
-        forgotLoginInfoPage.validatforgotSucssesMessage(testData.get("forgot_sucsses_message"));  //defect
+        forgotLoginInfoPage.validatforgotSucssesMessage(testData.get("forgot_success_message"));  //defect
 
     }
 
