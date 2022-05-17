@@ -7,8 +7,10 @@
         <listener class-name="com.tests.utilities.Listeners"/>
     </listeners>
     <test name = "Regression">
-      <packages>
-          <package name="com.tests.*"/>
-      </packages>
+      <classes>
+          <class name="com.tests.login.LoginTestCases"></class>
+          
+
+      </classes>
     </test>
 </suite>
