@@ -1,5 +1,7 @@
 package com.pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,8 +11,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class LoginPage {
     // Abhijit R
+
+    private WebDriver driver;
+    private WebDriverWait wait;
+    private JavascriptExecutor js;
 
     @FindBy(xpath = "//li[@class='Solutions']")
     public WebElement SolutionsHeader;
@@ -63,16 +73,24 @@ public class LoginPage {
     @FindBy(xpath = "//div[@id='rightPanel']/h1 ")
     public WebElement adminPageTittle;
 
+    // ------------------------------------------
+    @FindBy(xpath = "//a[contains(@href,'activity.htm?id=')]")
+    public WebElement lnkAccount;
 
+    @FindBy(id = "transactionTable")
+    public WebElement tblTransactions;
 
+    @FindBy(xpath = "//*[@id='transactionTable']//tr")
+    public List<WebElement> tblTransactionsRows;
 
-    private WebDriver driver;
-    private WebDriverWait wait;
+    @FindBy(xpath = "//*[@id='transactionTable']//tr/th")
+    public List<WebElement> tblTransactionsHeaders;
 
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 60);
+        this.js = (JavascriptExecutor) driver;
         PageFactory.initElements(driver, this);
     }
 
@@ -94,7 +112,10 @@ public class LoginPage {
     public void clickAboutUslink() {
         Reporter.log("Aboutus Link will be clicked");
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lnkAboutUs));
-        lnkAboutUs.click();
+        //element.click();
+        js.executeScript("argument[0].click()", element); // to click any specific element
+        //js.executeScript("window.scrollBy(0,600)")// scroll by 600 px
+        //String TitleName = js.executeScript("return document.title;").toString(); // to get the browser title
         Reporter.log("Aboutus Link has been clicked");
     }
 
@@ -238,71 +259,124 @@ public class LoginPage {
         lnkRegister.click();
         Reporter.log("RegisterLink has been clicked");
     }
-    public void validateErrorMessageTittle(String errorTittle){
+
+    public void validateErrorMessageTittle(String errorTittle) {
         Reporter.log("Error tittle will be verified");
-        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(error_tittle));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(error_tittle));
         Assert.assertEquals(element.getText(), errorTittle);
         Reporter.log("Error tittle has been verified");
     }
 
-    public void validateWrongErrorMessage(String errorwrMessage){
+    public void validateWrongErrorMessage(String errorwrMessage) {
         Reporter.log("Error message for wrong username or passwaord will be verified");
-        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(errormessageWrong));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(errormessageWrong));
         Assert.assertEquals(element.getText(), errorwrMessage);
         Reporter.log("Error message for wrong username or passwaord has been verified");
     }
 
-    public void validateBlankErrorMessage(String errorMessage){
+    public void validateBlankErrorMessage(String errorMessage) {
         Reporter.log("Error message for blank username or passwaord will be verified");
-        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(errormessageForBlank));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(errormessageForBlank));
         Assert.assertEquals(element.getText(), errorMessage);
         Reporter.log("Error message for blank username or passwaord has been verified");
     }
-    public void validateAccountOverViewTittle(String accountoverviewTittlelbl){
+
+    public void validateAccountOverViewTittle(String accountoverviewTittlelbl) {
         Reporter.log("AccountOverview tittle will be verified");
-        WebElement element=wait.until(ExpectedConditions.visibilityOf(accountOverViewTittle));
-        Assert.assertEquals(element.getText(),accountoverviewTittlelbl);
-        Reporter.log("AccountOverview has been verified"+element.getText());
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(accountOverViewTittle));
+        Assert.assertEquals(element.getText(), accountoverviewTittlelbl);
+        Reporter.log("AccountOverview has been verified" + element.getText());
     }
 
-    public void validateParasoftTittle(String paraSoftWebsiteTittle){
+    public void validateParasoftTittle(String paraSoftWebsiteTittle) {
         Reporter.log("Parasoft Tittle for blank username or password will be verified");
-        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(parasoftPageTittle));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(parasoftPageTittle));
         Assert.assertEquals(element.getText(), paraSoftWebsiteTittle);
         Reporter.log("Parasoft Tittle for blank username or password has been verified");
     }
-    public void validateServicePageTittle(String ServicePageTittle){
+
+    public void validateServicePageTittle(String ServicePageTittle) {
         Reporter.log("Services PageTittle for blank username or password will be verified");
-        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(servicesPageTittle));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(servicesPageTittle));
         Assert.assertEquals(element.getText(), ServicePageTittle);
         Reporter.log("Services PageTittle for blank username or passwaord has been verified");
     }
 
-    public void validateProductPageTittle(String ProductPageTittle){
+    public void validateProductPageTittle(String ProductPageTittle) {
         Reporter.log("Services PageTittle for blank username or passwaord will be verified");
-        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(productPageTittle));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(productPageTittle));
         Assert.assertEquals(element.getText(), ProductPageTittle);
         Reporter.log("Services PageTittle for blank username or passwaord has been verified");
     }
 
-    public void validateLocationPageTittle(String LocationPageTittle){
+    public void validateLocationPageTittle(String LocationPageTittle) {
         Reporter.log("Services PageTittle for blank username or passwaord will be verified");
-        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(productPageTittle));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(productPageTittle));
         Assert.assertEquals(element.getText(), LocationPageTittle);
         Reporter.log("Services PageTittle for blank username or passwaord has been verified");
     }
 
-    public void validateAdminstrationPageTittle(String AdminstrationPageTittle){
+    public void validateAdminstrationPageTittle(String AdminstrationPageTittle) {
         Reporter.log("Adminstration PageTittle for blank username or password will be verified");
-        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(adminPageTittle));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(adminPageTittle));
         Assert.assertEquals(element.getText(), AdminstrationPageTittle);
         Reporter.log("Adminstration PageTittle for blank username or password has been verified");
     }
 
-    public void loginParaBank(String username, String password){
+    public void loginParaBank(String username, String password) {
         enterUserName(username);
         enterPassword(password);
         clickLoginButton();
+    }
+
+    public void clickAccountLink() {
+        lnkAccount.click();
+    }
+
+    public void validateAccountNumber(String accountNumber) {
+        Assert.assertEquals(lnkAccount.getText(), accountNumber);
+    }
+
+    public void validateColoums(String cols) {// Date;Transaction;Debit (-);Credit (+)
+       /* List<String> headers = new ArrayList<>();
+        for (WebElement e : tblTransactionsHeaders) {
+            headers.add(e.getText());
+        }
+
+        String[] col = cols.split(";");*/
+      /*  if(col.length != headers.size()){
+            Assert.fail("the size of expected and actual is not same");
+        }
+
+        for(int i = 0; i<col.length; i++){
+            if(!col[i].equals(headers.get(i))){
+                Assert.fail("index does not match " + i + "expected" + col[i] + "actual" + headers.get(i) );
+            }
+        }*/
+        //Assert.assertEquals(Arrays.asList(col), headers);
+
+        //----------------------------------------------
+        // cols pass -> // "Date	Transaction	Debit (-)	Credit (+)"
+        String textHeader = tblTransactionsRows.get(0).getText();
+        Assert.assertEquals(textHeader, cols);
+    }
+
+    public void validateTransactions(String transaction, int expectedRow) {// "$12121.00" , 1
+        List<WebElement> eleRows = tblTransactionsRows;
+        WebElement row = eleRows.get(expectedRow);
+        String text = row.getText();
+        if (!text.contains(transaction)) {
+            Reporter.log("Amount does not exist in the required row " + text);
+            Assert.fail("Required row does not contains expected transactions" + text);
+        }else{
+            Reporter.log("Amount is present in the row" + text);
+        }
+        if (!text.contains("Funds Transfer Sent")) {
+            Assert.fail("transaction message is not correct" + text);
+        }
+        WebElement eleDebit = row.findElement(By.xpath("//td[3]"));
+        String colText = eleDebit.getText();
+        Assert.assertEquals(colText, transaction);
     }
 }
 

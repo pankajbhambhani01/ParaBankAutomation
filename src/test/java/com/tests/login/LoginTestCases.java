@@ -151,6 +151,17 @@ public class LoginTestCases extends PrePost {
 
     }
 
+    @Test
+    public void TC0013(){
+        LoginPage loginPage=new LoginPage(browser.getDriver());
+        String[] userDetail = users.get("user3").split(";");
+        loginPage.loginParaBank(userDetail[0], userDetail[1]);
+        loginPage.clickAccountLink();
+        loginPage.validateColoums("Date Transaction Debit (-) Credit (+)");
+        loginPage.validateTransactions("$12121.00", 1);
+
+    }
+
 
 
 
