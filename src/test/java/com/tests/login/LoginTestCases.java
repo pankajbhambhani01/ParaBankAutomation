@@ -37,10 +37,8 @@ public class LoginTestCases extends PrePost {
 
     }
 
-    @Test
-    public void TC002_successFullLogin(){                  //ok
-
-
+    @Test(testName = "Login Succesfull with valid information")
+    public void PAR_T2_successFullLogin(){                  //ok
         Map<String, String> testData = FileReading.readProperties(Constants.login + Constants.slash + "TC002");
         LoginPage loginPage=new LoginPage(browser.getDriver());
         loginPage.enterUserName(testData.get("username2_login"));
