@@ -1,0 +1,50 @@
+UI development - UI Mocks
+API development - Swagger
+
+UI Mocks + requirement
+
+Sprint starts - (15 days ) (2 weeks ) (10 working days)
+Dev's - Dev stories - start the developments (2-3 days )
+QE's - Write Manual test cases from Mocks and Req.( 1 day)
+QE's - start creating the skeleton of Automation ( api/UI) + automation utilities as well (2 days )
+QE's - automate the test cases as well with well know gut feel.
+
+Dev's - moves story to testing ( He performs the sanity or else he ask QE's to do it) - generally its a manual process
+QE's - update the automation with actual locators and run the automation (2 days to update and run)
+QE's - Exloratory testing - Randomly test anything
+QE's - you may find defects (log the defects + automated the defect)
+
+Dev's - They fix the defect
+QE's - Run the automation ( defect automation + (new test cases + all old test cases) as a part of regression)
+QE's - you may need to execute not automatable manual test cases. (follow a strategy to combine end to end)
+
+QE's - move story to PO verify ( demo to business)
+QE's - close the story.
+
+Daily QE work - Run your regression via jenkins ( like in the morning till the time you are back in the office ) (Run automated Smoke Test daily)
++ in addition it add the all new cases which are automated
+
+New story - all the above proecess repeated.
+
+Demo - Stack holders and PO ( Product owner) - you get the suggestions (you take care of them in the next sprint)
+-----------------------------------------------------------------
+2nd Sprint -
+Demo - Stack holders and PO ( Product owner) - you get the suggestions (you take care of them in the next sprint)
+-----------------------------------------------------------------
+
+Something to deliver - UAT  we show demo to business and allow the to use it ( it could be internal stack holders ( Sales + Directors + Head UI/UX + you engg. managers )  or actual customers) - its a 1 day proecess.
+We create a document for how to use it and allow them to explore it.
+-----------------------------------------------------------------
+Release Checklist -
+Deployment checklist -
+Release to stagging -
+and then release to production
+Run book -
+------------------------------------------------------------------
+Jenkins/ Pipelines/ access / git - setups/ bit bucket - setups / git hub - setups / Java - Installation / Jira setups / - Devops or helpdesk
+------------------------------------------------------------------
+
+
+
+
+
