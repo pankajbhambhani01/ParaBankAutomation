@@ -30,18 +30,42 @@ import java.util.Map;
         }
 
         @Test
-        public void TC002_enterEmptyAmount() {
-            Map<String, String> testData = FileReading.readProperties(Constants.transferfunds + Constants.slash + "TC001");
+        public void TC002_validateAllElementsOnPage() {
+            Map<String, String> testData = FileReading.readProperties(Constants.transferfunds + Constants.slash + "TC002");
             LoginPage loginPage = new LoginPage(browser.getDriver());
             AccountServicesPage accountServicesPage = new AccountServicesPage(browser.getDriver());
             TransferFundsPage transferFundsPage = new TransferFundsPage(browser.getDriver());
 
             String[] userDetail = users.get("user3").split(";");
             loginPage.loginParaBank(userDetail[0], userDetail[1]);
-            transferFundsPage.validateLnkTransferFunds(testData.get("titleTransferFunds"));
             transferFundsPage.clickTxtTransferFunds();
             transferFundsPage.validatePageTitle(testData.get("titleTransferFunds"));
-            transferFundsPage.validatelblAmount(testData.get());
+            transferFundsPage.validateLblAmount(testData.get("lblAmount"));
+            transferFundsPage.validateLblDollor(testData.get("lblDollor"));
+            transferFundsPage.validateLblFromAcount(testData.get("lblFromAccount"));
+            transferFundsPage.validateDdFromAccount();
+            transferFundsPage.validateLblToAcount(testData.get("lblToAccount"));
+            transferFundsPage.validateDdToAccount();
+            transferFundsPage.validateLblBtnTransfer(testData.get("lblTransfer"));
+            }
+
+        @Test
+        public void TC003_EnteringValidDataInAllElementsOnPage() {
+            Map<String, String> testData = FileReading.readProperties(Constants.transferfunds + Constants.slash + "TC003");
+            LoginPage loginPage = new LoginPage(browser.getDriver());
+            AccountServicesPage accountServicesPage = new AccountServicesPage(browser.getDriver());
+            TransferFundsPage transferFundsPage = new TransferFundsPage(browser.getDriver());
+
+            String[] userDetail = users.get("user3").split(";");
+            loginPage.loginParaBank(userDetail[0], userDetail[1]);
+            transferFundsPage.clickTxtTransferFunds();
+            transferFundsPage.validatePageTitle(testData.get("titleTransferFunds"));
+            transferFundsPage.clickInputTxtAmount();
+      //      transferFundsPage.enterValidAmount();
+            transferFundsPage.selectDdFromAccount(Integer.parseInt(testData.get("intFromAccount")));
+            transferFundsPage.selectDdToAccount(Integer.parseInt(testData.get("intToAccount")));
+            transferFundsPage.clickBtnTransfer();
+      //      transferFundsPage.validateSuccessfulMassage();
         }
 
-}
+    }
