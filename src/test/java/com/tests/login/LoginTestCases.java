@@ -61,7 +61,6 @@ public class LoginTestCases extends PrePost {
 
     @Test
     public void TC004_InvalidPassword(){                     //ok
-
         Map<String, String> testData = FileReading.readProperties(Constants.login + Constants.slash + "TC004");
         LoginPage loginPage=new LoginPage(browser.getDriver());
         loginPage.enterUserName(testData.get("username4_login"));

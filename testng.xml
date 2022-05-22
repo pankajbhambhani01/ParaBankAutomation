@@ -7,8 +7,12 @@
         <listener class-name="com.tests.utilities.Listeners"/>
     </listeners>
     <test name = "Regression">
-      <packages>
-          <package name="com.tests.*"/>
-      </packages>
+        <classes>
+            <class name="com.tests.login.LoginTestCases">
+                <methods>
+                    <include name="TC004_InvalidPassword"/>
+                </methods>
+            </class>
+        </classes>
     </test>
 </suite>

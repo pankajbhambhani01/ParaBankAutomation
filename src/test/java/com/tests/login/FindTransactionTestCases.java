@@ -6,12 +6,14 @@ import com.pages.LoginPage;
 import com.tests.utilities.PrePost;
 import com.utility.FileReading;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.Map;
 
 import static com.constants.Constants.browser;
 
+@Listeners(com.tests.utilities.Listeners.class)
 public class FindTransactionTestCases extends PrePost {
 //-------sadik shitole----//
 Map<String, String> testData = FileReading.readProperties(Constants.login + Constants.slash + "TC001");
