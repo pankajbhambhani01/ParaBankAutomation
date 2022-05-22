@@ -13,7 +13,7 @@ import java.util.Map;
 public class UpdateProfileTestCase extends PrePost {
     //Abhijit Raoot
 
-    @Test
+    @Test(priority = 0)
     public void TC001_validateUpdateProfileNavigation() {                //ok
         Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC001");
         LoginPage loginPage = new LoginPage(browser.getDriver());
@@ -29,7 +29,7 @@ public class UpdateProfileTestCase extends PrePost {
 
     }
 
-    @Test
+    @Test(priority = 1)
     public void TC002_allFieldValidation() {                      //ok   1p
         Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC002");
         LoginPage loginPage = new LoginPage(browser.getDriver());
@@ -55,7 +55,7 @@ public class UpdateProfileTestCase extends PrePost {
 
     }
 
-    @Test
+    @Test(priority = 2)
     public void TC003_allFiledValidationErrorMessage() {        //ok
         Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC003");
         LoginPage loginPage = new LoginPage(browser.getDriver());
@@ -85,7 +85,7 @@ public class UpdateProfileTestCase extends PrePost {
 
     }
 
-    @Test
+    @Test(priority = 3)
     public void TC004_someFieldBlank() {            //ok  1d
 
         Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC004");
@@ -112,7 +112,7 @@ public class UpdateProfileTestCase extends PrePost {
 
 
     }
-@Test
+@Test(priority = 4)
     public void TC005_validationWithSameInformation() {         //ok   1d
         Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC005");
         LoginPage loginPage = new LoginPage(browser.getDriver());
@@ -136,7 +136,7 @@ public class UpdateProfileTestCase extends PrePost {
         updateProfilePage.validatErrorMessage(testData.get("same_error_message")); //defect
     }
 
-   @Test
+   @Test(priority = 5)
     public void TC006_validationSuccessfullUpdateProfile() throws InterruptedException {     //ok  1d
         Map<String, String> testData = FileReading.readProperties(Constants.updateprofile + Constants.slash + "TC006");
         LoginPage loginPage = new LoginPage(browser.getDriver());
